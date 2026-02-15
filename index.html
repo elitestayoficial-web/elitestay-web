@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -522,36 +522,36 @@
             </div>
             
             <nav class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#hoteles">Hoteles</a>
-                <a href="#sobre-nosotros">Sobre Nosotros</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#inicio">Home</a>
+                <a href="#hoteles">Hotels</a>
+                <a href="#sobre-nosotros">About Us</a>
+                <a href="#contacto">Contact</a>
             </nav>
             
             <select class="filter-select" id="language" style="width: auto;">
+                <option value="en" selected>🇺🇸 English</option>
                 <option value="es">🇪🇸 Español</option>
-                <option value="en">🇺🇸 English</option>
                 <option value="fr">🇫🇷 Français</option>
             </select>
         </header>
 
         <!-- AD TOP -->
         <div class="ad-container">
-            <div class="ad-label">PUBLICIDAD</div>
-            <div style="color: var(--text-gray);">En asociación con <span class="booking-badge">Booking.com</span> • Expedia • Hotels.com</div>
+            <div class="ad-label">ADVERTISEMENT</div>
+            <div style="color: var(--text-gray);">In partnership with <span class="booking-badge">Booking.com</span> • Expedia • Hotels.com</div>
         </div>
 
         <!-- HERO SECTION con buscador -->
         <section id="inicio">
             <div class="search-box">
-                <h2 class="search-title">Encuentra tu <span>refugio exclusivo</span></h2>
+                <h2 class="search-title">Find your <span>exclusive sanctuary</span></h2>
                 
                 <div class="search-grid">
-                    <input type="text" id="city" class="search-input" placeholder="¿A dónde vas? (Ej: Paris, Roma, Tokio, Nueva York)">
+                    <input type="text" id="city" class="search-input" placeholder="Where to? (e.g., Paris, Rome, Tokyo, New York)">
                     <input type="date" id="checkin" class="search-input">
                     <input type="date" id="checkout" class="search-input">
                     <button onclick="buscarHoteles()" class="btn-gold">
-                        <i class="fa-solid fa-magnifying-glass" style="margin-right: 8px;"></i> Buscar
+                        <i class="fa-solid fa-magnifying-glass" style="margin-right: 8px;"></i> Search
                     </button>
                 </div>
             </div>
@@ -561,30 +561,30 @@
         <div class="filters">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <i class="fa-solid fa-sliders" style="color: var(--gold);"></i>
-                <span>Filtros:</span>
+                <span>Filters:</span>
             </div>
             
             <select class="filter-select" id="price-filter" onchange="aplicarFiltros()">
-                <option value="5000">Todos los precios</option>
-                <option value="100">Hasta $100</option>
-                <option value="300">Hasta $300</option>
-                <option value="500">Hasta $500</option>
-                <option value="1000">Hasta $1000</option>
-                <option value="2000">Hasta $2000</option>
+                <option value="5000">All prices</option>
+                <option value="100">Up to $100</option>
+                <option value="300">Up to $300</option>
+                <option value="500">Up to $500</option>
+                <option value="1000">Up to $1000</option>
+                <option value="2000">Up to $2000</option>
             </select>
             
             <select class="filter-select" id="stars-filter" onchange="aplicarFiltros()">
-                <option value="0">Todas las estrellas</option>
+                <option value="0">All stars</option>
                 <option value="5">★★★★★ (5)</option>
                 <option value="4">★★★★ (4+)</option>
                 <option value="3">★★★ (3+)</option>
             </select>
             
             <select class="filter-select" id="sort-filter" onchange="aplicarFiltros()">
-                <option value="default">Ordenar por</option>
-                <option value="price-asc">Precio: menor a mayor</option>
-                <option value="price-desc">Precio: mayor a menor</option>
-                <option value="stars-desc">Mejor calificados</option>
+                <option value="default">Sort by</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="stars-desc">Top Rated</option>
             </select>
             
             <button onclick="resetFiltros()" class="filter-select" style="background: transparent; border-color: var(--text-gray); color: var(--text-gray);">
@@ -595,7 +595,7 @@
         <!-- ESTADÍSTICAS -->
         <div class="stats-section">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3 style="font-size: 1.5rem;">Destinos más buscados</h3>
+                <h3 style="font-size: 1.5rem;">Most Searched Destinations</h3>
                 <button onclick="resetEstadisticas()" class="filter-select" style="background: transparent; padding: 8px 20px;">
                     <i class="fa-regular fa-trash-can"></i> Reset stats
                 </button>
@@ -607,18 +607,18 @@
 
         <!-- AD MIDDLE -->
         <div class="ad-container">
-            <div class="ad-label">PATROCINADO</div>
-            <div style="color: var(--text-gray);">Los mejores precios en hoteles de lujo - Compara con <span class="booking-badge">Booking.com</span></div>
+            <div class="ad-label">SPONSORED</div>
+            <div style="color: var(--text-gray);">Best prices on luxury hotels - Compare with <span class="booking-badge">Booking.com</span></div>
         </div>
 
         <!-- SECCIÓN DE HOTELES -->
         <section id="hoteles">
             <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
                 <h2 style="font-size: 1.8rem;">
-                    <span id="results-count">45</span> hoteles disponibles
+                    <span id="results-count">45</span> hotels available
                 </h2>
                 <div style="color: var(--gold);">
-                    <i class="fa-regular fa-building"></i> Asociados con <span class="booking-badge">Booking.com</span>
+                    <i class="fa-regular fa-building"></i> Partners with <span class="booking-badge">Booking.com</span>
                 </div>
             </div>
 
@@ -629,30 +629,30 @@
 
         <!-- AD BOTTOM -->
         <div class="ad-container">
-            <div class="ad-label">ENLACES PATROCINADOS</div>
+            <div class="ad-label">SPONSORED LINKS</div>
             <div style="color: var(--text-gray);">Expedia • Hotels.com • Agoda • <span class="booking-badge">Booking.com</span></div>
         </div>
 
         <!-- SECCIÓN SOBRE NOSOTROS Y CONTACTO -->
         <section id="sobre-nosotros" class="legal-section">
-            <h2 style="font-size: 2rem; text-align: center; margin-bottom: 40px;">Sobre <span style="color: var(--gold);">Nosotros</span></h2>
+            <h2 style="font-size: 2rem; text-align: center; margin-bottom: 40px;">About <span style="color: var(--gold);">Us</span></h2>
             
             <div class="legal-grid">
                 <div class="legal-item">
-                    <h3>✨ Nuestra Historia</h3>
-                    <p>EliteStayTravel nació de la pasión por los viajes de lujo y la sostenibilidad. Desde 2024, conectamos viajeros exigentes con los mejores hoteles del mundo que comparten nuestro compromiso con el medio ambiente y la excelencia.</p>
+                    <h3>✨ Our Story</h3>
+                    <p>EliteStayTravel was born from a passion for luxury travel and sustainability. Since 2024, we connect discerning travelers with the world's finest hotels that share our commitment to environmental excellence.</p>
                 </div>
                 
                 <div class="legal-item">
-                    <h3>🌍 Nuestra Misión</h3>
-                    <p>Ofrecer experiencias de alojamiento exclusivas que no solo satisfagan los más altos estándares de lujo, sino que también respeten y protejan los destinos que amamos. Todos nuestros hoteles asociados cumplen con estrictos criterios de sostenibilidad.</p>
+                    <h3>🌍 Our Mission</h3>
+                    <p>To offer exclusive accommodation experiences that not only meet the highest standards of luxury but also respect and protect the destinations we love. All our partner hotels meet strict sustainability criteria.</p>
                 </div>
                 
                 <div class="legal-item" id="contacto">
-                    <h3>📞 Contacto</h3>
+                    <h3>📞 Contact</h3>
                     <p><i class="fa-regular fa-envelope" style="color: var(--gold); margin-right: 10px;"></i> <strong class="contact-email">elitestayoficial@gmail.com</strong></p>
-                    <p style="margin-top: 15px;"><i class="fa-regular fa-clock" style="color: var(--gold); margin-right: 10px;"></i> Respuesta en menos de 24h</p>
-                    <p style="margin-top: 15px;"><i class="fa-regular fa-building" style="color: var(--gold); margin-right: 10px;"></i> Oficina central: Madrid, España</p>
+                    <p style="margin-top: 15px;"><i class="fa-regular fa-clock" style="color: var(--gold); margin-right: 10px;"></i> Response within 24h</p>
+                    <p style="margin-top: 15px;"><i class="fa-regular fa-building" style="color: var(--gold); margin-right: 10px;"></i> Head Office: London, UK</p>
                 </div>
             </div>
         </section>
@@ -661,20 +661,20 @@
         <section class="legal-section">
             <div class="legal-grid">
                 <div class="legal-item">
-                    <h3>⚖️ Términos y Condiciones</h3>
-                    <p>Al utilizar EliteStayTravel.com, aceptas nuestros términos de servicio. Todas las reservas se realizan a través de nuestros socios (Booking.com, Expedia, Hotels.com). Los precios mostrados pueden variar según disponibilidad y temporada.</p>
-                    <p style="margin-top: 10px;"><a href="#">Leer más →</a></p>
+                    <h3>⚖️ Terms & Conditions</h3>
+                    <p>By using EliteStayTravel.com, you agree to our terms of service. All bookings are made through our partners (Booking.com, Expedia, Hotels.com). Prices may vary based on availability and season.</p>
+                    <p style="margin-top: 10px;"><a href="#">Read more →</a></p>
                 </div>
                 
                 <div class="legal-item">
-                    <h3>🔒 Política de Privacidad</h3>
-                    <p>Tu privacidad es importante para nosotros. Solo recopilamos información necesaria para mejorar tu experiencia de búsqueda. No compartimos tus datos con terceros sin tu consentimiento explícito.</p>
-                    <p style="margin-top: 10px;"><a href="#">Leer más →</a></p>
+                    <h3>🔒 Privacy Policy</h3>
+                    <p>Your privacy is important to us. We only collect information necessary to improve your search experience. We do not share your data with third parties without explicit consent.</p>
+                    <p style="margin-top: 10px;"><a href="#">Read more →</a></p>
                 </div>
                 
                 <div class="legal-item">
-                    <h3>📋 Atribución</h3>
-                    <p>Este sitio participa en el programa de afiliados de Booking.com, Expedia y Hotels.com. Ganamos comisiones por las reservas realizadas a través de nuestros enlaces, sin costo adicional para ti.</p>
+                    <h3>📋 Attribution</h3>
+                    <p>This site participates in the affiliate programs of Booking.com, Expedia and Hotels.com. We earn commissions on bookings made through our links, at no extra cost to you.</p>
                 </div>
             </div>
         </section>
@@ -686,46 +686,46 @@
             <div class="footer-column">
                 <h4>EliteStayTravel</h4>
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#hoteles">Hoteles</a></li>
-                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#inicio">Home</a></li>
+                    <li><a href="#hoteles">Hotels</a></li>
+                    <li><a href="#sobre-nosotros">About Us</a></li>
+                    <li><a href="#contacto">Contact</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h4>Destinos</h4>
+                <h4>Destinations</h4>
                 <ul>
-                    <li><a href="#" onclick="buscarDestino('Paris')">París</a></li>
-                    <li><a href="#" onclick="buscarDestino('Roma')">Roma</a></li>
-                    <li><a href="#" onclick="buscarDestino('Tokio')">Tokio</a></li>
-                    <li><a href="#" onclick="buscarDestino('Nueva York')">Nueva York</a></li>
+                    <li><a href="#" onclick="buscarDestino('Paris')">Paris</a></li>
+                    <li><a href="#" onclick="buscarDestino('Roma')">Rome</a></li>
+                    <li><a href="#" onclick="buscarDestino('Tokio')">Tokyo</a></li>
+                    <li><a href="#" onclick="buscarDestino('Nueva York')">New York</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#">Política de Cookies</a></li>
-                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Legal Notice</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h4>Contacto</h4>
+                <h4>Contact</h4>
                 <ul>
                     <li><i class="fa-regular fa-envelope" style="color: var(--gold);"></i> <span class="contact-email">elitestayoficial@gmail.com</span></li>
-                    <li><i class="fa-regular fa-clock" style="color: var(--gold);"></i> 24/7 Soporte</li>
-                    <li><i class="fa-regular fa-building" style="color: var(--gold);"></i> Madrid, España</li>
+                    <li><i class="fa-regular fa-clock" style="color: var(--gold);"></i> 24/7 Support</li>
+                    <li><i class="fa-regular fa-building" style="color: var(--gold);"></i> London, UK</li>
                 </ul>
             </div>
         </div>
         
         <div class="copyright">
-            <p>© 2026 EliteStayTravel.com — Todos los derechos reservados</p>
-            <p style="margin-top: 10px;">En asociación con <span class="booking-badge">Booking.com</span> • Expedia • Hotels.com</p>
+            <p>© 2026 EliteStayTravel.com — All rights reserved</p>
+            <p style="margin-top: 10px;">In partnership with <span class="booking-badge">Booking.com</span> • Expedia • Hotels.com</p>
             <p style="margin-top: 20px; font-size: 0.7rem; opacity: 0.5;">Member of The Elite Collection</p>
         </div>
     </footer>
@@ -807,7 +807,7 @@
                 .slice(0, 4);
             
             if (ciudades.length === 0) {
-                container.innerHTML = '<div class="stat-card" style="grid-column:1/-1; text-align:center;">🔍 Busca destinos para ver estadísticas</div>';
+                container.innerHTML = '<div class="stat-card" style="grid-column:1/-1; text-align:center;">🔍 Search destinations to see statistics</div>';
                 return;
             }
             
@@ -826,7 +826,7 @@
         }
         
         function resetEstadisticas() {
-            if (confirm('¿Resetear estadísticas?')) {
+            if (confirm('Reset statistics?')) {
                 estadisticas = { total: 0, ciudades: {} };
                 guardarEstadisticas();
                 mostrarEstadisticas();
@@ -863,10 +863,10 @@
                         </div>
                         <div class="hotel-price">
                             <span class="price-amount">$${h.precio}</span>
-                            <span class="price-unit">/ noche</span>
+                            <span class="price-unit">/ night</span>
                         </div>
                         <a href="${h.link}" target="_blank" rel="nofollow" class="hotel-link">
-                            Ver en Booking.com <i class="fa-regular fa-arrow-up-right-from-square" style="margin-left: 5px;"></i>
+                            View on Booking.com <i class="fa-regular fa-arrow-up-right-from-square" style="margin-left: 5px;"></i>
                         </a>
                     </div>
                 </div>
@@ -890,8 +890,8 @@
                 document.getElementById('hotels-container').innerHTML = `
                     <div style="grid-column:1/-1; text-align:center; padding:60px;">
                         <i class="fa-regular fa-face-frown" style="font-size:3rem; color:var(--gold); margin-bottom:20px;"></i>
-                        <h3 style="font-size:1.5rem;">No encontramos hoteles en "${ciudad}"</h3>
-                        <p style="color:var(--text-gray); margin-top:10px;">Prueba con: Paris, Roma, Tokio, Nueva York...</p>
+                        <h3 style="font-size:1.5rem;">No hotels found in "${ciudad}"</h3>
+                        <p style="color:var(--text-gray); margin-top:10px;">Try: Paris, Rome, Tokyo, New York...</p>
                     </div>
                 `;
                 document.getElementById('results-count').textContent = '0';
