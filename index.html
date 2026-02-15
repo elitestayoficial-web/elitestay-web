@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EliteStayTravel.com - Luxury & Sustainable Hotels</title>
+    <title>EliteStayTravel.com - Luxury & Sustainable Hotels & Flights</title>
     
     <!-- Meta tags para SEO -->
-    <meta name="description" content="EliteStayTravel: Luxury and sustainable hotels worldwide. Best prices on Booking.com, Expedia, and Hotels.com. Book your exclusive stay today.">
-    <meta name="keywords" content="luxury hotels, sustainable travel, eco hotels, booking.com, elite travel">
+    <meta name="description" content="EliteStayTravel: Luxury hotels and flights worldwide. Best prices on Booking.com, Expedia, and Aviasales. Book your exclusive stay today.">
+    <meta name="keywords" content="luxury hotels, flights, sustainable travel, eco hotels, booking.com, aviasales">
     <meta name="author" content="EliteStayTravel">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph para redes sociales -->
-    <meta property="og:title" content="EliteStayTravel.com - Luxury & Sustainable Hotels">
-    <meta property="og:description" content="Find your exclusive sanctuary worldwide">
+    <!-- Open Graph -->
+    <meta property="og:title" content="EliteStayTravel.com - Luxury Hotels & Flights">
+    <meta property="og:description" content="Find your exclusive sanctuary and the best flights worldwide">
     <meta property="og:image" content="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200">
     <meta property="og:url" content="https://elitestaytravel.com">
-    <meta property="og:type" content="website">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0c12'/%3E%3Cpath d='M30 70 L50 30 L70 70' stroke='%23b89b5e' stroke-width='8' fill='none'/%3E%3C/svg%3E">
@@ -173,6 +172,46 @@
             background: var(--gold);
             color: var(--bg-dark);
             transform: translateY(-2px);
+        }
+        
+        /* Widget de vuelos - Estilo personalizado */
+        .flights-widget-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+        
+        .flights-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .flights-title i {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .flights-title h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+        
+        .flights-title span {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+        
+        .flights-widget-container iframe {
+            border-radius: 16px;
+            width: 100%;
+            min-height: 380px;
+            border: none;
         }
         
         /* Filtros */
@@ -500,10 +539,20 @@
             text-decoration: none;
         }
         
-        /* Badge de Booking.com */
+        /* Badges */
         .booking-badge {
             display: inline-block;
             background: #003580;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+        
+        .aviasales-badge {
+            display: inline-block;
+            background: #00A9E0;
             color: white;
             padding: 3px 8px;
             border-radius: 4px;
@@ -514,17 +563,18 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER con navegación -->
+        <!-- HEADER -->
         <header class="header">
             <div class="logo">
                 <h1>ELITE<span>STAY</span>.com</h1>
-                <p>Luxury & Sustainable Travel</p>
+                <p>Luxury Hotels & Flights</p>
             </div>
             
             <nav class="nav-links">
                 <a href="#inicio">Home</a>
                 <a href="#hoteles">Hotels</a>
-                <a href="#sobre-nosotros">About Us</a>
+                <a href="#vuelos">Flights</a>
+                <a href="#sobre-nosotros">About</a>
                 <a href="#contacto">Contact</a>
             </nav>
             
@@ -537,11 +587,15 @@
 
         <!-- AD TOP -->
         <div class="ad-container">
-            <div class="ad-label">ADVERTISEMENT</div>
-            <div style="color: var(--text-gray);">In partnership with <span class="booking-badge">Booking.com</span> • Expedia • Hotels.com</div>
+            <div class="ad-label">PARTNERS</div>
+            <div style="color: var(--text-gray);">
+                <span class="booking-badge">Booking.com</span> • 
+                <span class="aviasales-badge">Aviasales</span> • 
+                Expedia • Hotels.com
+            </div>
         </div>
 
-        <!-- HERO SECTION con buscador -->
+        <!-- HERO SECTION - HOTEL SEARCH -->
         <section id="inicio">
             <div class="search-box">
                 <h2 class="search-title">Find your <span>exclusive sanctuary</span></h2>
@@ -551,13 +605,27 @@
                     <input type="date" id="checkin" class="search-input">
                     <input type="date" id="checkout" class="search-input">
                     <button onclick="buscarHoteles()" class="btn-gold">
-                        <i class="fa-solid fa-magnifying-glass" style="margin-right: 8px;"></i> Search
+                        <i class="fa-solid fa-hotel" style="margin-right: 8px;"></i> Search Hotels
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- FILTROS -->
+        <!-- FLIGHTS WIDGET - AVISALES -->
+        <section id="vuelos">
+            <div class="flights-widget-container">
+                <div class="flights-title">
+                    <i class="fa-solid fa-plane"></i>
+                    <h3>Find the best flights</h3>
+                    <span>Powered by Aviasales</span>
+                </div>
+                
+                <!-- WIDGET DE AVISALES -->
+                <script async src="https://tpembd.com/content?currency=usd&trs=498903&shmarker=703737&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.com%2Fsearch&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+            </div>
+        </section>
+
+        <!-- FILTERS -->
         <div class="filters">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <i class="fa-solid fa-sliders" style="color: var(--gold);"></i>
@@ -592,7 +660,7 @@
             </button>
         </div>
 
-        <!-- ESTADÍSTICAS -->
+        <!-- STATISTICS -->
         <div class="stats-section">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h3 style="font-size: 1.5rem;">Most Searched Destinations</h3>
@@ -608,14 +676,14 @@
         <!-- AD MIDDLE -->
         <div class="ad-container">
             <div class="ad-label">SPONSORED</div>
-            <div style="color: var(--text-gray);">Best prices on luxury hotels - Compare with <span class="booking-badge">Booking.com</span></div>
+            <div style="color: var(--text-gray);">Best prices on luxury hotels and flights</div>
         </div>
 
-        <!-- SECCIÓN DE HOTELES -->
+        <!-- HOTELS SECTION -->
         <section id="hoteles">
             <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
                 <h2 style="font-size: 1.8rem;">
-                    <span id="results-count">45</span> hotels available
+                    <span id="results-count">45</span> luxury hotels available
                 </h2>
                 <div style="color: var(--gold);">
                     <i class="fa-regular fa-building"></i> Partners with <span class="booking-badge">Booking.com</span>
@@ -630,22 +698,26 @@
         <!-- AD BOTTOM -->
         <div class="ad-container">
             <div class="ad-label">SPONSORED LINKS</div>
-            <div style="color: var(--text-gray);">Expedia • Hotels.com • Agoda • <span class="booking-badge">Booking.com</span></div>
+            <div style="color: var(--text-gray);">
+                <span class="booking-badge">Booking.com</span> • 
+                <span class="aviasales-badge">Aviasales</span> • 
+                Expedia • Hotels.com • Agoda
+            </div>
         </div>
 
-        <!-- SECCIÓN SOBRE NOSOTROS Y CONTACTO -->
+        <!-- ABOUT SECTION -->
         <section id="sobre-nosotros" class="legal-section">
             <h2 style="font-size: 2rem; text-align: center; margin-bottom: 40px;">About <span style="color: var(--gold);">Us</span></h2>
             
             <div class="legal-grid">
                 <div class="legal-item">
                     <h3>✨ Our Story</h3>
-                    <p>EliteStayTravel was born from a passion for luxury travel and sustainability. Since 2024, we connect discerning travelers with the world's finest hotels that share our commitment to environmental excellence.</p>
+                    <p>EliteStayTravel was born from a passion for luxury travel and sustainability. Since 2024, we connect discerning travelers with the world's finest hotels and flights.</p>
                 </div>
                 
                 <div class="legal-item">
                     <h3>🌍 Our Mission</h3>
-                    <p>To offer exclusive accommodation experiences that not only meet the highest standards of luxury but also respect and protect the destinations we love. All our partner hotels meet strict sustainability criteria.</p>
+                    <p>To offer exclusive travel experiences that meet the highest standards of luxury while respecting the destinations we love. All our partners meet strict quality criteria.</p>
                 </div>
                 
                 <div class="legal-item" id="contacto">
@@ -657,30 +729,28 @@
             </div>
         </section>
 
-        <!-- TÉRMINOS Y PRIVACIDAD -->
+        <!-- LEGAL -->
         <section class="legal-section">
             <div class="legal-grid">
                 <div class="legal-item">
                     <h3>⚖️ Terms & Conditions</h3>
-                    <p>By using EliteStayTravel.com, you agree to our terms of service. All bookings are made through our partners (Booking.com, Expedia, Hotels.com). Prices may vary based on availability and season.</p>
-                    <p style="margin-top: 10px;"><a href="#">Read more →</a></p>
+                    <p>By using EliteStayTravel.com, you agree to our terms of service. All bookings are made through our partners.</p>
                 </div>
                 
                 <div class="legal-item">
                     <h3>🔒 Privacy Policy</h3>
-                    <p>Your privacy is important to us. We only collect information necessary to improve your search experience. We do not share your data with third parties without explicit consent.</p>
-                    <p style="margin-top: 10px;"><a href="#">Read more →</a></p>
+                    <p>Your privacy is important. We only collect information necessary to improve your search experience.</p>
                 </div>
                 
                 <div class="legal-item">
                     <h3>📋 Attribution</h3>
-                    <p>This site participates in the affiliate programs of Booking.com, Expedia and Hotels.com. We earn commissions on bookings made through our links, at no extra cost to you.</p>
+                    <p>This site participates in affiliate programs of Booking.com, Aviasales, Expedia and Hotels.com.</p>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- FOOTER COMPLETO -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-column">
@@ -688,7 +758,7 @@
                 <ul>
                     <li><a href="#inicio">Home</a></li>
                     <li><a href="#hoteles">Hotels</a></li>
-                    <li><a href="#sobre-nosotros">About Us</a></li>
+                    <li><a href="#vuelos">Flights</a></li>
                     <li><a href="#contacto">Contact</a></li>
                 </ul>
             </div>
@@ -704,35 +774,48 @@
             </div>
             
             <div class="footer-column">
-                <h4>Legal</h4>
+                <h4>Partners</h4>
                 <ul>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Legal Notice</a></li>
+                    <li><span class="booking-badge">Booking.com</span></li>
+                    <li><span class="aviasales-badge">Aviasales</span></li>
+                    <li>Expedia</li>
+                    <li>Hotels.com</li>
                 </ul>
             </div>
             
             <div class="footer-column">
                 <h4>Contact</h4>
                 <ul>
-                    <li><i class="fa-regular fa-envelope" style="color: var(--gold);"></i> <span class="contact-email">elitestayoficial@gmail.com</span></li>
-                    <li><i class="fa-regular fa-clock" style="color: var(--gold);"></i> 24/7 Support</li>
-                    <li><i class="fa-regular fa-building" style="color: var(--gold);"></i> London, UK</li>
+                    <li><i class="fa-regular fa-envelope"></i> <span class="contact-email">elitestayoficial@gmail.com</span></li>
+                    <li><i class="fa-regular fa-clock"></i> 24/7 Support</li>
+                    <li><i class="fa-regular fa-building"></i> London, UK</li>
                 </ul>
             </div>
         </div>
         
         <div class="copyright">
             <p>© 2026 EliteStayTravel.com — All rights reserved</p>
-            <p style="margin-top: 10px;">In partnership with <span class="booking-badge">Booking.com</span> • Expedia • Hotels.com</p>
-            <p style="margin-top: 20px; font-size: 0.7rem; opacity: 0.5;">Member of The Elite Collection</p>
+            <p style="margin-top: 10px;">Partners: <span class="booking-badge">Booking.com</span> • <span class="aviasales-badge">Aviasales</span> • Expedia • Hotels.com</p>
         </div>
     </footer>
 
     <script>
         // ============================================
-        // BASE DE DATOS DE HOTELES (45+)
+        // CONFIGURACIÓN
+        // ============================================
+        const API_CONFIG = {
+            token: 'a6c889c03ac265b133e99a349a2f7dcb',
+            baseURL: 'https://api.travelpayouts.com/v2',
+            endpoints: {
+                prices: '/prices/latest',
+                hotels: '/hotels/search'
+            }
+        };
+
+        console.log('✅ EliteStayTravel - Configuración lista');
+        
+        // ============================================
+        // BASE DE DATOS DE HOTELES
         // ============================================
         const HOTELES = [
             // EUROPA
@@ -807,7 +890,7 @@
                 .slice(0, 4);
             
             if (ciudades.length === 0) {
-                container.innerHTML = '<div class="stat-card" style="grid-column:1/-1; text-align:center;">🔍 Search destinations to see statistics</div>';
+                container.innerHTML = '<div class="stat-card" style="grid-column:1/-1; text-align:center;">🔍 Search to see statistics</div>';
                 return;
             }
             
@@ -834,7 +917,7 @@
         }
 
         // ============================================
-        // FILTROS Y BÚSQUEDA
+        // HOTELES
         // ============================================
         function mostrarHoteles(lista) {
             const container = document.getElementById('hotels-container');
@@ -946,23 +1029,8 @@
             const checkin = document.getElementById('checkin');
             const checkout = document.getElementById('checkout');
             
-            if (checkin) {
-                checkin.valueAsDate = hoy;
-            }
-            if (checkout) {
-                checkout.valueAsDate = manana;
-            }
-            
-            // Smooth scroll para enlaces
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
+            if (checkin) checkin.valueAsDate = hoy;
+            if (checkout) checkout.valueAsDate = manana;
         });
     </script>
 </body>
