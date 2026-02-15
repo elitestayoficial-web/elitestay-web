@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EliteStayTravel.com - Luxury & Sustainable Hotels & Flights</title>
     
-    <!-- Meta tags para SEO -->
-    <meta name="description" content="EliteStayTravel: Luxury hotels and flights worldwide. Best prices on Booking.com, Expedia, and Aviasales. Book your exclusive stay today.">
+    <!-- Meta tags -->
+    <meta name="description" content="EliteStayTravel: Luxury hotels and flights worldwide. Best prices on Booking.com, Expedia, and Aviasales.">
     <meta name="keywords" content="luxury hotels, flights, sustainable travel, eco hotels, booking.com, aviasales">
     <meta name="author" content="EliteStayTravel">
     <meta name="robots" content="index, follow">
@@ -174,7 +174,7 @@
             transform: translateY(-2px);
         }
         
-        /* Widget de vuelos - Estilo personalizado */
+        /* Widget de vuelos */
         .flights-widget-container {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
@@ -429,7 +429,7 @@
             margin-bottom: 10px;
         }
         
-        /* Sección de información legal */
+        /* Sección legal */
         .legal-section {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
@@ -460,15 +460,6 @@
             color: var(--text-gray);
             font-size: 0.95rem;
             line-height: 1.6;
-        }
-        
-        .legal-item a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-        
-        .legal-item a:hover {
-            text-decoration: underline;
         }
         
         /* Footer */
@@ -534,11 +525,6 @@
             font-size: 0.8rem;
         }
         
-        .copyright a {
-            color: var(--gold);
-            text-decoration: none;
-        }
-        
         /* Badges */
         .booking-badge {
             display: inline-block;
@@ -567,18 +553,18 @@
         <header class="header">
             <div class="logo">
                 <h1>ELITE<span>STAY</span>.com</h1>
-                <p>Luxury Hotels & Flights</p>
+                <p id="logo-subtitle">Luxury Hotels & Flights</p>
             </div>
             
             <nav class="nav-links">
-                <a href="#inicio">Home</a>
-                <a href="#hoteles">Hotels</a>
-                <a href="#vuelos">Flights</a>
-                <a href="#sobre-nosotros">About</a>
-                <a href="#contacto">Contact</a>
+                <a href="#inicio" id="nav-home">Home</a>
+                <a href="#hoteles" id="nav-hotels">Hotels</a>
+                <a href="#vuelos" id="nav-flights">Flights</a>
+                <a href="#sobre-nosotros" id="nav-about">About</a>
+                <a href="#contacto" id="nav-contact">Contact</a>
             </nav>
             
-            <select class="filter-select" id="language" style="width: auto;">
+            <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
                 <option value="en" selected>🇺🇸 English</option>
                 <option value="es">🇪🇸 Español</option>
                 <option value="fr">🇫🇷 Français</option>
@@ -587,41 +573,41 @@
 
         <!-- AD TOP -->
         <div class="ad-container">
-            <div class="ad-label">PARTNERS</div>
+            <div class="ad-label" id="ad-label-top">PARTNERS</div>
             <div style="color: var(--text-gray);">
                 <span class="booking-badge">Booking.com</span> • 
                 <span class="aviasales-badge">Aviasales</span> • 
-                Expedia • Hotels.com
+                <span id="expedia-text">Expedia</span> • <span id="hotels-text">Hotels.com</span>
             </div>
         </div>
 
         <!-- HERO SECTION - HOTEL SEARCH -->
         <section id="inicio">
             <div class="search-box">
-                <h2 class="search-title">Find your <span>exclusive sanctuary</span></h2>
+                <h2 class="search-title"><span id="search-title-part1">Find your</span> <span id="search-title-part2" style="color: var(--gold);">exclusive sanctuary</span></h2>
                 
                 <div class="search-grid">
-                    <input type="text" id="city" class="search-input" placeholder="Where to? (e.g., Paris, Rome, Tokyo, New York)">
+                    <input type="text" id="city" class="search-input" placeholder="Where to? (e.g., Paris, Rome, Tokyo, New York)" id="search-placeholder">
                     <input type="date" id="checkin" class="search-input">
                     <input type="date" id="checkout" class="search-input">
                     <button onclick="buscarHoteles()" class="btn-gold">
-                        <i class="fa-solid fa-hotel" style="margin-right: 8px;"></i> Search Hotels
+                        <i class="fa-solid fa-hotel" style="margin-right: 8px;"></i> <span id="search-button">Search Hotels</span>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- FLIGHTS WIDGET - AVISALES -->
+        <!-- FLIGHTS WIDGET - AVISALES (NUEVO CÓDIGO CON COLORES ADAPTADOS) -->
         <section id="vuelos">
             <div class="flights-widget-container">
                 <div class="flights-title">
                     <i class="fa-solid fa-plane"></i>
-                    <h3>Find the best flights</h3>
-                    <span>Powered by Aviasales</span>
+                    <h3 id="flights-title">Find the best flights</h3>
+                    <span id="flights-powered">Powered by Aviasales</span>
                 </div>
                 
-                <!-- WIDGET DE AVISALES -->
-                <script async src="https://tpembd.com/content?currency=usd&trs=498903&shmarker=703737&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.com%2Fsearch&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+                <!-- NUEVO WIDGET DE AVISALES CON COLORES ADAPTADOS -->
+                <script async src="https://tpembd.com/content?currency=usd&trs=498903&shmarker=703737&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.com%2Fsearch&primary_override=%230932D5ff&color_button=%23DDCB32ff&color_icons=%232D1BC1ff&dark=%23281515ff&light=%23BDA137ff&secondary=%23100D0Dff&special=%23E8F20Fff&color_focused=%23908ED5ff&border_radius=23&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
             </div>
         </section>
 
@@ -629,43 +615,43 @@
         <div class="filters">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <i class="fa-solid fa-sliders" style="color: var(--gold);"></i>
-                <span>Filters:</span>
+                <span id="filters-label">Filters:</span>
             </div>
             
             <select class="filter-select" id="price-filter" onchange="aplicarFiltros()">
-                <option value="5000">All prices</option>
-                <option value="100">Up to $100</option>
-                <option value="300">Up to $300</option>
-                <option value="500">Up to $500</option>
-                <option value="1000">Up to $1000</option>
-                <option value="2000">Up to $2000</option>
+                <option value="5000" id="filter-all-prices">All prices</option>
+                <option value="100" id="filter-up-to-100">Up to $100</option>
+                <option value="300" id="filter-up-to-300">Up to $300</option>
+                <option value="500" id="filter-up-to-500">Up to $500</option>
+                <option value="1000" id="filter-up-to-1000">Up to $1000</option>
+                <option value="2000" id="filter-up-to-2000">Up to $2000</option>
             </select>
             
             <select class="filter-select" id="stars-filter" onchange="aplicarFiltros()">
-                <option value="0">All stars</option>
+                <option value="0" id="filter-all-stars">All stars</option>
                 <option value="5">★★★★★ (5)</option>
                 <option value="4">★★★★ (4+)</option>
                 <option value="3">★★★ (3+)</option>
             </select>
             
             <select class="filter-select" id="sort-filter" onchange="aplicarFiltros()">
-                <option value="default">Sort by</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="stars-desc">Top Rated</option>
+                <option value="default" id="sort-default">Sort by</option>
+                <option value="price-asc" id="sort-price-asc">Price: Low to High</option>
+                <option value="price-desc" id="sort-price-desc">Price: High to Low</option>
+                <option value="stars-desc" id="sort-stars">Top Rated</option>
             </select>
             
             <button onclick="resetFiltros()" class="filter-select" style="background: transparent; border-color: var(--text-gray); color: var(--text-gray);">
-                <i class="fa-regular fa-trash-can"></i> Reset
+                <i class="fa-regular fa-trash-can"></i> <span id="reset-button">Reset</span>
             </button>
         </div>
 
         <!-- STATISTICS -->
         <div class="stats-section">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h3 style="font-size: 1.5rem;">Most Searched Destinations</h3>
+                <h3 style="font-size: 1.5rem;" id="stats-title">Most Searched Destinations</h3>
                 <button onclick="resetEstadisticas()" class="filter-select" style="background: transparent; padding: 8px 20px;">
-                    <i class="fa-regular fa-trash-can"></i> Reset stats
+                    <i class="fa-regular fa-trash-can"></i> <span id="reset-stats">Reset stats</span>
                 </button>
             </div>
             <div id="stats-container" class="stats-grid">
@@ -675,18 +661,18 @@
 
         <!-- AD MIDDLE -->
         <div class="ad-container">
-            <div class="ad-label">SPONSORED</div>
-            <div style="color: var(--text-gray);">Best prices on luxury hotels and flights</div>
+            <div class="ad-label" id="ad-label-middle">SPONSORED</div>
+            <div style="color: var(--text-gray);" id="sponsored-text">Best prices on luxury hotels and flights</div>
         </div>
 
         <!-- HOTELS SECTION -->
         <section id="hoteles">
             <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
                 <h2 style="font-size: 1.8rem;">
-                    <span id="results-count">45</span> luxury hotels available
+                    <span id="results-count">45</span> <span id="hotels-available">luxury hotels available</span>
                 </h2>
                 <div style="color: var(--gold);">
-                    <i class="fa-regular fa-building"></i> Partners with <span class="booking-badge">Booking.com</span>
+                    <i class="fa-regular fa-building"></i> <span id="partners-with">Partners with</span> <span class="booking-badge">Booking.com</span>
                 </div>
             </div>
 
@@ -697,34 +683,34 @@
 
         <!-- AD BOTTOM -->
         <div class="ad-container">
-            <div class="ad-label">SPONSORED LINKS</div>
+            <div class="ad-label" id="ad-label-bottom">SPONSORED LINKS</div>
             <div style="color: var(--text-gray);">
                 <span class="booking-badge">Booking.com</span> • 
                 <span class="aviasales-badge">Aviasales</span> • 
-                Expedia • Hotels.com • Agoda
+                <span id="expedia-text2">Expedia</span> • <span id="hotels-text2">Hotels.com</span> • Agoda
             </div>
         </div>
 
         <!-- ABOUT SECTION -->
         <section id="sobre-nosotros" class="legal-section">
-            <h2 style="font-size: 2rem; text-align: center; margin-bottom: 40px;">About <span style="color: var(--gold);">Us</span></h2>
+            <h2 style="font-size: 2rem; text-align: center; margin-bottom: 40px;"><span id="about-title">About</span> <span style="color: var(--gold);" id="about-title-gold">Us</span></h2>
             
             <div class="legal-grid">
                 <div class="legal-item">
-                    <h3>✨ Our Story</h3>
-                    <p>EliteStayTravel was born from a passion for luxury travel and sustainability. Since 2024, we connect discerning travelers with the world's finest hotels and flights.</p>
+                    <h3 id="story-title">✨ Our Story</h3>
+                    <p id="story-text">EliteStayTravel was born from a passion for luxury travel and sustainability. Since 2024, we connect discerning travelers with the world's finest hotels and flights.</p>
                 </div>
                 
                 <div class="legal-item">
-                    <h3>🌍 Our Mission</h3>
-                    <p>To offer exclusive travel experiences that meet the highest standards of luxury while respecting the destinations we love. All our partners meet strict quality criteria.</p>
+                    <h3 id="mission-title">🌍 Our Mission</h3>
+                    <p id="mission-text">To offer exclusive travel experiences that meet the highest standards of luxury while respecting the destinations we love. All our partners meet strict quality criteria.</p>
                 </div>
                 
                 <div class="legal-item" id="contacto">
-                    <h3>📞 Contact</h3>
+                    <h3 id="contact-title">📞 Contact</h3>
                     <p><i class="fa-regular fa-envelope" style="color: var(--gold); margin-right: 10px;"></i> <strong class="contact-email">elitestayoficial@gmail.com</strong></p>
-                    <p style="margin-top: 15px;"><i class="fa-regular fa-clock" style="color: var(--gold); margin-right: 10px;"></i> Response within 24h</p>
-                    <p style="margin-top: 15px;"><i class="fa-regular fa-building" style="color: var(--gold); margin-right: 10px;"></i> Head Office: London, UK</p>
+                    <p style="margin-top: 15px;"><i class="fa-regular fa-clock" style="color: var(--gold); margin-right: 10px;"></i> <span id="response-time">Response within 24h</span></p>
+                    <p style="margin-top: 15px;"><i class="fa-regular fa-building" style="color: var(--gold); margin-right: 10px;"></i> <span id="office-location">Head Office: London, UK</span></p>
                 </div>
             </div>
         </section>
@@ -733,18 +719,18 @@
         <section class="legal-section">
             <div class="legal-grid">
                 <div class="legal-item">
-                    <h3>⚖️ Terms & Conditions</h3>
-                    <p>By using EliteStayTravel.com, you agree to our terms of service. All bookings are made through our partners.</p>
+                    <h3 id="terms-title">⚖️ Terms & Conditions</h3>
+                    <p id="terms-text">By using EliteStayTravel.com, you agree to our terms of service. All bookings are made through our partners.</p>
                 </div>
                 
                 <div class="legal-item">
-                    <h3>🔒 Privacy Policy</h3>
-                    <p>Your privacy is important. We only collect information necessary to improve your search experience.</p>
+                    <h3 id="privacy-title">🔒 Privacy Policy</h3>
+                    <p id="privacy-text">Your privacy is important. We only collect information necessary to improve your search experience.</p>
                 </div>
                 
                 <div class="legal-item">
-                    <h3>📋 Attribution</h3>
-                    <p>This site participates in affiliate programs of Booking.com, Aviasales, Expedia and Hotels.com.</p>
+                    <h3 id="attribution-title">📋 Attribution</h3>
+                    <p id="attribution-text">This site participates in affiliate programs of Booking.com, Aviasales, Expedia and Hotels.com.</p>
                 </div>
             </div>
         </section>
@@ -754,62 +740,378 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-column">
-                <h4>EliteStayTravel</h4>
+                <h4 id="footer-company">EliteStayTravel</h4>
                 <ul>
-                    <li><a href="#inicio">Home</a></li>
-                    <li><a href="#hoteles">Hotels</a></li>
-                    <li><a href="#vuelos">Flights</a></li>
-                    <li><a href="#contacto">Contact</a></li>
+                    <li><a href="#inicio" id="footer-home">Home</a></li>
+                    <li><a href="#hoteles" id="footer-hotels">Hotels</a></li>
+                    <li><a href="#vuelos" id="footer-flights">Flights</a></li>
+                    <li><a href="#contacto" id="footer-contact">Contact</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h4>Destinations</h4>
+                <h4 id="footer-destinations">Destinations</h4>
                 <ul>
-                    <li><a href="#" onclick="buscarDestino('Paris')">Paris</a></li>
-                    <li><a href="#" onclick="buscarDestino('Roma')">Rome</a></li>
-                    <li><a href="#" onclick="buscarDestino('Tokio')">Tokyo</a></li>
-                    <li><a href="#" onclick="buscarDestino('Nueva York')">New York</a></li>
+                    <li><a href="#" onclick="buscarDestino('Paris')" id="footer-paris">Paris</a></li>
+                    <li><a href="#" onclick="buscarDestino('Roma')" id="footer-rome">Rome</a></li>
+                    <li><a href="#" onclick="buscarDestino('Tokio')" id="footer-tokyo">Tokyo</a></li>
+                    <li><a href="#" onclick="buscarDestino('Nueva York')" id="footer-ny">New York</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h4>Partners</h4>
+                <h4 id="footer-partners">Partners</h4>
                 <ul>
                     <li><span class="booking-badge">Booking.com</span></li>
                     <li><span class="aviasales-badge">Aviasales</span></li>
-                    <li>Expedia</li>
-                    <li>Hotels.com</li>
+                    <li id="footer-expedia">Expedia</li>
+                    <li id="footer-hotels">Hotels.com</li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h4>Contact</h4>
+                <h4 id="footer-contact-title">Contact</h4>
                 <ul>
                     <li><i class="fa-regular fa-envelope"></i> <span class="contact-email">elitestayoficial@gmail.com</span></li>
-                    <li><i class="fa-regular fa-clock"></i> 24/7 Support</li>
-                    <li><i class="fa-regular fa-building"></i> London, UK</li>
+                    <li><i class="fa-regular fa-clock"></i> <span id="footer-support">24/7 Support</span></li>
+                    <li><i class="fa-regular fa-building"></i> <span id="footer-location">London, UK</span></li>
                 </ul>
             </div>
         </div>
         
         <div class="copyright">
-            <p>© 2026 EliteStayTravel.com — All rights reserved</p>
-            <p style="margin-top: 10px;">Partners: <span class="booking-badge">Booking.com</span> • <span class="aviasales-badge">Aviasales</span> • Expedia • Hotels.com</p>
+            <p id="copyright-text">© 2026 EliteStayTravel.com — All rights reserved</p>
+            <p style="margin-top: 10px;" id="copyright-partners">Partners: <span class="booking-badge">Booking.com</span> • <span class="aviasales-badge">Aviasales</span> • Expedia • Hotels.com</p>
         </div>
     </footer>
 
     <script>
         // ============================================
+        // CONFIGURACIÓN DE IDIOMAS
+        // ============================================
+        const textos = {
+            en: {
+                // Header
+                'logo-subtitle': 'Luxury Hotels & Flights',
+                'nav-home': 'Home',
+                'nav-hotels': 'Hotels',
+                'nav-flights': 'Flights',
+                'nav-about': 'About',
+                'nav-contact': 'Contact',
+                
+                // Ads
+                'ad-label-top': 'PARTNERS',
+                'expedia-text': 'Expedia',
+                'hotels-text': 'Hotels.com',
+                
+                // Search
+                'search-title-part1': 'Find your',
+                'search-title-part2': 'exclusive sanctuary',
+                'search-placeholder': 'Where to? (e.g., Paris, Rome, Tokyo, New York)',
+                'search-button': 'Search Hotels',
+                
+                // Flights
+                'flights-title': 'Find the best flights',
+                'flights-powered': 'Powered by Aviasales',
+                
+                // Filters
+                'filters-label': 'Filters:',
+                'filter-all-prices': 'All prices',
+                'filter-up-to-100': 'Up to $100',
+                'filter-up-to-300': 'Up to $300',
+                'filter-up-to-500': 'Up to $500',
+                'filter-up-to-1000': 'Up to $1000',
+                'filter-up-to-2000': 'Up to $2000',
+                'filter-all-stars': 'All stars',
+                'sort-default': 'Sort by',
+                'sort-price-asc': 'Price: Low to High',
+                'sort-price-desc': 'Price: High to Low',
+                'sort-stars': 'Top Rated',
+                'reset-button': 'Reset',
+                
+                // Stats
+                'stats-title': 'Most Searched Destinations',
+                'reset-stats': 'Reset stats',
+                
+                // Sponsored
+                'ad-label-middle': 'SPONSORED',
+                'sponsored-text': 'Best prices on luxury hotels and flights',
+                'ad-label-bottom': 'SPONSORED LINKS',
+                'expedia-text2': 'Expedia',
+                'hotels-text2': 'Hotels.com',
+                
+                // Hotels section
+                'hotels-available': 'luxury hotels available',
+                'partners-with': 'Partners with',
+                
+                // About
+                'about-title': 'About',
+                'about-title-gold': 'Us',
+                'story-title': '✨ Our Story',
+                'story-text': 'EliteStayTravel was born from a passion for luxury travel and sustainability. Since 2024, we connect discerning travelers with the world\'s finest hotels and flights.',
+                'mission-title': '🌍 Our Mission',
+                'mission-text': 'To offer exclusive travel experiences that meet the highest standards of luxury while respecting the destinations we love. All our partners meet strict quality criteria.',
+                'contact-title': '📞 Contact',
+                'response-time': 'Response within 24h',
+                'office-location': 'Head Office: London, UK',
+                
+                // Legal
+                'terms-title': '⚖️ Terms & Conditions',
+                'terms-text': 'By using EliteStayTravel.com, you agree to our terms of service. All bookings are made through our partners.',
+                'privacy-title': '🔒 Privacy Policy',
+                'privacy-text': 'Your privacy is important. We only collect information necessary to improve your search experience.',
+                'attribution-title': '📋 Attribution',
+                'attribution-text': 'This site participates in affiliate programs of Booking.com, Aviasales, Expedia and Hotels.com.',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Home',
+                'footer-hotels': 'Hotels',
+                'footer-flights': 'Flights',
+                'footer-contact': 'Contact',
+                'footer-destinations': 'Destinations',
+                'footer-paris': 'Paris',
+                'footer-rome': 'Rome',
+                'footer-tokyo': 'Tokyo',
+                'footer-ny': 'New York',
+                'footer-partners': 'Partners',
+                'footer-expedia': 'Expedia',
+                'footer-hotels': 'Hotels.com',
+                'footer-contact-title': 'Contact',
+                'footer-support': '24/7 Support',
+                'footer-location': 'London, UK',
+                'copyright-text': '© 2026 EliteStayTravel.com — All rights reserved',
+                'copyright-partners': 'Partners: Booking.com • Aviasales • Expedia • Hotels.com'
+            },
+            es: {
+                // Header
+                'logo-subtitle': 'Hoteles y Vuelos de Lujo',
+                'nav-home': 'Inicio',
+                'nav-hotels': 'Hoteles',
+                'nav-flights': 'Vuelos',
+                'nav-about': 'Nosotros',
+                'nav-contact': 'Contacto',
+                
+                // Ads
+                'ad-label-top': 'SOCIOS',
+                'expedia-text': 'Expedia',
+                'hotels-text': 'Hotels.com',
+                
+                // Search
+                'search-title-part1': 'Encuentra tu',
+                'search-title-part2': 'refugio exclusivo',
+                'search-placeholder': '¿A dónde vas? (Ej: París, Roma, Tokio, Nueva York)',
+                'search-button': 'Buscar Hoteles',
+                
+                // Flights
+                'flights-title': 'Encuentra los mejores vuelos',
+                'flights-powered': 'Por Aviasales',
+                
+                // Filters
+                'filters-label': 'Filtros:',
+                'filter-all-prices': 'Todos los precios',
+                'filter-up-to-100': 'Hasta $100',
+                'filter-up-to-300': 'Hasta $300',
+                'filter-up-to-500': 'Hasta $500',
+                'filter-up-to-1000': 'Hasta $1000',
+                'filter-up-to-2000': 'Hasta $2000',
+                'filter-all-stars': 'Todas las estrellas',
+                'sort-default': 'Ordenar por',
+                'sort-price-asc': 'Precio: menor a mayor',
+                'sort-price-desc': 'Precio: mayor a menor',
+                'sort-stars': 'Mejor calificados',
+                'reset-button': 'Resetear',
+                
+                // Stats
+                'stats-title': 'Destinos más buscados',
+                'reset-stats': 'Resetear stats',
+                
+                // Sponsored
+                'ad-label-middle': 'PATROCINADO',
+                'sponsored-text': 'Mejores precios en hoteles y vuelos de lujo',
+                'ad-label-bottom': 'ENLACES PATROCINADOS',
+                'expedia-text2': 'Expedia',
+                'hotels-text2': 'Hotels.com',
+                
+                // Hotels section
+                'hotels-available': 'hoteles de lujo disponibles',
+                'partners-with': 'Asociados con',
+                
+                // About
+                'about-title': 'Sobre',
+                'about-title-gold': 'Nosotros',
+                'story-title': '✨ Nuestra Historia',
+                'story-text': 'EliteStayTravel nació de la pasión por los viajes de lujo y la sostenibilidad. Desde 2024, conectamos viajeros exigentes con los mejores hoteles y vuelos del mundo.',
+                'mission-title': '🌍 Nuestra Misión',
+                'mission-text': 'Ofrecer experiencias de viaje exclusivas que cumplan con los más altos estándares de lujo, respetando los destinos que amamos.',
+                'contact-title': '📞 Contacto',
+                'response-time': 'Respuesta en menos de 24h',
+                'office-location': 'Oficina central: Londres, UK',
+                
+                // Legal
+                'terms-title': '⚖️ Términos y Condiciones',
+                'terms-text': 'Al usar EliteStayTravel.com, aceptas nuestros términos. Todas las reservas se realizan a través de nuestros socios.',
+                'privacy-title': '🔒 Política de Privacidad',
+                'privacy-text': 'Tu privacidad es importante. Solo recopilamos información necesaria para mejorar tu experiencia.',
+                'attribution-title': '📋 Atribución',
+                'attribution-text': 'Este sitio participa en programas de afiliados de Booking.com, Aviasales, Expedia y Hotels.com.',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Inicio',
+                'footer-hotels': 'Hoteles',
+                'footer-flights': 'Vuelos',
+                'footer-contact': 'Contacto',
+                'footer-destinations': 'Destinos',
+                'footer-paris': 'París',
+                'footer-rome': 'Roma',
+                'footer-tokyo': 'Tokio',
+                'footer-ny': 'Nueva York',
+                'footer-partners': 'Socios',
+                'footer-expedia': 'Expedia',
+                'footer-hotels': 'Hotels.com',
+                'footer-contact-title': 'Contacto',
+                'footer-support': 'Soporte 24/7',
+                'footer-location': 'Londres, UK',
+                'copyright-text': '© 2026 EliteStayTravel.com — Todos los derechos reservados',
+                'copyright-partners': 'Socios: Booking.com • Aviasales • Expedia • Hotels.com'
+            },
+            fr: {
+                // Header
+                'logo-subtitle': 'Hôtels et Vols de Luxe',
+                'nav-home': 'Accueil',
+                'nav-hotels': 'Hôtels',
+                'nav-flights': 'Vols',
+                'nav-about': 'À Propos',
+                'nav-contact': 'Contact',
+                
+                // Ads
+                'ad-label-top': 'PARTENAIRES',
+                'expedia-text': 'Expedia',
+                'hotels-text': 'Hotels.com',
+                
+                // Search
+                'search-title-part1': 'Trouvez votre',
+                'search-title-part2': 'sanctuaire exclusif',
+                'search-placeholder': 'Où allez-vous? (Ex: Paris, Rome, Tokyo, New York)',
+                'search-button': 'Rechercher',
+                
+                // Flights
+                'flights-title': 'Trouvez les meilleurs vols',
+                'flights-powered': 'Propulsé par Aviasales',
+                
+                // Filters
+                'filters-label': 'Filtres:',
+                'filter-all-prices': 'Tous les prix',
+                'filter-up-to-100': 'Jusqu\'à $100',
+                'filter-up-to-300': 'Jusqu\'à $300',
+                'filter-up-to-500': 'Jusqu\'à $500',
+                'filter-up-to-1000': 'Jusqu\'à $1000',
+                'filter-up-to-2000': 'Jusqu\'à $2000',
+                'filter-all-stars': 'Toutes les étoiles',
+                'sort-default': 'Trier par',
+                'sort-price-asc': 'Prix: croissant',
+                'sort-price-desc': 'Prix: décroissant',
+                'sort-stars': 'Mieux notés',
+                'reset-button': 'Réinitialiser',
+                
+                // Stats
+                'stats-title': 'Destinations les plus recherchées',
+                'reset-stats': 'Réinitialiser',
+                
+                // Sponsored
+                'ad-label-middle': 'SPONSORISÉ',
+                'sponsored-text': 'Meilleurs prix sur les hôtels et vols de luxe',
+                'ad-label-bottom': 'LIENS SPONSORISÉS',
+                'expedia-text2': 'Expedia',
+                'hotels-text2': 'Hotels.com',
+                
+                // Hotels section
+                'hotels-available': 'hôtels de luxe disponibles',
+                'partners-with': 'Partenaires avec',
+                
+                // About
+                'about-title': 'À Propos',
+                'about-title-gold': 'de Nous',
+                'story-title': '✨ Notre Histoire',
+                'story-text': 'EliteStayTravel est né d\'une passion pour les voyages de luxe et la durabilité. Depuis 2024, nous connectons les voyageurs exigeants avec les meilleurs hôtels et vols.',
+                'mission-title': '🌍 Notre Mission',
+                'mission-text': 'Offrir des expériences de voyage exclusives qui respectent les plus hauts standards de luxe tout en protégeant les destinations.',
+                'contact-title': '📞 Contact',
+                'response-time': 'Réponse sous 24h',
+                'office-location': 'Siège social: Londres, UK',
+                
+                // Legal
+                'terms-title': '⚖️ Conditions',
+                'terms-text': 'En utilisant EliteStayTravel.com, vous acceptez nos conditions. Toutes les réservations se font via nos partenaires.',
+                'privacy-title': '🔒 Confidentialité',
+                'privacy-text': 'Votre vie privée est importante. Nous collectons uniquement les informations nécessaires.',
+                'attribution-title': '📋 Attribution',
+                'attribution-text': 'Ce site participe aux programmes d\'affiliation de Booking.com, Aviasales, Expedia et Hotels.com.',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Accueil',
+                'footer-hotels': 'Hôtels',
+                'footer-flights': 'Vols',
+                'footer-contact': 'Contact',
+                'footer-destinations': 'Destinations',
+                'footer-paris': 'Paris',
+                'footer-rome': 'Rome',
+                'footer-tokyo': 'Tokyo',
+                'footer-ny': 'New York',
+                'footer-partners': 'Partenaires',
+                'footer-expedia': 'Expedia',
+                'footer-hotels': 'Hotels.com',
+                'footer-contact-title': 'Contact',
+                'footer-support': 'Support 24/7',
+                'footer-location': 'Londres, UK',
+                'copyright-text': '© 2026 EliteStayTravel.com — Tous droits réservés',
+                'copyright-partners': 'Partenaires: Booking.com • Aviasales • Expedia • Hotels.com'
+            }
+        };
+
+        // ============================================
+        // FUNCIÓN PARA CAMBIAR IDIOMA
+        // ============================================
+        function cambiarIdioma() {
+            const lang = document.getElementById('language').value;
+            
+            // Recorrer todos los textos y actualizar
+            for (let id in textos[lang]) {
+                const elemento = document.getElementById(id);
+                if (elemento) {
+                    elemento.innerText = textos[lang][id];
+                }
+            }
+            
+            // Actualizar placeholders específicos
+            const searchInput = document.getElementById('city');
+            if (searchInput) {
+                searchInput.placeholder = textos[lang]['search-placeholder'];
+            }
+            
+            // Guardar preferencia
+            localStorage.setItem('preferred-language', lang);
+            
+            console.log('Idioma cambiado a:', lang);
+        }
+
+        // ============================================
+        // CARGAR IDIOMA GUARDADO
+        // ============================================
+        function cargarIdiomaGuardado() {
+            const langGuardado = localStorage.getItem('preferred-language') || 'en';
+            document.getElementById('language').value = langGuardado;
+            cambiarIdioma();
+        }
+
+        // ============================================
         // CONFIGURACIÓN
         // ============================================
         const API_CONFIG = {
             token: 'a6c889c03ac265b133e99a349a2f7dcb',
-            baseURL: 'https://api.travelpayouts.com/v2',
-            endpoints: {
-                prices: '/prices/latest',
-                hotels: '/hotels/search'
-            }
+            baseURL: 'https://api.travelpayouts.com/v2'
         };
 
         console.log('✅ EliteStayTravel - Configuración lista');
@@ -1018,6 +1320,7 @@
         // INICIALIZACIÓN
         // ============================================
         document.addEventListener('DOMContentLoaded', () => {
+            cargarIdiomaGuardado();
             mostrarHoteles(HOTELES);
             mostrarEstadisticas();
             
