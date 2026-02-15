@@ -174,8 +174,8 @@
             transform: translateY(-2px);
         }
         
-        /* Widget de vuelos */
-        .flights-widget-container {
+        /* Widgets de Aviasales */
+        .aviasales-widget-container {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
             border-radius: 24px;
@@ -184,30 +184,30 @@
             box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
         }
         
-        .flights-title {
+        .aviasales-title {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 20px;
         }
         
-        .flights-title i {
+        .aviasales-title i {
             color: var(--gold);
             font-size: 1.5rem;
         }
         
-        .flights-title h3 {
+        .aviasales-title h3 {
             font-size: 1.3rem;
             color: var(--gold);
         }
         
-        .flights-title span {
+        .aviasales-title span {
             color: var(--text-gray);
             font-size: 0.8rem;
             margin-left: auto;
         }
         
-        .flights-widget-container iframe {
+        .aviasales-widget-container iframe {
             border-radius: 16px;
             width: 100%;
             min-height: 380px;
@@ -560,6 +560,7 @@
                 <a href="#inicio" id="nav-home">Home</a>
                 <a href="#hoteles" id="nav-hotels">Hotels</a>
                 <a href="#vuelos" id="nav-flights">Flights</a>
+                <a href="#hoteles-asociados" id="nav-partners">Partner Hotels</a>
                 <a href="#sobre-nosotros" id="nav-about">About</a>
                 <a href="#contacto" id="nav-contact">Contact</a>
             </nav>
@@ -597,17 +598,31 @@
             </div>
         </section>
 
-        <!-- FLIGHTS WIDGET - AVISALES (ACTUALIZADO) -->
+        <!-- FLIGHTS WIDGET - AVISALES (BÚSQUEDA DE VUELOS) -->
         <section id="vuelos">
-            <div class="flights-widget-container">
-                <div class="flights-title">
+            <div class="aviasales-widget-container">
+                <div class="aviasales-title">
                     <i class="fa-solid fa-plane"></i>
                     <h3 id="flights-title">Find the best flights</h3>
                     <span id="flights-powered">Powered by Aviasales</span>
                 </div>
                 
-                <!-- WIDGET DE AVISALES ACTUALIZADO -->
+                <!-- WIDGET DE BÚSQUEDA DE VUELOS -->
                 <script async src="https://tpembd.com/content?currency=usd&trs=498903&shmarker=703737&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.com%2Fsearch&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=23&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+            </div>
+        </section>
+
+        <!-- HOTEL PARTNERS WIDGET - AVISALES (NUEVO) -->
+        <section id="hoteles-asociados">
+            <div class="aviasales-widget-container">
+                <div class="aviasales-title">
+                    <i class="fa-solid fa-hotel"></i>
+                    <h3 id="partner-hotels-title">Partner Hotels</h3>
+                    <span id="partner-hotels-powered">Special offers</span>
+                </div>
+                
+                <!-- NUEVO WIDGET DE HOTELES ASOCIADOS -->
+                <script async src="https://tpembd.com/content?currency=USD&trs=498903&shmarker=703737&locale=en&category=2&amount=3&powered_by=true&campaign_id=137&promo_id=4497" charset="utf-8"></script>
             </div>
         </section>
 
@@ -745,6 +760,7 @@
                     <li><a href="#inicio" id="footer-home">Home</a></li>
                     <li><a href="#hoteles" id="footer-hotels">Hotels</a></li>
                     <li><a href="#vuelos" id="footer-flights">Flights</a></li>
+                    <li><a href="#hoteles-asociados" id="footer-partner-hotels">Partner Hotels</a></li>
                     <li><a href="#contacto" id="footer-contact">Contact</a></li>
                 </ul>
             </div>
@@ -796,6 +812,7 @@
                 'nav-home': 'Home',
                 'nav-hotels': 'Hotels',
                 'nav-flights': 'Flights',
+                'nav-partners': 'Partner Hotels',
                 'nav-about': 'About',
                 'nav-contact': 'Contact',
                 
@@ -813,6 +830,10 @@
                 // Flights
                 'flights-title': 'Find the best flights',
                 'flights-powered': 'Powered by Aviasales',
+                
+                // Partner Hotels
+                'partner-hotels-title': 'Partner Hotels',
+                'partner-hotels-powered': 'Special offers',
                 
                 // Filters
                 'filters-label': 'Filters:',
@@ -868,6 +889,7 @@
                 'footer-home': 'Home',
                 'footer-hotels': 'Hotels',
                 'footer-flights': 'Flights',
+                'footer-partner-hotels': 'Partner Hotels',
                 'footer-contact': 'Contact',
                 'footer-destinations': 'Destinations',
                 'footer-paris': 'Paris',
@@ -889,6 +911,7 @@
                 'nav-home': 'Inicio',
                 'nav-hotels': 'Hoteles',
                 'nav-flights': 'Vuelos',
+                'nav-partners': 'Hoteles Asociados',
                 'nav-about': 'Nosotros',
                 'nav-contact': 'Contacto',
                 
@@ -906,6 +929,10 @@
                 // Flights
                 'flights-title': 'Encuentra los mejores vuelos',
                 'flights-powered': 'Por Aviasales',
+                
+                // Partner Hotels
+                'partner-hotels-title': 'Hoteles Asociados',
+                'partner-hotels-powered': 'Ofertas especiales',
                 
                 // Filters
                 'filters-label': 'Filtros:',
@@ -961,6 +988,7 @@
                 'footer-home': 'Inicio',
                 'footer-hotels': 'Hoteles',
                 'footer-flights': 'Vuelos',
+                'footer-partner-hotels': 'Hoteles Asociados',
                 'footer-contact': 'Contacto',
                 'footer-destinations': 'Destinos',
                 'footer-paris': 'París',
@@ -982,6 +1010,7 @@
                 'nav-home': 'Accueil',
                 'nav-hotels': 'Hôtels',
                 'nav-flights': 'Vols',
+                'nav-partners': 'Hôtels Partenaires',
                 'nav-about': 'À Propos',
                 'nav-contact': 'Contact',
                 
@@ -999,6 +1028,10 @@
                 // Flights
                 'flights-title': 'Trouvez les meilleurs vols',
                 'flights-powered': 'Propulsé par Aviasales',
+                
+                // Partner Hotels
+                'partner-hotels-title': 'Hôtels Partenaires',
+                'partner-hotels-powered': 'Offres spéciales',
                 
                 // Filters
                 'filters-label': 'Filtres:',
@@ -1054,6 +1087,7 @@
                 'footer-home': 'Accueil',
                 'footer-hotels': 'Hôtels',
                 'footer-flights': 'Vols',
+                'footer-partner-hotels': 'Hôtels Partenaires',
                 'footer-contact': 'Contact',
                 'footer-destinations': 'Destinations',
                 'footer-paris': 'Paris',
