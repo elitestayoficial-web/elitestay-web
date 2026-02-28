@@ -106,7 +106,7 @@
             color: var(--gold);
         }
         
-        /* Expedia Widget Section - CORREGIDO */
+        /* Expedia Widget Section - CON FONDO GRIS ORIGINAL */
         .expedia-section {
             margin-bottom: 40px;
         }
@@ -142,16 +142,16 @@
             margin-left: auto;
         }
         
-        /* FIX: Contenedor del widget con fondo blanco */
+        /* Contenedor del widget con fondo gris oscuro original */
         .expedia-widget-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 620px;
-            background: #ffffff;
+            background: var(--bg-dark);
             border-radius: 16px;
             padding: 10px;
-            border: 1px solid rgba(0,56,126,0.2);
+            border: 1px solid var(--border-light);
         }
         
         .expedia-widget {
@@ -159,14 +159,15 @@
             height: 600px;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+            background: white; /* Solo el iframe necesita fondo blanco */
         }
         
         .expedia-widget iframe {
             border: none;
             width: 100%;
             height: 100%;
-            background: white;
+            background: white; /* Fondo blanco para el formulario de Expedia */
         }
         
         .expedia-features {
@@ -673,7 +674,7 @@
             </div>
         </div>
 
-        <!-- EXPEDIA WIDGET SECTION - CORREGIDO CON FONDO BLANCO -->
+        <!-- EXPEDIA WIDGET SECTION - CON FONDO GRIS ORIGINAL -->
         <section class="expedia-section">
             <div class="expedia-container">
                 <div class="expedia-header">
