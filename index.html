@@ -7,7 +7,7 @@
     
     <!-- Meta tags -->
     <meta name="description" content="EliteStayTravel: Luxury hotels and flights worldwide. Best prices on Booking.com, Expedia, and Aviasales.">
-    <meta name="keywords" content="luxury hotels, flights, sustainable travel, eco hotels, booking.com, aviasales, expedia">
+    <meta name="keywords" content="luxury hotels, flights, sustainable travel, eco hotels, booking.com, aviasales">
     <meta name="author" content="EliteStayTravel">
     <meta name="robots" content="index, follow">
     
@@ -37,7 +37,6 @@
             --text-gray: #a1a9b5;
             --border-light: rgba(180, 155, 94, 0.2);
             --expedia-blue: #00387e;
-            --expedia-gold: #fcb415;
         }
         
         body {
@@ -107,97 +106,60 @@
             color: var(--gold);
         }
         
-        /* Expedia Widget Section - NUEVO DISEÑO PROFESIONAL */
+        /* Expedia Widget Section - CORREGIDO */
         .expedia-section {
             margin-bottom: 40px;
         }
         
         .expedia-container {
-            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(10, 12, 18, 0.98) 100%);
+            background: var(--bg-card);
             border: 1px solid var(--border-light);
             border-radius: 24px;
             padding: 30px;
             box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
         }
         
         .expedia-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
             gap: 15px;
+            margin-bottom: 20px;
         }
         
-        .expedia-title {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .expedia-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--expedia-blue), #002856);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--expedia-gold);
-            font-size: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,56,126,0.3);
-        }
-        
-        .expedia-title h3 {
+        .expedia-header i {
+            color: var(--gold);
             font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff, #fcb415);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         
-        .expedia-badge {
-            background: rgba(252, 180, 21, 0.15);
-            border: 1px solid rgba(252, 180, 21, 0.3);
-            color: #fcb415;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .expedia-header h3 {
+            font-size: 1.5rem;
+            color: var(--gold);
         }
         
-        .expedia-badge i {
-            font-size: 1rem;
+        .expedia-header span {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-left: auto;
         }
         
+        /* FIX: Contenedor del widget con fondo blanco */
         .expedia-widget-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 600px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,56,126,0.1) 100%);
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid rgba(252, 180, 21, 0.1);
+            min-height: 620px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 10px;
+            border: 1px solid rgba(0,56,126,0.2);
         }
         
         .expedia-widget {
             width: 300px;
             height: 600px;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-        
-        .expedia-widget:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 40px -15px rgba(252, 180, 21, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
         }
         
         .expedia-widget iframe {
@@ -210,22 +172,15 @@
         .expedia-features {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .expedia-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 30px;
+            margin-top: 20px;
             color: var(--text-gray);
             font-size: 0.9rem;
         }
         
-        .expedia-feature i {
+        .expedia-features i {
             color: var(--gold);
-            font-size: 1rem;
+            margin-right: 5px;
         }
         
         /* Buscador */
@@ -669,15 +624,15 @@
             margin-left: 5px;
         }
         
-        .expedia-badge-blue {
+        .expedia-badge {
             display: inline-block;
             background: var(--expedia-blue);
-            color: var(--expedia-gold);
+            color: #fcb415;
             padding: 3px 8px;
             border-radius: 4px;
             font-size: 0.7rem;
-            font-weight: 600;
             margin-left: 5px;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -712,31 +667,24 @@
             <div style="color: var(--text-gray);">
                 <span class="booking-badge">Booking.com</span> • 
                 <span class="aviasales-badge">Aviasales</span> • 
-                <span class="expedia-badge-blue">Expedia</span> • 
+                <span class="expedia-badge">Expedia</span> • 
                 <span id="expedia-text">Expedia</span> • 
                 <span id="hotels-text">Hotels.com</span>
             </div>
         </div>
 
-        <!-- EXPEDIA WIDGET SECTION - NUEVO: AHORA EN LA PARTE SUPERIOR -->
+        <!-- EXPEDIA WIDGET SECTION - CORREGIDO CON FONDO BLANCO -->
         <section class="expedia-section">
             <div class="expedia-container">
                 <div class="expedia-header">
-                    <div class="expedia-title">
-                        <div class="expedia-icon">
-                            <i class="fa-solid fa-plane-departure"></i>
-                        </div>
-                        <h3>Expedia</h3>
-                    </div>
-                    <div class="expedia-badge">
-                        <i class="fa-regular fa-star"></i>
-                        <span id="expedia-tagline">Best travel deals</span>
-                    </div>
+                    <i class="fa-solid fa-hotel"></i>
+                    <h3 id="expedia-title">Expedia</h3>
+                    <span id="expedia-powered">Find the best deals</span>
                 </div>
                 
                 <div class="expedia-widget-wrapper">
                     <div class="expedia-widget">
-                        <div id="searchWidget">
+                        <div id="searchWidget" style="width:300px;height:600px;">
                             <iframe id="widgetIframe" 
                                 src="https://www.expedia.co.uk/marketing/widgets/searchform/widget?wtt=1&tp1=101693544&tp2=&lob=H,FH,F,CA,CR,A&des=&wbi=1&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCB00&wbf=4&bfc=3D3100&wws=1&sfs=H600FW300F&langid=2057" 
                                 width="100%" 
@@ -749,22 +697,10 @@
                 </div>
                 
                 <div class="expedia-features">
-                    <div class="expedia-feature">
-                        <i class="fa-regular fa-hotel"></i>
-                        <span id="expedia-hotels">Hotels</span>
-                    </div>
-                    <div class="expedia-feature">
-                        <i class="fa-regular fa-plane"></i>
-                        <span id="expedia-flights">Flights</span>
-                    </div>
-                    <div class="expedia-feature">
-                        <i class="fa-regular fa-car"></i>
-                        <span id="expedia-cars">Cars</span>
-                    </div>
-                    <div class="expedia-feature">
-                        <i class="fa-regular fa-umbrella-beach"></i>
-                        <span id="expedia-packages">Packages</span>
-                    </div>
+                    <span><i class="fa-regular fa-hotel"></i> Hotels</span>
+                    <span><i class="fa-regular fa-plane"></i> Flights</span>
+                    <span><i class="fa-regular fa-car"></i> Cars</span>
+                    <span><i class="fa-regular fa-umbrella-beach"></i> Packages</span>
                 </div>
             </div>
         </section>
@@ -889,7 +825,7 @@
             <div style="color: var(--text-gray);">
                 <span class="booking-badge">Booking.com</span> • 
                 <span class="aviasales-badge">Aviasales</span> • 
-                <span class="expedia-badge-blue">Expedia</span> • 
+                <span class="expedia-badge">Expedia</span> • 
                 <span id="expedia-text2">Expedia</span> • 
                 <span id="hotels-text2">Hotels.com</span> • Agoda
             </div>
@@ -969,7 +905,7 @@
                 <ul>
                     <li><span class="booking-badge">Booking.com</span></li>
                     <li><span class="aviasales-badge">Aviasales</span></li>
-                    <li><span class="expedia-badge-blue">Expedia</span></li>
+                    <li><span class="expedia-badge">Expedia</span></li>
                     <li id="footer-expedia">Expedia</li>
                     <li id="footer-hotels">Hotels.com</li>
                 </ul>
@@ -987,7 +923,7 @@
         
         <div class="copyright">
             <p id="copyright-text">© 2026 EliteStayTravel.com — All rights reserved</p>
-            <p style="margin-top: 10px;" id="copyright-partners">Partners: <span class="booking-badge">Booking.com</span> • <span class="aviasales-badge">Aviasales</span> • <span class="expedia-badge-blue">Expedia</span> • Expedia • Hotels.com</p>
+            <p style="margin-top: 10px;" id="copyright-partners">Partners: <span class="booking-badge">Booking.com</span> • <span class="aviasales-badge">Aviasales</span> • <span class="expedia-badge">Expedia</span> • Expedia • Hotels.com</p>
         </div>
     </footer>
 
@@ -1012,11 +948,8 @@
                 'hotels-text': 'Hotels.com',
                 
                 // Expedia
-                'expedia-tagline': 'Best travel deals',
-                'expedia-hotels': 'Hotels',
-                'expedia-flights': 'Flights',
-                'expedia-cars': 'Cars',
-                'expedia-packages': 'Packages',
+                'expedia-title': 'Expedia',
+                'expedia-powered': 'Find the best deals',
                 
                 // Search
                 'search-title-part1': 'Find your',
@@ -1118,11 +1051,8 @@
                 'hotels-text': 'Hotels.com',
                 
                 // Expedia
-                'expedia-tagline': 'Mejores ofertas de viaje',
-                'expedia-hotels': 'Hoteles',
-                'expedia-flights': 'Vuelos',
-                'expedia-cars': 'Autos',
-                'expedia-packages': 'Paquetes',
+                'expedia-title': 'Expedia',
+                'expedia-powered': 'Encuentra las mejores ofertas',
                 
                 // Search
                 'search-title-part1': 'Encuentra tu',
@@ -1224,11 +1154,8 @@
                 'hotels-text': 'Hotels.com',
                 
                 // Expedia
-                'expedia-tagline': 'Meilleures offres de voyage',
-                'expedia-hotels': 'Hôtels',
-                'expedia-flights': 'Vols',
-                'expedia-cars': 'Voitures',
-                'expedia-packages': 'Forfaits',
+                'expedia-title': 'Expedia',
+                'expedia-powered': 'Trouvez les meilleures offres',
                 
                 // Search
                 'search-title-part1': 'Trouvez votre',
