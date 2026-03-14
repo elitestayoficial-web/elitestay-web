@@ -95,6 +95,23 @@
             color: var(--gold);
         }
         
+        /* Selector de idioma (igual que en index.html) */
+        .lang-selector {
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-select {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: white;
+            padding: 10px 30px 10px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+        
         /* ===== COMPONENTES ESPECÍFICOS PARA SEARCH ===== */
         .search-results-card {
             background: var(--bg-card);
@@ -220,37 +237,45 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER (idéntico al de index.html) -->
+        <!-- HEADER con SELECTOR DE IDIOMA (idéntico al de index.html) -->
         <header class="header">
             <div class="logo">
                 <h1>ELITE<span>STAY</span>.com</h1>
-                <p>Personalized Search</p>
+                <p id="logo-subtitle">Personalized Search</p>
             </div>
             
-            <nav class="nav-links">
-                <a href="/">Home</a>
-                <a href="/#hoteles">Hotels</a>
-                <a href="/#vuelos">Flights</a>
-                <a href="/#hoteles-asociados">Partner Hotels</a>
-                <a href="/#sobre-nosotros">About</a>
-                <a href="/#contacto">Contact</a>
-            </nav>
+            <div style="display: flex; align-items: center;">
+                <nav class="nav-links">
+                    <a href="/" id="nav-home">Home</a>
+                    <a href="/#hoteles" id="nav-hotels">Hotels</a>
+                    <a href="/#vuelos" id="nav-flights">Flights</a>
+                    <a href="/#sobre-nosotros" id="nav-about">About</a>
+                    <a href="/#contacto" id="nav-contact">Contact</a>
+                </nav>
+                
+                <!-- SELECTOR DE IDIOMA (exactamente igual al de index.html) -->
+                <select class="filter-select" id="language" onchange="cambiarIdioma()">
+                    <option value="en" selected>🇺🇸 English</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                </select>
+            </div>
         </header>
 
         <!-- MAIN CONTENT - RESULTADOS PERSONALIZADOS -->
         <div class="search-results-card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <h1 style="font-size: 2.5rem;">
-                    <span class="font-serif">Your</span> 
-                    <span style="color: var(--gold);">personalized</span> 
-                    <span class="font-serif">search</span>
+                    <span class="font-serif" id="title-part1">Your</span> 
+                    <span style="color: var(--gold);" id="title-part2">personalized</span> 
+                    <span class="font-serif" id="title-part3">search</span>
                 </h1>
                 <span class="badge-analytics">
-                    <i class="fa-regular fa-chart-line"></i> Powered by Analytics
+                    <i class="fa-regular fa-chart-line"></i> <span id="powered-by">Powered by Analytics</span>
                 </span>
             </div>
             
-            <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 30px;">
+            <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 30px;" id="description">
                 Based on your budget calculated with Elite Stay Analytics
             </p>
 
@@ -258,47 +283,47 @@
             <div class="params-panel" id="params-panel">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
                     <i class="fa-regular fa-circle-check" style="color: var(--gold); font-size: 1.5rem;"></i>
-                    <h2 style="font-size: 1.5rem; color: var(--gold);">Your search criteria</h2>
+                    <h2 style="font-size: 1.5rem; color: var(--gold);" id="criteria-title">Your search criteria</h2>
                 </div>
                 
                 <div class="param-row">
-                    <span class="param-label"><i class="fa-regular fa-plane-departure"></i> From:</span>
+                    <span class="param-label"><i class="fa-regular fa-plane-departure"></i> <span id="label-from">From:</span></span>
                     <span class="param-value" id="display-origin">---</span>
                 </div>
                 <div class="param-row">
-                    <span class="param-label"><i class="fa-regular fa-plane-arrival"></i> To:</span>
+                    <span class="param-label"><i class="fa-regular fa-plane-arrival"></i> <span id="label-to">To:</span></span>
                     <span class="param-value" id="display-dest">---</span>
                 </div>
                 <div class="param-row">
-                    <span class="param-label"><i class="fa-regular fa-calendar"></i> Date:</span>
+                    <span class="param-label"><i class="fa-regular fa-calendar"></i> <span id="label-date">Date:</span></span>
                     <span class="param-value" id="display-date">---</span>
                 </div>
                 <div class="param-row">
-                    <span class="param-label"><i class="fa-regular fa-wallet"></i> Budget:</span>
+                    <span class="param-label"><i class="fa-regular fa-wallet"></i> <span id="label-budget">Budget:</span></span>
                     <span class="param-value" id="display-budget">--- €</span>
                 </div>
             </div>
 
-            <!-- EXPEDIA WIDGET PLACEHOLDER (igual al de index.html pero vacío) -->
+            <!-- EXPEDIA WIDGET PLACEHOLDER -->
             <div style="margin: 40px 0;">
                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
                     <i class="fa-solid fa-hotel" style="color: var(--gold); font-size: 1.8rem;"></i>
-                    <h3 style="font-size: 1.5rem; color: var(--gold);">Expedia</h3>
-                    <span style="color: var(--text-gray); font-size: 0.8rem; margin-left: auto;">Find the best deals</span>
+                    <h3 style="font-size: 1.5rem; color: var(--gold);" id="expedia-title">Expedia</h3>
+                    <span style="color: var(--text-gray); font-size: 0.8rem; margin-left: auto;" id="expedia-subtitle">Find the best deals</span>
                 </div>
                 
-                <!-- Contenedor del widget (misma estructura que en index.html) -->
+                <!-- Contenedor del widget -->
                 <div class="expedia-placeholder" id="expedia-container">
                     <i class="fa-regular fa-spinner-third fa-spin" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
-                    <p style="font-size: 1.2rem; color: var(--text-gray);">Preparing your personalized search...</p>
+                    <p style="font-size: 1.2rem; color: var(--text-gray);" id="expedia-loading">Preparing your personalized search...</p>
                     <p style="color: var(--text-gray); margin-top: 10px;" id="expedia-message">Loading results for your criteria</p>
                 </div>
                 
                 <div class="expedia-features" style="display: flex; justify-content: center; gap: 30px; margin-top: 20px; color: var(--text-gray); font-size: 0.9rem;">
-                    <span><i class="fa-regular fa-hotel"></i> Hotels</span>
-                    <span><i class="fa-regular fa-plane"></i> Flights</span>
-                    <span><i class="fa-regular fa-car"></i> Cars</span>
-                    <span><i class="fa-regular fa-umbrella-beach"></i> Packages</span>
+                    <span><i class="fa-regular fa-hotel"></i> <span id="feature-hotels">Hotels</span></span>
+                    <span><i class="fa-regular fa-plane"></i> <span id="feature-flights">Flights</span></span>
+                    <span><i class="fa-regular fa-car"></i> <span id="feature-cars">Cars</span></span>
+                    <span><i class="fa-regular fa-umbrella-beach"></i> <span id="feature-packages">Packages</span></span>
                 </div>
             </div>
 
@@ -306,33 +331,33 @@
             <div style="text-align: center; margin-top: 40px;">
                 <a href="https://elitestayanalitycs.com/elite" class="btn-analytics">
                     <i class="fa-regular fa-chart-line" style="margin-right: 8px;"></i>
-                    Back to Elite Stay Analytics
+                    <span id="back-button">Back to Elite Stay Analytics</span>
                 </a>
             </div>
 
-            <!-- PANEL DE DEPURACIÓN (opcional, actívalo si necesitas ver los datos crudos) -->
+            <!-- PANEL DE DEPURACIÓN -->
             <div class="debug-panel" id="debug-panel">
-                <strong><i class="fa-regular fa-bug"></i> Debug Info:</strong>
+                <strong><i class="fa-regular fa-bug"></i> <span id="debug-title">Debug Info:</span></strong>
                 <pre id="debug-raw" style="margin-top: 10px; overflow-x: auto;"></pre>
             </div>
         </div>
     </div>
 
-    <!-- FOOTER (simplificado, igual al de index.html) -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-column">
-                <h4>EliteStayTravel</h4>
+                <h4 id="footer-company">EliteStayTravel</h4>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/#hoteles">Hotels</a></li>
-                    <li><a href="/#vuelos">Flights</a></li>
-                    <li><a href="/#contacto">Contact</a></li>
+                    <li><a href="/" id="footer-home">Home</a></li>
+                    <li><a href="/#hoteles" id="footer-hotels">Hotels</a></li>
+                    <li><a href="/#vuelos" id="footer-flights">Flights</a></li>
+                    <li><a href="/#contacto" id="footer-contact">Contact</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h4>Partners</h4>
+                <h4 id="footer-partners">Partners</h4>
                 <ul>
                     <li><span class="badge" style="background: #003580; color: #fcb415; padding: 3px 8px; border-radius: 4px;">Expedia</span></li>
                     <li><span class="badge" style="background: #003580; color: white; padding: 3px 8px; border-radius: 4px;">Booking.com</span></li>
@@ -341,7 +366,7 @@
             </div>
             
             <div class="footer-column">
-                <h4>Contact</h4>
+                <h4 id="footer-contact-title">Contact</h4>
                 <ul>
                     <li><i class="fa-regular fa-envelope"></i> elitestayoficial@gmail.com</li>
                 </ul>
@@ -349,19 +374,206 @@
         </div>
         
         <div class="copyright">
-            <p>© 2026 EliteStayTravel.com — All rights reserved</p>
+            <p id="copyright-text">© 2026 EliteStayTravel.com — All rights reserved</p>
         </div>
     </footer>
 
     <script>
-        // ===== LEER DATOS DE LA URL AL CARGAR LA PÁGINA =====
+        // ============================================
+        // SISTEMA DE IDIOMAS (COPIADO DE TU INDEX.HTML)
+        // ============================================
+        const textos = {
+            en: {
+                // Header
+                'logo-subtitle': 'Personalized Search',
+                'nav-home': 'Home',
+                'nav-hotels': 'Hotels',
+                'nav-flights': 'Flights',
+                'nav-about': 'About',
+                'nav-contact': 'Contact',
+                
+                // Main title
+                'title-part1': 'Your',
+                'title-part2': 'personalized',
+                'title-part3': 'search',
+                'powered-by': 'Powered by Analytics',
+                'description': 'Based on your budget calculated with Elite Stay Analytics',
+                
+                // Search criteria
+                'criteria-title': 'Your search criteria',
+                'label-from': 'From:',
+                'label-to': 'To:',
+                'label-date': 'Date:',
+                'label-budget': 'Budget:',
+                
+                // Expedia section
+                'expedia-title': 'Expedia',
+                'expedia-subtitle': 'Find the best deals',
+                'expedia-loading': 'Preparing your personalized search...',
+                'expedia-message': 'Loading results for your criteria',
+                'feature-hotels': 'Hotels',
+                'feature-flights': 'Flights',
+                'feature-cars': 'Cars',
+                'feature-packages': 'Packages',
+                
+                // Buttons
+                'back-button': 'Back to Elite Stay Analytics',
+                
+                // Debug
+                'debug-title': 'Debug Info:',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Home',
+                'footer-hotels': 'Hotels',
+                'footer-flights': 'Flights',
+                'footer-contact': 'Contact',
+                'footer-partners': 'Partners',
+                'footer-contact-title': 'Contact',
+                'copyright-text': '© 2026 EliteStayTravel.com — All rights reserved'
+            },
+            es: {
+                // Header
+                'logo-subtitle': 'Búsqueda Personalizada',
+                'nav-home': 'Inicio',
+                'nav-hotels': 'Hoteles',
+                'nav-flights': 'Vuelos',
+                'nav-about': 'Nosotros',
+                'nav-contact': 'Contacto',
+                
+                // Main title
+                'title-part1': 'Tu',
+                'title-part2': 'búsqueda',
+                'title-part3': 'personalizada',
+                'powered-by': 'Impulsado por Analytics',
+                'description': 'Basado en tu presupuesto calculado con Elite Stay Analytics',
+                
+                // Search criteria
+                'criteria-title': 'Tus criterios de búsqueda',
+                'label-from': 'Desde:',
+                'label-to': 'Hasta:',
+                'label-date': 'Fecha:',
+                'label-budget': 'Presupuesto:',
+                
+                // Expedia section
+                'expedia-title': 'Expedia',
+                'expedia-subtitle': 'Encuentra las mejores ofertas',
+                'expedia-loading': 'Preparando tu búsqueda personalizada...',
+                'expedia-message': 'Cargando resultados para tus criterios',
+                'feature-hotels': 'Hoteles',
+                'feature-flights': 'Vuelos',
+                'feature-cars': 'Autos',
+                'feature-packages': 'Paquetes',
+                
+                // Buttons
+                'back-button': 'Volver a Elite Stay Analytics',
+                
+                // Debug
+                'debug-title': 'Información de depuración:',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Inicio',
+                'footer-hotels': 'Hoteles',
+                'footer-flights': 'Vuelos',
+                'footer-contact': 'Contacto',
+                'footer-partners': 'Socios',
+                'footer-contact-title': 'Contacto',
+                'copyright-text': '© 2026 EliteStayTravel.com — Todos los derechos reservados'
+            },
+            fr: {
+                // Header
+                'logo-subtitle': 'Recherche Personnalisée',
+                'nav-home': 'Accueil',
+                'nav-hotels': 'Hôtels',
+                'nav-flights': 'Vols',
+                'nav-about': 'À Propos',
+                'nav-contact': 'Contact',
+                
+                // Main title
+                'title-part1': 'Votre',
+                'title-part2': 'recherche',
+                'title-part3': 'personnalisée',
+                'powered-by': 'Propulsé par Analytics',
+                'description': 'Basé sur votre budget calculé avec Elite Stay Analytics',
+                
+                // Search criteria
+                'criteria-title': 'Vos critères de recherche',
+                'label-from': 'De:',
+                'label-to': 'À:',
+                'label-date': 'Date:',
+                'label-budget': 'Budget:',
+                
+                // Expedia section
+                'expedia-title': 'Expedia',
+                'expedia-subtitle': 'Trouvez les meilleures offres',
+                'expedia-loading': 'Préparation de votre recherche personnalisée...',
+                'expedia-message': 'Chargement des résultats pour vos critères',
+                'feature-hotels': 'Hôtels',
+                'feature-flights': 'Vols',
+                'feature-cars': 'Voitures',
+                'feature-packages': 'Forfaits',
+                
+                // Buttons
+                'back-button': 'Retour à Elite Stay Analytics',
+                
+                // Debug
+                'debug-title': 'Infos de débogage:',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Accueil',
+                'footer-hotels': 'Hôtels',
+                'footer-flights': 'Vols',
+                'footer-contact': 'Contact',
+                'footer-partners': 'Partenaires',
+                'footer-contact-title': 'Contact',
+                'copyright-text': '© 2026 EliteStayTravel.com — Tous droits réservés'
+            }
+        };
+
+        // ============================================
+        // FUNCIÓN PARA CAMBIAR IDIOMA
+        // ============================================
+        function cambiarIdioma() {
+            const lang = document.getElementById('language').value;
+            
+            // Recorrer todos los textos y actualizar
+            for (let id in textos[lang]) {
+                const elemento = document.getElementById(id);
+                if (elemento) {
+                    elemento.innerText = textos[lang][id];
+                }
+            }
+            
+            // Guardar preferencia
+            localStorage.setItem('preferred-language', lang);
+            
+            console.log('Idioma cambiado a:', lang);
+        }
+
+        // ============================================
+        // CARGAR IDIOMA GUARDADO
+        // ============================================
+        function cargarIdiomaGuardado() {
+            const langGuardado = localStorage.getItem('preferred-language') || 'en';
+            document.getElementById('language').value = langGuardado;
+            cambiarIdioma();
+        }
+
+        // ============================================
+        // LEER DATOS DE LA URL
+        // ============================================
         window.onload = function() {
+            // Cargar idioma primero
+            cargarIdiomaGuardado();
+            
             // Obtener todos los parámetros de la URL
             const params = new URLSearchParams(window.location.search);
             
             // Mostrar los valores en la página
-            document.getElementById('display-origin').innerText = params.get('origin') || 'Not specified';
-            document.getElementById('display-dest').innerText = params.get('dest') || 'Not specified';
+            document.getElementById('display-origin').innerText = params.get('origin') || '---';
+            document.getElementById('display-dest').innerText = params.get('dest') || '---';
             
             // Formatear fecha si existe
             const dateParam = params.get('date');
@@ -370,7 +582,7 @@
                 const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
                 document.getElementById('display-date').innerText = formattedDate;
             } else {
-                document.getElementById('display-date').innerText = 'Not specified';
+                document.getElementById('display-date').innerText = '---';
             }
             
             const budget = params.get('budget');
@@ -394,33 +606,28 @@
                 budget: params.get('budget')
             });
             
-            // Panel de depuración (oculto, actívalo si necesitas)
+            // Panel de depuración
             const debugRaw = document.getElementById('debug-raw');
             if (debugRaw) {
                 debugRaw.innerText = JSON.stringify(Object.fromEntries(params), null, 2);
             }
             
-            // AQUÍ CONECTAREMOS CON EXPEDIA EN EL SIGUIENTE PASO
-            // Por ejemplo, podrías construir la URL del widget de Expedia con los parámetros
+            // Preparar widget de Expedia
             setupExpediaWidget(params);
         };
         
-        // Función para preparar el widget de Expedia (para el siguiente paso)
+        // Función para preparar el widget de Expedia
         function setupExpediaWidget(params) {
             const origin = params.get('origin');
             const dest = params.get('dest');
             const date = params.get('date');
-            const budget = params.get('budget');
             
-            // Aquí construiremos la URL del widget de Expedia
-            // Por ahora solo actualizamos el placeholder
             const container = document.getElementById('expedia-container');
             
-            // Podrías mostrar un mensaje más específico
             if (dest) {
                 container.innerHTML = `
                     <i class="fa-regular fa-circle-check" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
-                    <p style="font-size: 1.2rem;">✅ Ready to search</p>
+                    <p style="font-size: 1.2rem;">✅ <span id="expedia-ready">Ready to search</span></p>
                     <p style="color: var(--gold); margin-top: 10px;"><strong>${origin || 'Any'} → ${dest}</strong></p>
                     <p style="color: var(--text-gray); margin-top: 5px;">${date ? new Date(date).toLocaleDateString() : 'Flexible dates'}</p>
                     <p style="color: var(--text-gray); margin-top: 15px;"><small>Expedia widget will be integrated in the next step</small></p>
