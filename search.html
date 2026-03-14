@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteStayTravel - Personalized Search Results</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Personalized hotel and flight search results based on your Elite Stay Analytics budget">
+    
+    <!-- Scripts (mismos que en index.html) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== TUS MISMAS VARIABLES Y ESTILOS ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-dark: #0a0c12;
+            --bg-card: rgba(20, 24, 31, 0.95);
+            --gold: #b89b5e;
+            --gold-light: #d4b67c;
+            --text-light: #ffffff;
+            --text-gray: #a1a9b5;
+            --border-light: rgba(180, 155, 94, 0.2);
+            --expedia-blue: #00387e;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+        
+        /* Header (copiado de tu index.html) */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .logo p {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* ===== COMPONENTES ESPECÍFICOS PARA SEARCH ===== */
+        .search-results-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+        
+        .params-panel {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .param-row {
+            display: flex;
+            align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .param-row:last-child {
+            border-bottom: none;
+        }
+        
+        .param-label {
+            width: 150px;
+            color: var(--text-gray);
+            font-weight: 300;
+        }
+        
+        .param-value {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .expedia-placeholder {
+            background: var(--bg-dark);
+            border: 2px dashed var(--border-light);
+            border-radius: 16px;
+            padding: 60px 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .btn-analytics {
+            display: inline-block;
+            background: #00F5D4; /* Verde de Analytics */
+            color: #050505;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-analytics:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 245, 212, 0.2);
+        }
+        
+        .badge-analytics {
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid #00F5D4;
+            color: #00F5D4;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        
+        .debug-panel {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            border: 1px solid var(--border-light);
+            display: none; /* Oculto por defecto */
+        }
+        
+        .footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-gray);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER (idéntico al de index.html) -->
+        <header class="header">
+            <div class="logo">
+                <h1>ELITE<span>STAY</span>.com</h1>
+                <p>Personalized Search</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#hoteles">Hotels</a>
+                <a href="/#vuelos">Flights</a>
+                <a href="/#hoteles-asociados">Partner Hotels</a>
+                <a href="/#sobre-nosotros">About</a>
+                <a href="/#contacto">Contact</a>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT - RESULTADOS PERSONALIZADOS -->
+        <div class="search-results-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1 style="font-size: 2.5rem;">
+                    <span class="font-serif">Your</span> 
+                    <span style="color: var(--gold);">personalized</span> 
+                    <span class="font-serif">search</span>
+                </h1>
+                <span class="badge-analytics">
+                    <i class="fa-regular fa-chart-line"></i> Powered by Analytics
+                </span>
+            </div>
+            
+            <p style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 30px;">
+                Based on your budget calculated with Elite Stay Analytics
+            </p>
+
+            <!-- PANEL DE PARÁMETROS RECIBIDOS -->
+            <div class="params-panel" id="params-panel">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <i class="fa-regular fa-circle-check" style="color: var(--gold); font-size: 1.5rem;"></i>
+                    <h2 style="font-size: 1.5rem; color: var(--gold);">Your search criteria</h2>
+                </div>
+                
+                <div class="param-row">
+                    <span class="param-label"><i class="fa-regular fa-plane-departure"></i> From:</span>
+                    <span class="param-value" id="display-origin">---</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-label"><i class="fa-regular fa-plane-arrival"></i> To:</span>
+                    <span class="param-value" id="display-dest">---</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-label"><i class="fa-regular fa-calendar"></i> Date:</span>
+                    <span class="param-value" id="display-date">---</span>
+                </div>
+                <div class="param-row">
+                    <span class="param-label"><i class="fa-regular fa-wallet"></i> Budget:</span>
+                    <span class="param-value" id="display-budget">--- €</span>
+                </div>
+            </div>
+
+            <!-- EXPEDIA WIDGET PLACEHOLDER (igual al de index.html pero vacío) -->
+            <div style="margin: 40px 0;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <i class="fa-solid fa-hotel" style="color: var(--gold); font-size: 1.8rem;"></i>
+                    <h3 style="font-size: 1.5rem; color: var(--gold);">Expedia</h3>
+                    <span style="color: var(--text-gray); font-size: 0.8rem; margin-left: auto;">Find the best deals</span>
+                </div>
+                
+                <!-- Contenedor del widget (misma estructura que en index.html) -->
+                <div class="expedia-placeholder" id="expedia-container">
+                    <i class="fa-regular fa-spinner-third fa-spin" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
+                    <p style="font-size: 1.2rem; color: var(--text-gray);">Preparing your personalized search...</p>
+                    <p style="color: var(--text-gray); margin-top: 10px;" id="expedia-message">Loading results for your criteria</p>
+                </div>
+                
+                <div class="expedia-features" style="display: flex; justify-content: center; gap: 30px; margin-top: 20px; color: var(--text-gray); font-size: 0.9rem;">
+                    <span><i class="fa-regular fa-hotel"></i> Hotels</span>
+                    <span><i class="fa-regular fa-plane"></i> Flights</span>
+                    <span><i class="fa-regular fa-car"></i> Cars</span>
+                    <span><i class="fa-regular fa-umbrella-beach"></i> Packages</span>
+                </div>
+            </div>
+
+            <!-- BOTÓN PARA VOLVER A ANALYTICS -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://elitestayanalitycs.com/elite" class="btn-analytics">
+                    <i class="fa-regular fa-chart-line" style="margin-right: 8px;"></i>
+                    Back to Elite Stay Analytics
+                </a>
+            </div>
+
+            <!-- PANEL DE DEPURACIÓN (opcional, actívalo si necesitas ver los datos crudos) -->
+            <div class="debug-panel" id="debug-panel">
+                <strong><i class="fa-regular fa-bug"></i> Debug Info:</strong>
+                <pre id="debug-raw" style="margin-top: 10px; overflow-x: auto;"></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER (simplificado, igual al de index.html) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>EliteStayTravel</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#hoteles">Hotels</a></li>
+                    <li><a href="/#vuelos">Flights</a></li>
+                    <li><a href="/#contacto">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Partners</h4>
+                <ul>
+                    <li><span class="badge" style="background: #003580; color: #fcb415; padding: 3px 8px; border-radius: 4px;">Expedia</span></li>
+                    <li><span class="badge" style="background: #003580; color: white; padding: 3px 8px; border-radius: 4px;">Booking.com</span></li>
+                    <li><span class="badge" style="background: #00A9E0; color: white; padding: 3px 8px; border-radius: 4px;">Aviasales</span></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fa-regular fa-envelope"></i> elitestayoficial@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2026 EliteStayTravel.com — All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== LEER DATOS DE LA URL AL CARGAR LA PÁGINA =====
+        window.onload = function() {
+            // Obtener todos los parámetros de la URL
+            const params = new URLSearchParams(window.location.search);
+            
+            // Mostrar los valores en la página
+            document.getElementById('display-origin').innerText = params.get('origin') || 'Not specified';
+            document.getElementById('display-dest').innerText = params.get('dest') || 'Not specified';
+            
+            // Formatear fecha si existe
+            const dateParam = params.get('date');
+            if (dateParam) {
+                const date = new Date(dateParam);
+                const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('display-date').innerText = formattedDate;
+            } else {
+                document.getElementById('display-date').innerText = 'Not specified';
+            }
+            
+            const budget = params.get('budget');
+            document.getElementById('display-budget').innerText = budget ? budget + ' €' : '--- €';
+            
+            // Actualizar mensaje del widget de Expedia
+            const dest = params.get('dest');
+            const origin = params.get('origin');
+            const expediaMsg = document.getElementById('expedia-message');
+            if (dest && origin) {
+                expediaMsg.innerText = `Ready to search ${origin} → ${dest}`;
+            } else if (dest) {
+                expediaMsg.innerText = `Ready to search hotels in ${dest}`;
+            }
+            
+            // Mostrar datos en consola para depuración
+            console.log('📥 Search page - Datos recibidos:', {
+                origin: params.get('origin'),
+                dest: params.get('dest'),
+                date: params.get('date'),
+                budget: params.get('budget')
+            });
+            
+            // Panel de depuración (oculto, actívalo si necesitas)
+            const debugRaw = document.getElementById('debug-raw');
+            if (debugRaw) {
+                debugRaw.innerText = JSON.stringify(Object.fromEntries(params), null, 2);
+            }
+            
+            // AQUÍ CONECTAREMOS CON EXPEDIA EN EL SIGUIENTE PASO
+            // Por ejemplo, podrías construir la URL del widget de Expedia con los parámetros
+            setupExpediaWidget(params);
+        };
+        
+        // Función para preparar el widget de Expedia (para el siguiente paso)
+        function setupExpediaWidget(params) {
+            const origin = params.get('origin');
+            const dest = params.get('dest');
+            const date = params.get('date');
+            const budget = params.get('budget');
+            
+            // Aquí construiremos la URL del widget de Expedia
+            // Por ahora solo actualizamos el placeholder
+            const container = document.getElementById('expedia-container');
+            
+            // Podrías mostrar un mensaje más específico
+            if (dest) {
+                container.innerHTML = `
+                    <i class="fa-regular fa-circle-check" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
+                    <p style="font-size: 1.2rem;">✅ Ready to search</p>
+                    <p style="color: var(--gold); margin-top: 10px;"><strong>${origin || 'Any'} → ${dest}</strong></p>
+                    <p style="color: var(--text-gray); margin-top: 5px;">${date ? new Date(date).toLocaleDateString() : 'Flexible dates'}</p>
+                    <p style="color: var(--text-gray); margin-top: 15px;"><small>Expedia widget will be integrated in the next step</small></p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
