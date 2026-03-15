@@ -570,18 +570,12 @@ window.onload = function() {
     // Obtener todos los parámetros de la URL
     const params = new URLSearchParams(window.location.search);
     
-    // LEER TODOS los parámetros
-    const origin = params.get('origin') || '---';
-    const dest = params.get('dest') || '---';
+    // Mostrar los valores en la página
+    document.getElementById('display-origin').innerText = params.get('origin') || '---';
+    document.getElementById('display-dest').innerText = params.get('dest') || '---';
+    
+    // Formatear fecha si existe
     const dateParam = params.get('date');
-    const budget = params.get('budget');
-    const currency = params.get('currency') || 'USD';  // ← ¡ESTO ES LO QUE FALTA!
-    
-    // Mostrar origen y destino
-    document.getElementById('display-origin').innerText = origin;
-    document.getElementById('display-dest').innerText = dest;
-    
-    // Formatear fecha
     if (dateParam) {
         const date = new Date(dateParam);
         const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -590,10 +584,14 @@ window.onload = function() {
         document.getElementById('display-date').innerText = '---';
     }
     
-    // ✅ AHORA SÍ: Usar la moneda que viene de la URL
+    // ✅ CORREGIDO: Usar la moneda que llega por parámetro
+    const budget = params.get('budget');
+    const currency = params.get('currency') || 'USD';
     document.getElementById('display-budget').innerText = budget ? budget + ' ' + currency : '--- ' + currency;
     
     // Actualizar mensaje del widget de Expedia
+    const dest = params.get('dest');
+    const origin = params.get('origin');
     const expediaMsg = document.getElementById('expedia-message');
     if (dest && origin) {
         expediaMsg.innerText = `Ready to search ${origin} → ${dest}`;
@@ -601,14 +599,20 @@ window.onload = function() {
         expediaMsg.innerText = `Ready to search hotels in ${dest}`;
     }
     
-    // ✅ AHORA SÍ: Mostrar TODOS los datos
+    // Mostrar datos en consola para depuración (AHORA CON CURRENCY)
     console.log('📥 Search page - Datos recibidos:', {
-        origin,
-        dest,
-        date: dateParam,
-        budget,
-        currency
+        origin: params.get('origin'),
+        dest: params.get('dest'),
+        date: params.get('date'),
+        budget: params.get('budget'),
+        currency: params.get('currency')
     });
+    
+    // Panel de depuración
+    const debugRaw = document.getElementById('debug-raw');
+    if (debugRaw) {
+        debugRaw.innerText = JSON.stringify(Object.fromEntries(params), null, 2);
+    }
     
     // Preparar widget de Expedia
     setupExpediaWidget(params);
