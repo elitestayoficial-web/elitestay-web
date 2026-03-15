@@ -563,77 +563,62 @@
 
         // ============================================
         // LEER DATOS DE LA URL
-        // ============================================
-        window.onload = function() {
-            // Cargar idioma primero
-            cargarIdiomaGuardado();
-            
-            // Obtener todos los parámetros de la URL
-            const params = new URLSearchParams(window.location.search);
-            
-            // Mostrar los valores en la página
-            document.getElementById('display-origin').innerText = params.get('origin') || '---';
-            document.getElementById('display-dest').innerText = params.get('dest') || '---';
-            
-            // Formatear fecha si existe
-            const dateParam = params.get('date');
-            if (dateParam) {
-                const date = new Date(dateParam);
-                const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                document.getElementById('display-date').innerText = formattedDate;
-            } else {
-                document.getElementById('display-date').innerText = '---';
-            }
-            
-            const budget = params.get('budget');
-            document.getElementById('display-budget').innerText = budget ? budget + ' €' : '--- €';
-            
-            // Actualizar mensaje del widget de Expedia
-            const dest = params.get('dest');
-            const origin = params.get('origin');
-            const expediaMsg = document.getElementById('expedia-message');
-            if (dest && origin) {
-                expediaMsg.innerText = `Ready to search ${origin} → ${dest}`;
-            } else if (dest) {
-                expediaMsg.innerText = `Ready to search hotels in ${dest}`;
-            }
-            
-            // Mostrar datos en consola para depuración
-            console.log('📥 Search page - Datos recibidos:', {
-                origin: params.get('origin'),
-                dest: params.get('dest'),
-                date: params.get('date'),
-                budget: params.get('budget')
-            });
-            
-            // Panel de depuración
-            const debugRaw = document.getElementById('debug-raw');
-            if (debugRaw) {
-                debugRaw.innerText = JSON.stringify(Object.fromEntries(params), null, 2);
-            }
-            
-            // Preparar widget de Expedia
-            setupExpediaWidget(params);
-        };
-        
-        // Función para preparar el widget de Expedia
-        function setupExpediaWidget(params) {
-            const origin = params.get('origin');
-            const dest = params.get('dest');
-            const date = params.get('date');
-            
-            const container = document.getElementById('expedia-container');
-            
-            if (dest) {
-                container.innerHTML = `
-                    <i class="fa-regular fa-circle-check" style="font-size: 3rem; color: var(--gold); margin-bottom: 20px;"></i>
-                    <p style="font-size: 1.2rem;">✅ <span id="expedia-ready">Ready to search</span></p>
-                    <p style="color: var(--gold); margin-top: 10px;"><strong>${origin || 'Any'} → ${dest}</strong></p>
-                    <p style="color: var(--text-gray); margin-top: 5px;">${date ? new Date(date).toLocaleDateString() : 'Flexible dates'}</p>
-                    <p style="color: var(--text-gray); margin-top: 15px;"><small>Expedia widget will be integrated in the next step</small></p>
-                `;
-            }
-        }
+// ============================================
+window.onload = function() {
+    // Cargar idioma primero
+    cargarIdiomaGuardado();
+    
+    // Obtener todos los parámetros de la URL
+    const params = new URLSearchParams(window.location.search);
+    
+    // Mostrar los valores en la página
+    document.getElementById('display-origin').innerText = params.get('origin') || '---';
+    document.getElementById('display-dest').innerText = params.get('dest') || '---';
+    
+    // Formatear fecha si existe
+    const dateParam = params.get('date');
+    if (dateParam) {
+        const date = new Date(dateParam);
+        const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('display-date').innerText = formattedDate;
+    } else {
+        document.getElementById('display-date').innerText = '---';
+    }
+    
+    // 🔴 CORRECCIÓN AQUÍ: Leer moneda y mostrarla
+    const budget = params.get('budget');
+    const currency = params.get('currency') || 'USD';  // Si no viene moneda, usar USD
+    
+    document.getElementById('display-budget').innerText = budget ? budget + ' ' + currency : '--- ' + currency;
+    
+    // Actualizar mensaje del widget de Expedia
+    const dest = params.get('dest');
+    const origin = params.get('origin');
+    const expediaMsg = document.getElementById('expedia-message');
+    if (dest && origin) {
+        expediaMsg.innerText = `Ready to search ${origin} → ${dest}`;
+    } else if (dest) {
+        expediaMsg.innerText = `Ready to search hotels in ${dest}`;
+    }
+    
+    // Mostrar datos en consola para depuración
+    console.log('📥 Search page - Datos recibidos:', {
+        origin: params.get('origin'),
+        dest: params.get('dest'),
+        date: params.get('date'),
+        budget: params.get('budget'),
+        currency: params.get('currency')  // ← Ahora también mostramos la moneda
+    });
+    
+    // Panel de depuración
+    const debugRaw = document.getElementById('debug-raw');
+    if (debugRaw) {
+        debugRaw.innerText = JSON.stringify(Object.fromEntries(params), null, 2);
+    }
+    
+    // Preparar widget de Expedia
+    setupExpediaWidget(params);
+};
     </script>
 </body>
 </html>
