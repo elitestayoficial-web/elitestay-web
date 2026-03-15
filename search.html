@@ -563,7 +563,6 @@
 
         // ============================================
    // LEER DATOS DE LA URL
-// ============================================
 window.onload = function() {
     // Cargar idioma primero
     cargarIdiomaGuardado();
@@ -571,14 +570,14 @@ window.onload = function() {
     // Obtener todos los parámetros de la URL
     const params = new URLSearchParams(window.location.search);
     
-    // Leer TODOS los parámetros
+    // ✅ LEER TODOS los parámetros (INCLUYENDO CURRENCY)
     const origin = params.get('origin') || '---';
     const dest = params.get('dest') || '---';
     const dateParam = params.get('date');
     const budget = params.get('budget');
     const currency = params.get('currency') || 'USD';  // ← ¡ESTO ES CLAVE!
     
-    // Mostrar origen y destino
+    // Mostrar valores
     document.getElementById('display-origin').innerText = origin;
     document.getElementById('display-dest').innerText = dest;
     
@@ -591,34 +590,19 @@ window.onload = function() {
         document.getElementById('display-date').innerText = '---';
     }
     
-    // ✅ CORREGIDO: Usar la moneda que viene de la URL
+    // ✅ CORREGIDO: Usar la moneda
     document.getElementById('display-budget').innerText = budget ? budget + ' ' + currency : '--- ' + currency;
     
-    // Actualizar mensaje del widget de Expedia
-    const expediaMsg = document.getElementById('expedia-message');
-    if (dest && origin) {
-        expediaMsg.innerText = `Ready to search ${origin} → ${dest}`;
-    } else if (dest) {
-        expediaMsg.innerText = `Ready to search hotels in ${dest}`;
-    }
-    
-    // Mostrar datos en consola para depuración (AHORA INCLUYE CURRENCY)
+    // ✅ CORREGIDO: Incluir currency en console.log
     console.log('📥 Search page - Datos recibidos:', {
         origin,
         dest,
         date: dateParam,
         budget,
-        currency  // ← Ahora también mostramos la moneda
+        currency  // ← AHORA SÍ APARECE
     });
     
-    // Panel de depuración
-    const debugRaw = document.getElementById('debug-raw');
-    if (debugRaw) {
-        debugRaw.innerText = JSON.stringify(Object.fromEntries(params), null, 2);
-    }
-    
-    // Preparar widget de Expedia
-    setupExpediaWidget(params);
+    // ... resto del código ...
 };
     </script>
 </body>
