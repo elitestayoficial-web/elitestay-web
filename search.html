@@ -570,14 +570,14 @@ window.onload = function() {
     // Obtener todos los parámetros de la URL
     const params = new URLSearchParams(window.location.search);
     
-    // ✅ LEER TODOS los parámetros (INCLUYENDO CURRENCY)
+    // LEER TODOS los parámetros
     const origin = params.get('origin') || '---';
     const dest = params.get('dest') || '---';
     const dateParam = params.get('date');
     const budget = params.get('budget');
-    const currency = params.get('currency') || 'USD';  // ← ¡ESTO ES CLAVE!
+    const currency = params.get('currency') || 'USD';  // ← ¡ESTO ES LO QUE FALTA!
     
-    // Mostrar valores
+    // Mostrar origen y destino
     document.getElementById('display-origin').innerText = origin;
     document.getElementById('display-dest').innerText = dest;
     
@@ -590,19 +590,28 @@ window.onload = function() {
         document.getElementById('display-date').innerText = '---';
     }
     
-    // ✅ CORREGIDO: Usar la moneda
+    // ✅ AHORA SÍ: Usar la moneda que viene de la URL
     document.getElementById('display-budget').innerText = budget ? budget + ' ' + currency : '--- ' + currency;
     
-    // ✅ CORREGIDO: Incluir currency en console.log
+    // Actualizar mensaje del widget de Expedia
+    const expediaMsg = document.getElementById('expedia-message');
+    if (dest && origin) {
+        expediaMsg.innerText = `Ready to search ${origin} → ${dest}`;
+    } else if (dest) {
+        expediaMsg.innerText = `Ready to search hotels in ${dest}`;
+    }
+    
+    // ✅ AHORA SÍ: Mostrar TODOS los datos
     console.log('📥 Search page - Datos recibidos:', {
         origin,
         dest,
         date: dateParam,
         budget,
-        currency  // ← AHORA SÍ APARECE
+        currency
     });
     
-    // ... resto del código ...
+    // Preparar widget de Expedia
+    setupExpediaWidget(params);
 };
     </script>
 </body>
