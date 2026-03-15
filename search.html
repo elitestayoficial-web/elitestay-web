@@ -562,7 +562,7 @@
         }
 
         // ============================================
-    // LEER DATOS DE LA URL
+   // LEER DATOS DE LA URL
 // ============================================
 window.onload = function() {
     // Cargar idioma primero
@@ -576,7 +576,7 @@ window.onload = function() {
     const dest = params.get('dest') || '---';
     const dateParam = params.get('date');
     const budget = params.get('budget');
-    const currency = params.get('currency') || 'USD';  // ← CLAVE: leer moneda
+    const currency = params.get('currency') || 'USD';  // ← ¡ESTO ES CLAVE!
     
     // Mostrar origen y destino
     document.getElementById('display-origin').innerText = origin;
@@ -591,7 +591,7 @@ window.onload = function() {
         document.getElementById('display-date').innerText = '---';
     }
     
-    // ✅ CORREGIDO: Mostrar presupuesto con la moneda que llegó
+    // ✅ CORREGIDO: Usar la moneda que viene de la URL
     document.getElementById('display-budget').innerText = budget ? budget + ' ' + currency : '--- ' + currency;
     
     // Actualizar mensaje del widget de Expedia
@@ -602,13 +602,13 @@ window.onload = function() {
         expediaMsg.innerText = `Ready to search hotels in ${dest}`;
     }
     
-    // Mostrar datos en consola para depuración
+    // Mostrar datos en consola para depuración (AHORA INCLUYE CURRENCY)
     console.log('📥 Search page - Datos recibidos:', {
         origin,
         dest,
         date: dateParam,
         budget,
-        currency
+        currency  // ← Ahora también mostramos la moneda
     });
     
     // Panel de depuración
