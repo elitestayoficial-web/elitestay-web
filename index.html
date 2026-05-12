@@ -660,6 +660,26 @@
                 <option value="es">🇪🇸 Español</option>
                 <option value="fr">🇫🇷 Français</option>
             </select>
+                        <!-- Botón para ir a EliteStayAnalytics -->
+            <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
+                    style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
+                           border: none; 
+                           padding: 10px 20px; 
+                           border-radius: 30px; 
+                           color: #0a0c12; 
+                           font-weight: bold; 
+                           cursor: pointer;
+                           font-family: 'Inter', sans-serif;
+                           transition: transform 0.3s;
+                           white-space: nowrap;
+                           display: inline-flex;
+                           align-items: center;
+                           gap: 8px;"
+                    onmouseover="this.style.transform='scale(1.05)'"
+                    onmouseout="this.style.transform='scale(1)'">
+                <i class="fa-solid fa-chart-line"></i>
+                <span id="btn-analytics">Hotel Analytics</span>
+            </button>
         </header>
 
         <!-- AD TOP -->
@@ -1257,6 +1277,20 @@
                     elemento.innerText = textos[lang][id];
                 }
             }
+            const textos = {
+    en: {
+        // ... otros textos ...
+        'btn-analytics': 'Hotel Analytics'
+    },
+    es: {
+        // ... otros textos ...
+        'btn-analytics': 'Análisis de Hoteles'
+    },
+    fr: {
+        // ... otros textos ...
+        'btn-analytics': 'Analyse Hôtelière'
+    }
+};
             
             // Actualizar placeholders específicos
             const searchInput = document.getElementById('city');
