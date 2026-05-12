@@ -1559,6 +1559,31 @@
             if (checkin) checkin.valueAsDate = hoy;
             if (checkout) checkout.valueAsDate = manana;
         });
+            // ============================================
+    // VERSIÓN ULTRA SIMPLE - BOTÓN EN PARTNERS
+    // ============================================
+    const partnersArea = document.querySelector('.ad-container');
+    if (partnersArea) {
+        // Cambia el cursor para que sepa que puede hacer clic
+        partnersArea.style.cursor = 'pointer';
+        
+        // Cuando pasa el mouse, resalta el borde
+        partnersArea.addEventListener('mouseenter', function() {
+            this.style.border = '2px solid var(--gold)';
+            this.style.transition = 'all 0.3s ease';
+        });
+        
+        // Cuando quita el mouse, vuelve a la normalidad
+        partnersArea.addEventListener('mouseleave', function() {
+            this.style.border = '1px solid var(--border-light)';
+        });
+        
+        // Cuando hace clic, abre Analytics
+        partnersArea.addEventListener('click', function() {
+            window.open('https://elitestayanalitycs.com/elite', '_blank');
+        });
+    }
+});
     </script>
 </body>
 </html>   
