@@ -3,129 +3,1578 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EliteStayTravel.com - Luxury Hotels & Flights</title>
+    <title>EliteStayTravel.com - Luxury & Sustainable Hotels & Flights</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="EliteStayTravel: Luxury hotels and flights worldwide. Best prices on Booking.com, Expedia, and Aviasales.">
+    <meta name="keywords" content="luxury hotels, flights, sustainable travel, eco hotels, booking.com, aviasales">
+    <meta name="author" content="EliteStayTravel">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="EliteStayTravel.com - Luxury Hotels & Flights">
+    <meta property="og:description" content="Find your exclusive sanctuary and the best flights worldwide">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200">
+    <meta property="og:url" content="https://elitestaytravel.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0c12'/%3E%3Cpath d='M30 70 L50 30 L70 70' stroke='%23b89b5e' stroke-width='8' fill='none'/%3E%3C/svg%3E">
+    
+    <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #0a0c12; color: white; font-family: 'Inter', sans-serif; }
-        .gold { color: #b89b5e; }
-        .btn-gold { background: linear-gradient(135deg, #b89b5e, #d4b67c); border: none; padding: 10px 20px; border-radius: 30px; color: #0a0c12; font-weight: bold; cursor: pointer; transition: transform 0.3s; }
-        .btn-gold:hover { transform: scale(1.05); }
-        .container { max-width: 1280px; margin: 0 auto; padding: 20px; }
-        .header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(180, 155, 94, 0.2); margin-bottom: 40px; }
-        .logo h1 { font-size: 2rem; font-weight: 900; }
-        .logo p { font-size: 0.7rem; color: #b89b5e; letter-spacing: 3px; }
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { color: #a1a9b5; text-decoration: none; transition: color 0.3s; }
-        .nav-links a:hover { color: #b89b5e; }
-        select { background: #1a1e26; border: 1px solid #2a2e36; color: white; padding: 8px 15px; border-radius: 30px; cursor: pointer; }
-        .search-box { background: rgba(20, 24, 31, 0.95); border: 1px solid rgba(180, 155, 94, 0.2); border-radius: 24px; padding: 40px; text-align: center; }
-        .hotels-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-        .hotel-card { background: rgba(20, 24, 31, 0.95); border: 1px solid rgba(180, 155, 94, 0.2); border-radius: 16px; overflow: hidden; }
-        .hotel-card img { width: 100%; height: 200px; object-fit: cover; }
-        .hotel-info { padding: 20px; }
-        .hotel-title { font-size: 1.3rem; margin-bottom: 10px; }
-        .hotel-price { color: #b89b5e; font-size: 1.5rem; margin: 15px 0; }
-        .btn-book { display: block; background: transparent; border: 2px solid #b89b5e; color: #b89b5e; text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; margin-top: 15px; transition: all 0.3s; }
-        .btn-book:hover { background: #b89b5e; color: #0a0c12; }
-        .footer { text-align: center; padding: 40px; border-top: 1px solid rgba(180, 155, 94, 0.2); margin-top: 60px; color: #666; }
+        
+        :root {
+            --bg-dark: #0a0c12;
+            --bg-card: rgba(20, 24, 31, 0.95);
+            --gold: #b89b5e;
+            --gold-light: #d4b67c;
+            --text-light: #ffffff;
+            --text-gray: #a1a9b5;
+            --border-light: rgba(180, 155, 94, 0.2);
+            --expedia-blue: #00387e;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .logo p {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Expedia Widget Section - CON FONDO GRIS ORIGINAL */
+        .expedia-section {
+            margin-bottom: 40px;
+        }
+        
+        .expedia-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+        
+        .expedia-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .expedia-header i {
+            color: var(--gold);
+            font-size: 1.8rem;
+        }
+        
+        .expedia-header h3 {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .expedia-header span {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+        
+        /* Contenedor del widget con fondo gris oscuro original */
+        .expedia-widget-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 620px;
+            background: var(--bg-dark);
+            border-radius: 16px;
+            padding: 10px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .expedia-widget {
+            width: 300px;
+            height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+            background: white; /* Solo el iframe necesita fondo blanco */
+        }
+        
+        .expedia-widget iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+            background: white; /* Fondo blanco para el formulario de Expedia */
+        }
+        
+        .expedia-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .expedia-features i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+        
+        /* Buscador */
+        .search-box {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+        
+        .search-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .search-title span {
+            color: var(--gold);
+        }
+        
+        .search-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .search-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .search-input {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .search-input:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(180, 155, 94, 0.2);
+        }
+        
+        .btn-gold {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Widgets de Aviasales */
+        .aviasales-widget-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+        }
+        
+        .aviasales-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .aviasales-title i {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .aviasales-title h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+        
+        .aviasales-title span {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+        
+        .aviasales-widget-container iframe {
+            border-radius: 16px;
+            width: 100%;
+            min-height: 380px;
+            border: none;
+        }
+        
+        /* Filtros */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            align-items: center;
+        }
+        
+        .filter-select {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            color: white;
+            padding: 10px 30px 10px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        /* Grid de hoteles */
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .hotel-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .hotel-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+        }
+        
+        .hotel-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .hotel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .hotel-card:hover .hotel-image img {
+            transform: scale(1.1);
+        }
+        
+        .hotel-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            padding: 5px 15px;
+            border-radius: 30px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .hotel-info {
+            padding: 25px;
+        }
+        
+        .hotel-marca {
+            color: var(--gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .hotel-title {
+            font-size: 1.4rem;
+            margin: 5px 0;
+        }
+        
+        .hotel-location {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .hotel-location i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+        
+        .hotel-stars {
+            color: #fbbf24;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+        
+        .hotel-price {
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+            margin: 15px 0;
+        }
+        
+        .price-amount {
+            color: var(--gold);
+            font-size: 2rem;
+            font-weight: 300;
+        }
+        
+        .price-unit {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+        }
+        
+        .hotel-eco {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .eco-badge {
+            background: rgba(43, 109, 92, 0.15);
+            border: 1px solid rgba(43, 109, 92, 0.4);
+            color: #8bc5b4;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        
+        .hotel-link {
+            display: block;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            text-align: center;
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .hotel-link:hover {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+        
+        /* Estadísticas */
+        .stats-section {
+            margin: 40px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .stat-bar {
+            height: 4px;
+            background: rgba(180, 155, 94, 0.1);
+            border-radius: 2px;
+            margin-top: 10px;
+        }
+        
+        .stat-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            border-radius: 2px;
+        }
+        
+        /* Anuncios */
+        .ad-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .ad-label {
+            color: var(--text-gray);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+        }
+        
+        /* Sección legal */
+        .legal-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .legal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .legal-item h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .legal-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        .footer-column h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .contact-email {
+            color: var(--gold);
+            font-size: 1.1rem;
+            word-break: break-all;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-gray);
+            font-size: 0.8rem;
+        }
+        
+        /* Badges */
+        .booking-badge {
+            display: inline-block;
+            background: #003580;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+        
+        .aviasales-badge {
+            display: inline-block;
+            background: #00A9E0;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+        
+        .expedia-badge {
+            display: inline-block;
+            background: var(--expedia-blue);
+            color: #fcb415;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- HEADER CON BOTÓN ANALYTICS -->
-        <div class="header">
-            <div class="logo">
-                <h1>ELITE<span class="gold">STAY</span>.com</h1>
-                <p id="logo-subtitle">LUXURY HOTELS & FLIGHTS</p>
-            </div>
-            
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Hotels</a>
-                <a href="#">Flights</a>
-                <a href="#">Contact</a>
-            </div>
-            
-            <div style="display: flex; gap: 15px; align-items: center;">
-                <select id="language">
-                    <option value="en">🇺🇸 English</option>
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="fr">🇫🇷 Français</option>
-                </select>
-                
-                <!-- ⭐ BOTÓN ANALYTICS - ESTE ES EL IMPORTANTE ⭐ -->
-                <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
-                        class="btn-gold" 
-                        style="display: flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span>Hotel Analytics</span>
-                </button>
+       /*boton para ir a Elitestayanalitics*/
+        <!-- HEADER -->
+        <header class="header">
+    <div class="logo">
+        <h1>ELITE<span>STAY</span>.com</h1>
+        <p id="logo-subtitle">Luxury Hotels & Flights</p>
+    </div>
+    
+    <nav class="nav-links">
+        <a href="#inicio" id="nav-home">Home</a>
+        <a href="#hoteles" id="nav-hotels">Hotels</a>
+        <a href="#vuelos" id="nav-flights">Flights</a>
+        <a href="#hoteles-asociados" id="nav-partners">Partner Hotels</a>
+        <a href="#sobre-nosotros" id="nav-about">About</a>
+        <a href="#contacto" id="nav-contact">Contact</a>
+    </nav>
+    
+    <!-- Contenedor para idioma y botón analytics -->
+<div style="display: flex; gap: 15px; align-items: center;">
+    <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
+        <option value="en" selected>🇺🇸 English</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+    </select>
+    <button onclick="location.href='https://elitestayanalitycs.com/elite'" style="background:#b89b5e; border:none; padding:8px 16px; border-radius:25px; color:black; font-weight:bold; cursor:pointer; margin-left:10px;">📊 Analytics</button>
+    
+    <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
+            style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
+                   border: none; 
+                   padding: 10px 20px; 
+                   border-radius: 30px; 
+                   color: #0a0c12; 
+                   font-weight: bold; 
+                   cursor: pointer;
+                   font-family: 'Inter', sans-serif;
+                   white-space: nowrap;
+                   display: inline-flex;
+                   align-items: center;
+                   gap: 8px;">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Hotel Analytics</span>
+    </button>
+</div>
+
+        <!-- AD TOP -->
+        <div class="ad-container">
+            <div class="ad-label" id="ad-label-top">PARTNERS</div>
+            <div style="color: var(--text-gray);">
+                <span class="booking-badge">Booking.com</span> • 
+                <span class="aviasales-badge">Aviasales</span> • 
+                <span class="expedia-badge">Expedia</span> • 
+                <span id="expedia-text">Expedia</span> • 
+                <span id="hotels-text">Hotels.com</span>
             </div>
         </div>
 
-        <!-- HERO SECTION -->
-        <div class="search-box">
-            <h2 class="text-3xl font-serif mb-4">Find your <span class="gold">exclusive sanctuary</span></h2>
-            <p class="text-gray-400">Luxury hotels and flights worldwide</p>
+        <!-- EXPEDIA WIDGET SECTION - CON FONDO GRIS ORIGINAL -->
+        <section class="expedia-section">
+            <div class="expedia-container">
+                <div class="expedia-header">
+                    <i class="fa-solid fa-hotel"></i>
+                    <h3 id="expedia-title">Expedia</h3>
+                    <span id="expedia-powered">Find the best deals</span>
+                </div>
+                
+                <div class="expedia-widget-wrapper">
+                    <div class="expedia-widget">
+                        <div id="searchWidget" style="width:300px;height:600px;">
+                            <iframe id="widgetIframe" 
+                                src="https://www.expedia.co.uk/marketing/widgets/searchform/widget?wtt=1&tp1=101693544&tp2=&lob=H,FH,F,CA,CR,A&des=&wbi=1&olc=000000&whf=4&hfc=C7C7C7&wif=4&ifc=000000&wbc=FFCB00&wbf=4&bfc=3D3100&wws=1&sfs=H600FW300F&langid=2057" 
+                                width="100%" 
+                                height="100%" 
+                                scrolling="no" 
+                                frameborder="0">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="expedia-features">
+                    <span><i class="fa-regular fa-hotel"></i> Hotels</span>
+                    <span><i class="fa-regular fa-plane"></i> Flights</span>
+                    <span><i class="fa-regular fa-car"></i> Cars</span>
+                    <span><i class="fa-regular fa-umbrella-beach"></i> Packages</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERO SECTION - HOTEL SEARCH -->
+        <section id="inicio">
+            <div class="search-box">
+                <h2 class="search-title"><span id="search-title-part1">Find your</span> <span id="search-title-part2" style="color: var(--gold);">exclusive sanctuary</span></h2>
+                
+                <div class="search-grid">
+                    <input type="text" id="city" class="search-input" placeholder="Where to? (e.g., Paris, Rome, Tokyo, New York)" id="search-placeholder">
+                    <input type="date" id="checkin" class="search-input">
+                    <input type="date" id="checkout" class="search-input">
+                    <button onclick="buscarHoteles()" class="btn-gold">
+                        <i class="fa-solid fa-hotel" style="margin-right: 8px;"></i> <span id="search-button">Search Hotels</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLIGHTS WIDGET - AVISALES (BÚSQUEDA DE VUELOS) -->
+        <section id="vuelos">
+            <div class="aviasales-widget-container">
+                <div class="aviasales-title">
+                    <i class="fa-solid fa-plane"></i>
+                    <h3 id="flights-title">Find the best flights</h3>
+                    <span id="flights-powered">Powered by Aviasales</span>
+                </div>
+                
+                <!-- WIDGET DE BÚSQUEDA DE VUELOS -->
+                <script async src="https://tpembd.com/content?currency=usd&trs=498903&shmarker=703737&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.com%2Fsearch&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=23&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+            </div>
+        </section>
+
+        <!-- HOTEL PARTNERS WIDGET - AVISALES (NUEVO) -->
+        <section id="hoteles-asociados">
+            <div class="aviasales-widget-container">
+                <div class="aviasales-title">
+                    <i class="fa-solid fa-hotel"></i>
+                    <h3 id="partner-hotels-title">Partner Hotels</h3>
+                    <span id="partner-hotels-powered">Special offers</span>
+                </div>
+                
+                <!-- NUEVO WIDGET DE HOTELES ASOCIADOS -->
+                <script async src="https://tpembd.com/content?currency=USD&trs=498903&shmarker=703737&locale=en&category=2&amount=3&powered_by=true&campaign_id=137&promo_id=4497" charset="utf-8"></script>
+            </div>
+        </section>
+
+        <!-- FILTERS -->
+        <div class="filters">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-sliders" style="color: var(--gold);"></i>
+                <span id="filters-label">Filters:</span>
+            </div>
+            
+            <select class="filter-select" id="price-filter" onchange="aplicarFiltros()">
+                <option value="5000" id="filter-all-prices">All prices</option>
+                <option value="100" id="filter-up-to-100">Up to $100</option>
+                <option value="300" id="filter-up-to-300">Up to $300</option>
+                <option value="500" id="filter-up-to-500">Up to $500</option>
+                <option value="1000" id="filter-up-to-1000">Up to $1000</option>
+                <option value="2000" id="filter-up-to-2000">Up to $2000</option>
+            </select>
+            
+            <select class="filter-select" id="stars-filter" onchange="aplicarFiltros()">
+                <option value="0" id="filter-all-stars">All stars</option>
+                <option value="5">★★★★★ (5)</option>
+                <option value="4">★★★★ (4+)</option>
+                <option value="3">★★★ (3+)</option>
+            </select>
+            
+            <select class="filter-select" id="sort-filter" onchange="aplicarFiltros()">
+                <option value="default" id="sort-default">Sort by</option>
+                <option value="price-asc" id="sort-price-asc">Price: Low to High</option>
+                <option value="price-desc" id="sort-price-desc">Price: High to Low</option>
+                <option value="stars-desc" id="sort-stars">Top Rated</option>
+            </select>
+            
+            <button onclick="resetFiltros()" class="filter-select" style="background: transparent; border-color: var(--text-gray); color: var(--text-gray);">
+                <i class="fa-regular fa-trash-can"></i> <span id="reset-button">Reset</span>
+            </button>
+        </div>
+
+        <!-- STATISTICS -->
+        <div class="stats-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3 style="font-size: 1.5rem;" id="stats-title">Most Searched Destinations</h3>
+                <button onclick="resetEstadisticas()" class="filter-select" style="background: transparent; padding: 8px 20px;">
+                    <i class="fa-regular fa-trash-can"></i> <span id="reset-stats">Reset stats</span>
+                </button>
+            </div>
+            <div id="stats-container" class="stats-grid">
+                <!-- Se carga con JS -->
+            </div>
+        </div>
+
+        <!-- AD MIDDLE -->
+        <div class="ad-container">
+            <div class="ad-label" id="ad-label-middle">SPONSORED</div>
+            <div style="color: var(--text-gray);" id="sponsored-text">Best prices on luxury hotels and flights</div>
         </div>
 
         <!-- HOTELS SECTION -->
-        <div id="hotels-container" class="hotels-grid">
-            <div class="hotel-card">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400" alt="Hotel">
-                <div class="hotel-info">
-                    <h3 class="hotel-title">Grand Hotel Royal</h3>
-                    <p>Rome, Italy</p>
-                    <div class="hotel-price">$895</div>
-                    <a href="#" class="btn-book">View on Booking.com</a>
+        <section id="hoteles">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                <h2 style="font-size: 1.8rem;">
+                    <span id="results-count">45</span> <span id="hotels-available">luxury hotels available</span>
+                </h2>
+                <div style="color: var(--gold);">
+                    <i class="fa-regular fa-building"></i> <span id="partners-with">Partners with</span> <span class="booking-badge">Booking.com</span>
                 </div>
             </div>
-            <div class="hotel-card">
-                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400" alt="Hotel">
-                <div class="hotel-info">
-                    <h3 class="hotel-title">Parisian Elegance</h3>
-                    <p>Paris, France</p>
-                    <div class="hotel-price">$890</div>
-                    <a href="#" class="btn-book">View on Booking.com</a>
-                </div>
+
+            <div id="hotels-container" class="hotels-grid">
+                <!-- Se carga con JavaScript -->
             </div>
-            <div class="hotel-card">
-                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400" alt="Hotel">
-                <div class="hotel-info">
-                    <h3 class="hotel-title">Tokyo Imperial</h3>
-                    <p>Tokyo, Japan</p>
-                    <div class="hotel-price">$950</div>
-                    <a href="#" class="btn-book">View on Booking.com</a>
-                </div>
+        </section>
+
+        <!-- AD BOTTOM -->
+        <div class="ad-container">
+            <div class="ad-label" id="ad-label-bottom">SPONSORED LINKS</div>
+            <div style="color: var(--text-gray);">
+                <span class="booking-badge">Booking.com</span> • 
+                <span class="aviasales-badge">Aviasales</span> • 
+                <span class="expedia-badge">Expedia</span> • 
+                <span id="expedia-text2">Expedia</span> • 
+                <span id="hotels-text2">Hotels.com</span> • Agoda
             </div>
         </div>
 
-        <div class="footer">
-            <p>© 2026 EliteStayTravel.com — All rights reserved</p>
-        </div>
+        <!-- ABOUT SECTION -->
+        <section id="sobre-nosotros" class="legal-section">
+            <h2 style="font-size: 2rem; text-align: center; margin-bottom: 40px;"><span id="about-title">About</span> <span style="color: var(--gold);" id="about-title-gold">Us</span></h2>
+            
+            <div class="legal-grid">
+                <div class="legal-item">
+                    <h3 id="story-title">✨ Our Story</h3>
+                    <p id="story-text">EliteStayTravel was born from a passion for luxury travel and sustainability. Since 2024, we connect discerning travelers with the world's finest hotels and flights.</p>
+                </div>
+                
+                <div class="legal-item">
+                    <h3 id="mission-title">🌍 Our Mission</h3>
+                    <p id="mission-text">To offer exclusive travel experiences that meet the highest standards of luxury while respecting the destinations we love. All our partners meet strict quality criteria.</p>
+                </div>
+                
+                <div class="legal-item" id="contacto">
+                    <h3 id="contact-title">📞 Contact</h3>
+                    <p><i class="fa-regular fa-envelope" style="color: var(--gold); margin-right: 10px;"></i> <strong class="contact-email">elitestayoficial@gmail.com</strong></p>
+                    <p style="margin-top: 15px;"><i class="fa-regular fa-clock" style="color: var(--gold); margin-right: 10px;"></i> <span id="response-time">Response within 24h</span></p>
+                    <p style="margin-top: 15px;"><i class="fa-regular fa-building" style="color: var(--gold); margin-right: 10px;"></i> <span id="office-location">Head Office: London, UK</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEGAL -->
+        <section class="legal-section">
+            <div class="legal-grid">
+                <div class="legal-item">
+                    <h3 id="terms-title">⚖️ Terms & Conditions</h3>
+                    <p id="terms-text">By using EliteStayTravel.com, you agree to our terms of service. All bookings are made through our partners.</p>
+                </div>
+                
+                <div class="legal-item">
+                    <h3 id="privacy-title">🔒 Privacy Policy</h3>
+                    <p id="privacy-text">Your privacy is important. We only collect information necessary to improve your search experience.</p>
+                </div>
+                
+                <div class="legal-item">
+                    <h3 id="attribution-title">📋 Attribution</h3>
+                    <p id="attribution-text">This site participates in affiliate programs of Booking.com, Aviasales, Expedia and Hotels.com.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script>
-        // Selector de idioma
-        const textos = {
-            en: { 'logo-subtitle': 'LUXURY HOTELS & FLIGHTS' },
-            es: { 'logo-subtitle': 'HOTELES Y VUELOS DE LUJO' },
-            fr: { 'logo-subtitle': 'HÔTELS ET VOLS DE LUXE' }
-        };
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4 id="footer-company">EliteStayTravel</h4>
+                <ul>
+                    <li><a href="#inicio" id="footer-home">Home</a></li>
+                    <li><a href="#hoteles" id="footer-hotels">Hotels</a></li>
+                    <li><a href="#vuelos" id="footer-flights">Flights</a></li>
+                    <li><a href="#hoteles-asociados" id="footer-partner-hotels">Partner Hotels</a></li>
+                    <li><a href="#contacto" id="footer-contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4 id="footer-destinations">Destinations</h4>
+                <ul>
+                    <li><a href="#" onclick="buscarDestino('Paris')" id="footer-paris">Paris</a></li>
+                    <li><a href="#" onclick="buscarDestino('Roma')" id="footer-rome">Rome</a></li>
+                    <li><a href="#" onclick="buscarDestino('Tokio')" id="footer-tokyo">Tokyo</a></li>
+                    <li><a href="#" onclick="buscarDestino('Nueva York')" id="footer-ny">New York</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4 id="footer-partners">Partners</h4>
+                <ul>
+                    <li><span class="booking-badge">Booking.com</span></li>
+                    <li><span class="aviasales-badge">Aviasales</span></li>
+                    <li><span class="expedia-badge">Expedia</span></li>
+                    <li id="footer-expedia">Expedia</li>
+                    <li id="footer-hotels">Hotels.com</li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4 id="footer-contact-title">Contact</h4>
+                <ul>
+                    <li><i class="fa-regular fa-envelope"></i> <span class="contact-email">elitestayoficial@gmail.com</span></li>
+                    <li><i class="fa-regular fa-clock"></i> <span id="footer-support">24/7 Support</span></li>
+                    <li><i class="fa-regular fa-building"></i> <span id="footer-location">London, UK</span></li>
+                </ul>
+            </div>
+        </div>
         
-        const langSelect = document.getElementById('language');
-        if (langSelect) {
-            langSelect.addEventListener('change', function() {
-                const lang = this.value;
-                const subtitle = document.getElementById('logo-subtitle');
-                if (subtitle && textos[lang]) {
-                    subtitle.textContent = textos[lang]['logo-subtitle'];
+        <div class="copyright">
+            <p id="copyright-text">© 2026 EliteStayTravel.com — All rights reserved</p>
+            <p style="margin-top: 10px;" id="copyright-partners">Partners: <span class="booking-badge">Booking.com</span> • <span class="aviasales-badge">Aviasales</span> • <span class="expedia-badge">Expedia</span> • Expedia • Hotels.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // CONFIGURACIÓN DE IDIOMAS
+        // ============================================
+        const textos = {
+            en: {
+                // Header
+                'logo-subtitle': 'Luxury Hotels & Flights',
+                'nav-home': 'Home',
+                'nav-hotels': 'Hotels',
+                'nav-flights': 'Flights',
+                'nav-partners': 'Partner Hotels',
+                'nav-about': 'About',
+                'nav-contact': 'Contact',
+                
+                // Ads
+                'ad-label-top': 'PARTNERS',
+                'expedia-text': 'Expedia',
+                'hotels-text': 'Hotels.com',
+                
+                // Expedia
+                'expedia-title': 'Expedia',
+                'expedia-powered': 'Find the best deals',
+                
+                // Search
+                'search-title-part1': 'Find your',
+                'search-title-part2': 'exclusive sanctuary',
+                'search-placeholder': 'Where to? (e.g., Paris, Rome, Tokyo, New York)',
+                'search-button': 'Search Hotels',
+                
+                // Flights
+                'flights-title': 'Find the best flights',
+                'flights-powered': 'Powered by Aviasales',
+                
+                // Partner Hotels
+                'partner-hotels-title': 'Partner Hotels',
+                'partner-hotels-powered': 'Special offers',
+                
+                // Filters
+                'filters-label': 'Filters:',
+                'filter-all-prices': 'All prices',
+                'filter-up-to-100': 'Up to $100',
+                'filter-up-to-300': 'Up to $300',
+                'filter-up-to-500': 'Up to $500',
+                'filter-up-to-1000': 'Up to $1000',
+                'filter-up-to-2000': 'Up to $2000',
+                'filter-all-stars': 'All stars',
+                'sort-default': 'Sort by',
+                'sort-price-asc': 'Price: Low to High',
+                'sort-price-desc': 'Price: High to Low',
+                'sort-stars': 'Top Rated',
+                'reset-button': 'Reset',
+                
+                // Stats
+                'stats-title': 'Most Searched Destinations',
+                'reset-stats': 'Reset stats',
+                
+                // Sponsored
+                'ad-label-middle': 'SPONSORED',
+                'sponsored-text': 'Best prices on luxury hotels and flights',
+                'ad-label-bottom': 'SPONSORED LINKS',
+                'expedia-text2': 'Expedia',
+                'hotels-text2': 'Hotels.com',
+                
+                // Hotels section
+                'hotels-available': 'luxury hotels available',
+                'partners-with': 'Partners with',
+                
+                // About
+                'about-title': 'About',
+                'about-title-gold': 'Us',
+                'story-title': '✨ Our Story',
+                'story-text': 'EliteStayTravel was born from a passion for luxury travel and sustainability. Since 2024, we connect discerning travelers with the world\'s finest hotels and flights.',
+                'mission-title': '🌍 Our Mission',
+                'mission-text': 'To offer exclusive travel experiences that meet the highest standards of luxury while respecting the destinations we love. All our partners meet strict quality criteria.',
+                'contact-title': '📞 Contact',
+                'response-time': 'Response within 24h',
+                'office-location': 'Head Office: London, UK',
+                
+                // Legal
+                'terms-title': '⚖️ Terms & Conditions',
+                'terms-text': 'By using EliteStayTravel.com, you agree to our terms of service. All bookings are made through our partners.',
+                'privacy-title': '🔒 Privacy Policy',
+                'privacy-text': 'Your privacy is important. We only collect information necessary to improve your search experience.',
+                'attribution-title': '📋 Attribution',
+                'attribution-text': 'This site participates in affiliate programs of Booking.com, Aviasales, Expedia and Hotels.com.',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Home',
+                'footer-hotels': 'Hotels',
+                'footer-flights': 'Flights',
+                'footer-partner-hotels': 'Partner Hotels',
+                'footer-contact': 'Contact',
+                'footer-destinations': 'Destinations',
+                'footer-paris': 'Paris',
+                'footer-rome': 'Rome',
+                'footer-tokyo': 'Tokyo',
+                'footer-ny': 'New York',
+                'footer-partners': 'Partners',
+                'footer-expedia': 'Expedia',
+                'footer-hotels': 'Hotels.com',
+                'footer-contact-title': 'Contact',
+                'footer-support': '24/7 Support',
+                'footer-location': 'London, UK',
+                'copyright-text': '© 2026 EliteStayTravel.com — All rights reserved',
+                'copyright-partners': 'Partners: Booking.com • Aviasales • Expedia • Hotels.com'
+            },
+            es: {
+                // Header
+                'logo-subtitle': 'Hoteles y Vuelos de Lujo',
+                'nav-home': 'Inicio',
+                'nav-hotels': 'Hoteles',
+                'nav-flights': 'Vuelos',
+                'nav-partners': 'Hoteles Asociados',
+                'nav-about': 'Nosotros',
+                'nav-contact': 'Contacto',
+                
+                // Ads
+                'ad-label-top': 'SOCIOS',
+                'expedia-text': 'Expedia',
+                'hotels-text': 'Hotels.com',
+                
+                // Expedia
+                'expedia-title': 'Expedia',
+                'expedia-powered': 'Encuentra las mejores ofertas',
+                
+                // Search
+                'search-title-part1': 'Encuentra tu',
+                'search-title-part2': 'refugio exclusivo',
+                'search-placeholder': '¿A dónde vas? (Ej: París, Roma, Tokio, Nueva York)',
+                'search-button': 'Buscar Hoteles',
+                
+                // Flights
+                'flights-title': 'Encuentra los mejores vuelos',
+                'flights-powered': 'Por Aviasales',
+                
+                // Partner Hotels
+                'partner-hotels-title': 'Hoteles Asociados',
+                'partner-hotels-powered': 'Ofertas especiales',
+                
+                // Filters
+                'filters-label': 'Filtros:',
+                'filter-all-prices': 'Todos los precios',
+                'filter-up-to-100': 'Hasta $100',
+                'filter-up-to-300': 'Hasta $300',
+                'filter-up-to-500': 'Hasta $500',
+                'filter-up-to-1000': 'Hasta $1000',
+                'filter-up-to-2000': 'Hasta $2000',
+                'filter-all-stars': 'Todas las estrellas',
+                'sort-default': 'Ordenar por',
+                'sort-price-asc': 'Precio: menor a mayor',
+                'sort-price-desc': 'Precio: mayor a menor',
+                'sort-stars': 'Mejor calificados',
+                'reset-button': 'Resetear',
+                
+                // Stats
+                'stats-title': 'Destinos más buscados',
+                'reset-stats': 'Resetear stats',
+                
+                // Sponsored
+                'ad-label-middle': 'PATROCINADO',
+                'sponsored-text': 'Mejores precios en hoteles y vuelos de lujo',
+                'ad-label-bottom': 'ENLACES PATROCINADOS',
+                'expedia-text2': 'Expedia',
+                'hotels-text2': 'Hotels.com',
+                
+                // Hotels section
+                'hotels-available': 'hoteles de lujo disponibles',
+                'partners-with': 'Asociados con',
+                
+                // About
+                'about-title': 'Sobre',
+                'about-title-gold': 'Nosotros',
+                'story-title': '✨ Nuestra Historia',
+                'story-text': 'EliteStayTravel nació de la pasión por los viajes de lujo y la sostenibilidad. Desde 2024, conectamos viajeros exigentes con los mejores hoteles y vuelos del mundo.',
+                'mission-title': '🌍 Nuestra Misión',
+                'mission-text': 'Ofrecer experiencias de viaje exclusivas que cumplan con los más altos estándares de lujo, respetando los destinos que amamos.',
+                'contact-title': '📞 Contacto',
+                'response-time': 'Respuesta en menos de 24h',
+                'office-location': 'Oficina central: Londres, UK',
+                
+                // Legal
+                'terms-title': '⚖️ Términos y Condiciones',
+                'terms-text': 'Al usar EliteStayTravel.com, aceptas nuestros términos. Todas las reservas se realizan a través de nuestros socios.',
+                'privacy-title': '🔒 Política de Privacidad',
+                'privacy-text': 'Tu privacidad es importante. Solo recopilamos información necesaria para mejorar tu experiencia.',
+                'attribution-title': '📋 Atribución',
+                'attribution-text': 'Este sitio participa en programas de afiliados de Booking.com, Aviasales, Expedia y Hotels.com.',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Inicio',
+                'footer-hotels': 'Hoteles',
+                'footer-flights': 'Vuelos',
+                'footer-partner-hotels': 'Hoteles Asociados',
+                'footer-contact': 'Contacto',
+                'footer-destinations': 'Destinos',
+                'footer-paris': 'París',
+                'footer-rome': 'Roma',
+                'footer-tokyo': 'Tokio',
+                'footer-ny': 'Nueva York',
+                'footer-partners': 'Socios',
+                'footer-expedia': 'Expedia',
+                'footer-hotels': 'Hotels.com',
+                'footer-contact-title': 'Contacto',
+                'footer-support': 'Soporte 24/7',
+                'footer-location': 'Londres, UK',
+                'copyright-text': '© 2026 EliteStayTravel.com — Todos los derechos reservados',
+                'copyright-partners': 'Socios: Booking.com • Aviasales • Expedia • Hotels.com'
+            },
+            fr: {
+                // Header
+                'logo-subtitle': 'Hôtels et Vols de Luxe',
+                'nav-home': 'Accueil',
+                'nav-hotels': 'Hôtels',
+                'nav-flights': 'Vols',
+                'nav-partners': 'Hôtels Partenaires',
+                'nav-about': 'À Propos',
+                'nav-contact': 'Contact',
+                
+                // Ads
+                'ad-label-top': 'PARTENAIRES',
+                'expedia-text': 'Expedia',
+                'hotels-text': 'Hotels.com',
+                
+                // Expedia
+                'expedia-title': 'Expedia',
+                'expedia-powered': 'Trouvez les meilleures offres',
+                
+                // Search
+                'search-title-part1': 'Trouvez votre',
+                'search-title-part2': 'sanctuaire exclusif',
+                'search-placeholder': 'Où allez-vous? (Ex: Paris, Rome, Tokyo, New York)',
+                'search-button': 'Rechercher',
+                
+                // Flights
+                'flights-title': 'Trouvez les meilleurs vols',
+                'flights-powered': 'Propulsé par Aviasales',
+                
+                // Partner Hotels
+                'partner-hotels-title': 'Hôtels Partenaires',
+                'partner-hotels-powered': 'Offres spéciales',
+                
+                // Filters
+                'filters-label': 'Filtres:',
+                'filter-all-prices': 'Tous les prix',
+                'filter-up-to-100': 'Jusqu\'à $100',
+                'filter-up-to-300': 'Jusqu\'à $300',
+                'filter-up-to-500': 'Jusqu\'à $500',
+                'filter-up-to-1000': 'Jusqu\'à $1000',
+                'filter-up-to-2000': 'Jusqu\'à $2000',
+                'filter-all-stars': 'Toutes les étoiles',
+                'sort-default': 'Trier par',
+                'sort-price-asc': 'Prix: croissant',
+                'sort-price-desc': 'Prix: décroissant',
+                'sort-stars': 'Mieux notés',
+                'reset-button': 'Réinitialiser',
+                
+                // Stats
+                'stats-title': 'Destinations les plus recherchées',
+                'reset-stats': 'Réinitialiser',
+                
+                // Sponsored
+                'ad-label-middle': 'SPONSORISÉ',
+                'sponsored-text': 'Meilleurs prix sur les hôtels et vols de luxe',
+                'ad-label-bottom': 'LIENS SPONSORISÉS',
+                'expedia-text2': 'Expedia',
+                'hotels-text2': 'Hotels.com',
+                
+                // Hotels section
+                'hotels-available': 'hôtels de luxe disponibles',
+                'partners-with': 'Partenaires avec',
+                
+                // About
+                'about-title': 'À Propos',
+                'about-title-gold': 'de Nous',
+                'story-title': '✨ Notre Histoire',
+                'story-text': 'EliteStayTravel est né d\'une passion pour les voyages de luxe et la durabilité. Depuis 2024, nous connectons les voyageurs exigeants avec les meilleurs hôtels et vols.',
+                'mission-title': '🌍 Notre Mission',
+                'mission-text': 'Offrir des expériences de voyage exclusives qui respectent les plus hauts standards de luxe tout en protégeant les destinations.',
+                'contact-title': '📞 Contact',
+                'response-time': 'Réponse sous 24h',
+                'office-location': 'Siège social: Londres, UK',
+                
+                // Legal
+                'terms-title': '⚖️ Conditions',
+                'terms-text': 'En utilisant EliteStayTravel.com, vous acceptez nos conditions. Toutes les réservations se font via nos partenaires.',
+                'privacy-title': '🔒 Confidentialité',
+                'privacy-text': 'Votre vie privée est importante. Nous collectons uniquement les informations nécessaires.',
+                'attribution-title': '📋 Attribution',
+                'attribution-text': 'Ce site participe aux programmes d\'affiliation de Booking.com, Aviasales, Expedia et Hotels.com.',
+                
+                // Footer
+                'footer-company': 'EliteStayTravel',
+                'footer-home': 'Accueil',
+                'footer-hotels': 'Hôtels',
+                'footer-flights': 'Vols',
+                'footer-partner-hotels': 'Hôtels Partenaires',
+                'footer-contact': 'Contact',
+                'footer-destinations': 'Destinations',
+                'footer-paris': 'Paris',
+                'footer-rome': 'Rome',
+                'footer-tokyo': 'Tokyo',
+                'footer-ny': 'New York',
+                'footer-partners': 'Partenaires',
+                'footer-expedia': 'Expedia',
+                'footer-hotels': 'Hotels.com',
+                'footer-contact-title': 'Contact',
+                'footer-support': 'Support 24/7',
+                'footer-location': 'Londres, UK',
+                'copyright-text': '© 2026 EliteStayTravel.com — Tous droits réservés',
+                'copyright-partners': 'Partenaires: Booking.com • Aviasales • Expedia • Hotels.com'
+            }
+        };
+
+        // ============================================
+        // FUNCIÓN PARA CAMBIAR IDIOMA
+        // ============================================
+        function cambiarIdioma() {
+            const lang = document.getElementById('language').value;
+            
+            // Recorrer todos los textos y actualizar
+            for (let id in textos[lang]) {
+                const elemento = document.getElementById(id);
+                if (elemento) {
+                    elemento.innerText = textos[lang][id];
                 }
-            });
+            }
+            const textos = {
+    en: {
+        // ... otros textos ...
+        'btn-analytics': 'Hotel Analytics'
+    },
+    es: {
+        // ... otros textos ...
+        'btn-analytics': 'Análisis de Hoteles'
+    },
+    fr: {
+        // ... otros textos ...
+        'btn-analytics': 'Analyse Hôtelière'
+    }
+};
+            
+            // Actualizar placeholders específicos
+            const searchInput = document.getElementById('city');
+            if (searchInput) {
+                searchInput.placeholder = textos[lang]['search-placeholder'];
+            }
+            
+            // Guardar preferencia
+            localStorage.setItem('preferred-language', lang);
+            
+            console.log('Idioma cambiado a:', lang);
         }
+
+        // ============================================
+        // CARGAR IDIOMA GUARDADO
+        // ============================================
+        function cargarIdiomaGuardado() {
+            const langGuardado = localStorage.getItem('preferred-language') || 'en';
+            document.getElementById('language').value = langGuardado;
+            cambiarIdioma();
+        }
+
+        // ============================================
+        // CONFIGURACIÓN
+        // ============================================
+        const API_CONFIG = {
+            token: 'a6c889c03ac265b133e99a349a2f7dcb',
+            baseURL: 'https://api.travelpayouts.com/v2'
+        };
+
+        console.log('✅ EliteStayTravel - Configuración lista');
+        
+        // ============================================
+        // BASE DE DATOS DE HOTELES
+        // ============================================
+        const HOTELES = [
+            // EUROPA
+            { id:1, nombre:"Grand Hotel Royal", ciudad:"Roma", pais:"Italia", marca:"The Luxury Collection", precio:895, estrellas:5, co2:12, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/it/royal" },
+            { id:2, nombre:"Villa Santorini", ciudad:"Santorini", pais:"Grecia", marca:"Elite Retreats", precio:1250, estrellas:5, co2:8, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/gr/santorini" },
+            { id:3, nombre:"The Green Palace", ciudad:"Barcelona", pais:"España", marca:"Sustainable Luxe", precio:720, estrellas:4, co2:5, eco:"Zero Emissions", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/es/green" },
+            { id:4, nombre:"Alpine Lodge", ciudad:"Zermatt", pais:"Suiza", marca:"Mountain Elite", precio:980, estrellas:5, co2:10, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600", link:"https://www.booking.com/hotel/ch/alpine" },
+            { id:5, nombre:"Parisian Elegance", ciudad:"Paris", pais:"Francia", marca:"City Elite", precio:890, estrellas:5, co2:14, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/fr/paris" },
+            { id:6, nombre:"Venice Canal Resort", ciudad:"Venecia", pais:"Italia", marca:"Heritage", precio:1100, estrellas:5, co2:9, eco:"Water Conservation", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/it/venice" },
+            { id:7, nombre:"Budget Hostel Paris", ciudad:"Paris", pais:"Francia", marca:"Economy", precio:45, estrellas:2, co2:3, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600", link:"https://www.booking.com/hotel/fr/budget" },
+            { id:8, nombre:"Cheap Hotel Rome", ciudad:"Roma", pais:"Italia", marca:"Budget", precio:55, estrellas:2, co2:4, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/it/cheap" },
+            { id:9, nombre:"London Luxury", ciudad:"Londres", pais:"UK", marca:"British Elite", precio:950, estrellas:5, co2:15, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/uk/london" },
+            { id:10, nombre:"Berlin Modern", ciudad:"Berlin", pais:"Alemania", marca:"German Elite", precio:680, estrellas:4, co2:11, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/de/berlin" },
+            
+            // ASIA
+            { id:11, nombre:"Ocean Front Reserve", ciudad:"Male", pais:"Maldivas", marca:"Elite Selection", precio:1650, estrellas:5, co2:15, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600", link:"https://www.booking.com/hotel/mv/ocean" },
+            { id:12, nombre:"Bali Eco Villa", ciudad:"Ubud", pais:"Indonesia", marca:"Tropical Elite", precio:550, estrellas:4, co2:4, eco:"Rainforest Alliance", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/id/bali" },
+            { id:13, nombre:"Tokyo Imperial", ciudad:"Tokio", pais:"Japón", marca:"Urban Luxury", precio:950, estrellas:5, co2:16, eco:"Smart Building", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/jp/tokyo" },
+            { id:14, nombre:"Bangkok Riverside", ciudad:"Bangkok", pais:"Tailandia", marca:"Asian Elite", precio:420, estrellas:4, co2:7, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/th/bangkok" },
+            { id:15, nombre:"Singapore Suites", ciudad:"Singapur", pais:"Singapur", marca:"Modern Luxury", precio:780, estrellas:5, co2:11, eco:"Green Building", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/sg/singapore" },
+            { id:16, nombre:"Dubai Palm", ciudad:"Dubai", pais:"EAU", marca:"Desert Elite", precio:1450, estrellas:5, co2:22, eco:"Solar Powered", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/ae/dubai" },
+            { id:17, nombre:"Budget Bangkok", ciudad:"Bangkok", pais:"Tailandia", marca:"Economy", precio:40, estrellas:2, co2:2, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600", link:"https://www.booking.com/hotel/th/budget" },
+            { id:18, nombre:"Budget Tokyo", ciudad:"Tokio", pais:"Japón", marca:"Budget", precio:65, estrellas:2, co2:5, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/jp/cheap" },
+            
+            // AMÉRICA
+            { id:19, nombre:"NYC Central Park", ciudad:"Nueva York", pais:"USA", marca:"City Elite", precio:850, estrellas:5, co2:18, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/us/nyc" },
+            { id:20, nombre:"Miami Beach", ciudad:"Miami", pais:"USA", marca:"Coastal Elite", precio:690, estrellas:4, co2:13, eco:"Ocean Friendly", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/us/miami" },
+            { id:21, nombre:"LA Hollywood", ciudad:"Los Angeles", pais:"USA", marca:"Star Collection", precio:920, estrellas:5, co2:19, eco:"Energy Star", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/us/la" },
+            { id:22, nombre:"Tulum Eco", ciudad:"Tulum", pais:"México", marca:"Nature Elite", precio:480, estrellas:4, co2:6, eco:"Zero Waste", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/mx/tulum" },
+            { id:23, nombre:"Rio Copacabana", ciudad:"Rio", pais:"Brasil", marca:"Tropical", precio:590, estrellas:4, co2:10, eco:"Beach Clean", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/br/rio" },
+            { id:24, nombre:"Hostel NYC", ciudad:"Nueva York", pais:"USA", marca:"Budget", precio:75, estrellas:2, co2:6, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600", link:"https://www.booking.com/hotel/us/hostel" },
+            
+            // ÁFRICA
+            { id:25, nombre:"Safari Camp", ciudad:"Masai Mara", pais:"Kenia", marca:"Wild Elite", precio:1450, estrellas:5, co2:9, eco:"Conservation", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/ke/safari" },
+            { id:26, nombre:"Cape Town Villa", ciudad:"Ciudad del Cabo", pais:"Sudáfrica", marca:"Coastal", precio:620, estrellas:4, co2:8, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/za/cape" },
+            { id:27, nombre:"Moroccan Palace", ciudad:"Marrakech", pais:"Marruecos", marca:"Heritage", precio:430, estrellas:4, co2:5, eco:"Local Crafts", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/ma/marrakech" },
+            
+            // OCEANÍA
+            { id:28, nombre:"Sydney Opera", ciudad:"Sydney", pais:"Australia", marca:"Harbour Elite", precio:880, estrellas:5, co2:14, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/au/sydney" },
+            { id:29, nombre:"Fiji Resort", ciudad:"Fiji", pais:"Fiji", marca:"Island Elite", precio:1250, estrellas:5, co2:11, eco:"Coral Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/fj/fiji" },
+            { id:30, nombre:"NZ Lodge", ciudad:"Queenstown", pais:"Nueva Zelanda", marca:"Mountain", precio:720, estrellas:4, co2:7, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/nz/queenstown" }
+        ];
+
+        // ============================================
+        // ESTADÍSTICAS
+        // ============================================
+        let estadisticas = JSON.parse(localStorage.getItem('elite_stats')) || { total: 0, ciudades: {} };
+        
+        function guardarEstadisticas() {
+            localStorage.setItem('elite_stats', JSON.stringify(estadisticas));
+        }
+        
+        function registrarBusqueda(ciudad) {
+            if (!ciudad) return;
+            const key = ciudad.toLowerCase().trim();
+            estadisticas.total++;
+            if (!estadisticas.ciudades[key]) {
+                estadisticas.ciudades[key] = { count: 1, nombre: ciudad.trim() };
+            } else {
+                estadisticas.ciudades[key].count++;
+            }
+            guardarEstadisticas();
+            mostrarEstadisticas();
+        }
+        
+        function mostrarEstadisticas() {
+            const container = document.getElementById('stats-container');
+            if (!container) return;
+            
+            const ciudades = Object.values(estadisticas.ciudades)
+                .sort((a, b) => b.count - a.count)
+                .slice(0, 4);
+            
+            if (ciudades.length === 0) {
+                container.innerHTML = '<div class="stat-card" style="grid-column:1/-1; text-align:center;">🔍 Search to see statistics</div>';
+                return;
+            }
+            
+            const maxCount = Math.max(...ciudades.map(c => c.count));
+            container.innerHTML = ciudades.map(c => `
+                <div class="stat-card">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="font-family: 'Playfair Display';">${c.nombre}</span>
+                        <span style="color: var(--gold);">${c.count}</span>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="width: ${(c.count/maxCount)*100}%"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function resetEstadisticas() {
+            if (confirm('Reset statistics?')) {
+                estadisticas = { total: 0, ciudades: {} };
+                guardarEstadisticas();
+                mostrarEstadisticas();
+            }
+        }
+
+        // ============================================
+        // HOTELES
+        // ============================================
+        function mostrarHoteles(lista) {
+            const container = document.getElementById('hotels-container');
+            if (!container) return;
+            
+            document.getElementById('results-count').textContent = lista.length;
+            
+            container.innerHTML = lista.map(h => `
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="${h.imagen}" alt="${h.nombre}" loading="lazy">
+                        <div class="hotel-badge">${h.marca}</div>
+                    </div>
+                    <div class="hotel-info">
+                        <div class="hotel-marca">${h.marca}</div>
+                        <h3 class="hotel-title">${h.nombre}</h3>
+                        <div class="hotel-location">
+                            <i class="fa-regular fa-location-dot"></i> ${h.ciudad}, ${h.pais}
+                        </div>
+                        <div class="hotel-stars">
+                            ${'★'.repeat(h.estrellas)}${'☆'.repeat(5-h.estrellas)}
+                        </div>
+                        <div class="hotel-eco">
+                            <span class="eco-badge"><i class="fa-solid fa-leaf"></i> ${h.co2} kg CO₂</span>
+                            <span class="eco-badge">${h.eco}</span>
+                        </div>
+                        <div class="hotel-price">
+                            <span class="price-amount">$${h.precio}</span>
+                            <span class="price-unit">/ night</span>
+                        </div>
+                        <a href="${h.link}" target="_blank" rel="nofollow" class="hotel-link">
+                            View on Booking.com <i class="fa-regular fa-arrow-up-right-from-square" style="margin-left: 5px;"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function buscarHoteles() {
+            const ciudad = document.getElementById('city').value;
+            if (!ciudad) {
+                mostrarHoteles(HOTELES);
+                return;
+            }
+            
+            registrarBusqueda(ciudad);
+            
+            const filtrados = HOTELES.filter(h => 
+                h.ciudad.toLowerCase().includes(ciudad.toLowerCase())
+            );
+            
+            if (filtrados.length === 0) {
+                document.getElementById('hotels-container').innerHTML = `
+                    <div style="grid-column:1/-1; text-align:center; padding:60px;">
+                        <i class="fa-regular fa-face-frown" style="font-size:3rem; color:var(--gold); margin-bottom:20px;"></i>
+                        <h3 style="font-size:1.5rem;">No hotels found in "${ciudad}"</h3>
+                        <p style="color:var(--text-gray); margin-top:10px;">Try: Paris, Rome, Tokyo, New York...</p>
+                    </div>
+                `;
+                document.getElementById('results-count').textContent = '0';
+            } else {
+                mostrarHoteles(filtrados);
+            }
+        }
+        
+        function aplicarFiltros() {
+            const precioMax = parseInt(document.getElementById('price-filter').value) || 5000;
+            const estrellasMin = parseInt(document.getElementById('stars-filter').value) || 0;
+            const orden = document.getElementById('sort-filter').value;
+            
+            let filtrados = HOTELES.filter(h => {
+                if (h.precio > precioMax) return false;
+                if (estrellasMin > 0 && h.estrellas < estrellasMin) return false;
+                return true;
+            });
+            
+            if (orden === 'price-asc') filtrados.sort((a, b) => a.precio - b.precio);
+            if (orden === 'price-desc') filtrados.sort((a, b) => b.precio - a.precio);
+            if (orden === 'stars-desc') filtrados.sort((a, b) => b.estrellas - a.estrellas);
+            
+            mostrarHoteles(filtrados);
+        }
+        
+        function resetFiltros() {
+            document.getElementById('price-filter').value = '5000';
+            document.getElementById('stars-filter').value = '0';
+            document.getElementById('sort-filter').value = 'default';
+            document.getElementById('city').value = '';
+            mostrarHoteles(HOTELES);
+        }
+        
+        function buscarDestino(ciudad) {
+            document.getElementById('city').value = ciudad;
+            buscarHoteles();
+        }
+
+        // ============================================
+        // INICIALIZACIÓN
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarIdiomaGuardado();
+            mostrarHoteles(HOTELES);
+            mostrarEstadisticas();
+            
+            // Fechas por defecto
+            const hoy = new Date();
+            const manana = new Date();
+            manana.setDate(hoy.getDate() + 7);
+            
+            const checkin = document.getElementById('checkin');
+            const checkout = document.getElementById('checkout');
+            
+            if (checkin) checkin.valueAsDate = hoy;
+            if (checkout) checkout.valueAsDate = manana;
+        });
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
