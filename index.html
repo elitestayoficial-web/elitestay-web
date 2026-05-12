@@ -635,6 +635,36 @@
             margin-left: 5px;
             font-weight: 600;
         }
+        /* Botón Analytics */
+.btn-analytics {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    color: var(--bg-dark);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.btn-analytics:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(184, 155, 94, 0.4);
+}
+
+.btn-analytics:active {
+    transform: translateY(0px);
+}
+
+.btn-analytics i {
+    font-size: 1.1rem;
+}
     </style>
 </head>
 <body>
@@ -655,11 +685,19 @@
                 <a href="#contacto" id="nav-contact">Contact</a>
             </nav>
             
-            <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
-                <option value="en" selected>🇺🇸 English</option>
-                <option value="es">🇪🇸 Español</option>
-                <option value="fr">🇫🇷 Français</option>
-            </select>
+            <div style="display: flex; gap: 15px; align-items: center;">
+    <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
+        <option value="en" selected>🇺🇸 English</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+    </select>
+    
+    <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
+            class="btn-analytics">
+        <i class="fa-solid fa-chart-line"></i>
+        <span id="btn-analytics-text">Hotel Analytics</span>
+    </button>
+</div>
         </header>
 
         <!-- AD TOP -->
@@ -933,6 +971,7 @@
         // CONFIGURACIÓN DE IDIOMAS
         // ============================================
         const textos = {
+            
             en: {
                 // Header
                 'logo-subtitle': 'Luxury Hotels & Flights',
@@ -951,6 +990,8 @@
                 // Expedia
                 'expedia-title': 'Expedia',
                 'expedia-powered': 'Find the best deals',
+                // 👇 AGREGA ESTA LÍNEA 👇
+    'btn-analytics-text': 'Hotel Analytics',
                 
                 // Search
                 'search-title-part1': 'Find your',
@@ -1054,6 +1095,8 @@
                 // Expedia
                 'expedia-title': 'Expedia',
                 'expedia-powered': 'Encuentra las mejores ofertas',
+                // 👇 AGREGA ESTA LÍNEA 👇
+    'btn-analytics-text': 'Análisis de Hoteles',
                 
                 // Search
                 'search-title-part1': 'Encuentra tu',
@@ -1157,6 +1200,8 @@
                 // Expedia
                 'expedia-title': 'Expedia',
                 'expedia-powered': 'Trouvez les meilleures offres',
+                // 👇 AGREGA ESTA LÍNEA 👇
+    'btn-analytics-text': 'Analyse Hôtelière',
                 
                 // Search
                 'search-title-part1': 'Trouvez votre',
