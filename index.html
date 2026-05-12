@@ -639,48 +639,53 @@
 </head>
 <body>
     <div class="container">
+       /*boton para ir a Elitestayanalitics*/
         <!-- HEADER -->
         <header class="header">
-            <div class="logo">
-                <h1>ELITE<span>STAY</span>.com</h1>
-                <p id="logo-subtitle">Luxury Hotels & Flights</p>
-            </div>
-            
-            <nav class="nav-links">
-                <a href="#inicio" id="nav-home">Home</a>
-                <a href="#hoteles" id="nav-hotels">Hotels</a>
-                <a href="#vuelos" id="nav-flights">Flights</a>
-                <a href="#hoteles-asociados" id="nav-partners">Partner Hotels</a>
-                <a href="#sobre-nosotros" id="nav-about">About</a>
-                <a href="#contacto" id="nav-contact">Contact</a>
-            </nav>
-            
-            <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
-                <option value="en" selected>🇺🇸 English</option>
-                <option value="es">🇪🇸 Español</option>
-                <option value="fr">🇫🇷 Français</option>
-            </select>
-                        <!-- Botón para ir a EliteStayAnalytics -->
-            <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
-                    style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
-                           border: none; 
-                           padding: 10px 20px; 
-                           border-radius: 30px; 
-                           color: #0a0c12; 
-                           font-weight: bold; 
-                           cursor: pointer;
-                           font-family: 'Inter', sans-serif;
-                           transition: transform 0.3s;
-                           white-space: nowrap;
-                           display: inline-flex;
-                           align-items: center;
-                           gap: 8px;"
-                    onmouseover="this.style.transform='scale(1.05)'"
-                    onmouseout="this.style.transform='scale(1)'">
-                <i class="fa-solid fa-chart-line"></i>
-                <span id="btn-analytics">Hotel Analytics</span>
-            </button>
-        </header>
+    <div class="logo">
+        <h1>ELITE<span>STAY</span>.com</h1>
+        <p id="logo-subtitle">Luxury Hotels & Flights</p>
+    </div>
+    
+    <nav class="nav-links">
+        <a href="#inicio" id="nav-home">Home</a>
+        <a href="#hoteles" id="nav-hotels">Hotels</a>
+        <a href="#vuelos" id="nav-flights">Flights</a>
+        <a href="#hoteles-asociados" id="nav-partners">Partner Hotels</a>
+        <a href="#sobre-nosotros" id="nav-about">About</a>
+        <a href="#contacto" id="nav-contact">Contact</a>
+    </nav>
+    
+    <!-- Contenedor para idioma y botón analytics -->
+    <div style="display: flex; gap: 15px; align-items: center;">
+        <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
+            <option value="en" selected>🇺🇸 English</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+        </select>
+        
+        <!-- Botón para ir a EliteStayAnalytics -->
+        <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
+                style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
+                       border: none; 
+                       padding: 10px 20px; 
+                       border-radius: 30px; 
+                       color: #0a0c12; 
+                       font-weight: bold; 
+                       cursor: pointer;
+                       font-family: 'Inter', sans-serif;
+                       transition: transform 0.3s;
+                       white-space: nowrap;
+                       display: inline-flex;
+                       align-items: center;
+                       gap: 8px;"
+                onmouseover="this.style.transform='scale(1.05)'"
+                onmouseout="this.style.transform='scale(1)'">
+            <i class="fa-solid fa-chart-line"></i>
+            <span id="btn-analytics">Hotel Analytics</span>
+        </button>
+    </div>
+</header>
 
         <!-- AD TOP -->
         <div class="ad-container">
