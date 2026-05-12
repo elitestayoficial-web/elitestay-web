@@ -657,31 +657,46 @@
     </nav>
     
     <!-- Contenedor para idioma y botón analytics -->
-<div style="display: flex; gap: 15px; align-items: center;">
-    <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
-    <option value="en" selected>🇺🇸 English</option>
-    <option value="es">🇪🇸 Español</option>
-    <option value="fr">🇫🇷 Français</option>
-</select>
-<button onclick="window.open('https://elitestayanalitycs.com/elite','_blank')" style="background:#b89b5e;border:none;padding:8px 18px;border-radius:30px;color:#000;font-weight:bold;margin-left:12px;cursor:pointer;">📊 Analytics</button>
-    
-    <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
-            style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
-                   border: none; 
-                   padding: 10px 20px; 
-                   border-radius: 30px; 
-                   color: #0a0c12; 
-                   font-weight: bold; 
-                   cursor: pointer;
-                   font-family: 'Inter', sans-serif;
-                   white-space: nowrap;
-                   display: inline-flex;
-                   align-items: center;
-                   gap: 8px;">
-        <i class="fa-solid fa-chart-line"></i>
-        <span>Hotel Analytics</span>
-    </button>
-</div>
+    <div style="display: flex; gap: 15px; align-items: center;">
+        <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
+            <option value="en" selected>🇺🇸 English</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+        </select>
+        
+        <button onclick="window.location.href='https://elitestayanalitycs.com/elite'" 
+                style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
+                       border: none; 
+                       padding: 10px 20px; 
+                       border-radius: 30px; 
+                       color: #0a0c12; 
+                       font-weight: bold; 
+                       cursor: pointer;
+                       font-family: 'Inter', sans-serif;
+                       white-space: nowrap;
+                       display: inline-flex;
+                       align-items: center;
+                       gap: 8px;">
+            <i class="fa-solid fa-chart-line"></i>
+            <span id="btn-analytics">Hotel Analytics</span>
+        </button><button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
+        style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
+               border: none; 
+               padding: 10px 20px; 
+               border-radius: 30px; 
+               color: #0a0c12; 
+               font-weight: bold; 
+               cursor: pointer;
+               font-family: 'Inter', sans-serif;
+               white-space: nowrap;
+               display: inline-flex;
+               align-items: center;
+               gap: 8px;">
+    <i class="fa-solid fa-chart-line"></i>
+    <span id="btn-analytics">Hotel Analytics</span>
+</button>
+    </div>
+</header>
 
         <!-- AD TOP -->
         <div class="ad-container">
@@ -1292,6 +1307,9 @@
         'btn-analytics': 'Analyse Hôtelière'
     }
 };
+'btn-analytics': 'Hotel Analytics'  // para inglés
+'btn-analytics': 'Análisis de Hoteles'  // para español
+'btn-analytics': 'Analyse Hôtelière'  // para francés
             
             // Actualizar placeholders específicos
             const searchInput = document.getElementById('city');
