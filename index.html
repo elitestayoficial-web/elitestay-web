@@ -635,68 +635,32 @@
             margin-left: 5px;
             font-weight: 600;
         }
-        /* Botón Analytics */
-.btn-analytics {
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    border: none;
-    padding: 10px 22px;
-    border-radius: 30px;
-    color: var(--bg-dark);
-    font-weight: 700;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    white-space: nowrap;
-    font-size: 0.9rem;
-}
-
-.btn-analytics:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(184, 155, 94, 0.4);
-}
-
-.btn-analytics i {
-    font-size: 1.1rem;
-}
     </style>
 </head>
 <body>
     <div class="container">
-      
         <!-- HEADER -->
         <header class="header">
-    <div class="logo">
-        <h1>ELITE<span>STAY</span>.com</h1>
-        <p id="logo-subtitle">Luxury Hotels & Flights</p>
-    </div>
-    
-    <nav class="nav-links">
-        <a href="#inicio" id="nav-home">Home</a>
-        <a href="#hoteles" id="nav-hotels">Hotels</a>
-        <a href="#vuelos" id="nav-flights">Flights</a>
-        <a href="#hoteles-asociados" id="nav-partners">Partner Hotels</a>
-        <a href="#sobre-nosotros" id="nav-about">About</a>
-        <a href="#contacto" id="nav-contact">Contact</a>
-    </nav>
-    
-    <!-- Contenedor para idioma y botón analytics -->
-<div style="display: flex; gap: 15px; align-items: center;">
-    <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
-        <option value="en" selected>🇺🇸 English</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="fr">🇫🇷 Français</option>
-    </select>
-    
-    <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
-            class="btn-analytics">
-        <i class="fa-solid fa-chart-line"></i>
-        <span id="btn-analytics-text">Hotel Analytics</span>
-    </button>
-</div>
-</header>
+            <div class="logo">
+                <h1>ELITE<span>STAY</span>.com</h1>
+                <p id="logo-subtitle">Luxury Hotels & Flights</p>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#inicio" id="nav-home">Home</a>
+                <a href="#hoteles" id="nav-hotels">Hotels</a>
+                <a href="#vuelos" id="nav-flights">Flights</a>
+                <a href="#hoteles-asociados" id="nav-partners">Partner Hotels</a>
+                <a href="#sobre-nosotros" id="nav-about">About</a>
+                <a href="#contacto" id="nav-contact">Contact</a>
+            </nav>
+            
+            <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
+                <option value="en" selected>🇺🇸 English</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+            </select>
+        </header>
 
         <!-- AD TOP -->
         <div class="ad-container">
@@ -969,20 +933,6 @@
         // CONFIGURACIÓN DE IDIOMAS
         // ============================================
         const textos = {
-            const textos = {
-    en: {
-        // ... otros textos ...
-        'btn-analytics-text': 'Hotel Analytics',  // 👈 AGREGA ESTA LÍNEA
-    },
-    es: {
-        // ... otros textos ...
-        'btn-analytics-text': 'Análisis de Hoteles',  // 👈 AGREGA ESTA LÍNEA
-    },
-    fr: {
-        // ... otros textos ...
-        'btn-analytics-text': 'Analyse Hôtelière',  // 👈 AGREGA ESTA LÍNEA
-    }
-};
             en: {
                 // Header
                 'logo-subtitle': 'Luxury Hotels & Flights',
@@ -1307,23 +1257,6 @@
                     elemento.innerText = textos[lang][id];
                 }
             }
-            const textos = {
-    en: {
-        // ... otros textos ...
-        'btn-analytics': 'Hotel Analytics'
-    },
-    es: {
-        // ... otros textos ...
-        'btn-analytics': 'Análisis de Hoteles'
-    },
-    fr: {
-        // ... otros textos ...
-        'btn-analytics': 'Analyse Hôtelière'
-    }
-};
-'btn-analytics': 'Hotel Analytics'  // para inglés
-'btn-analytics': 'Análisis de Hoteles'  // para español
-'btn-analytics': 'Analyse Hôtelière'  // para francés
             
             // Actualizar placeholders específicos
             const searchInput = document.getElementById('city');
@@ -1577,36 +1510,4 @@
         });
     </script>
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>   
