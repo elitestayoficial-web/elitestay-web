@@ -635,6 +635,32 @@
             margin-left: 5px;
             font-weight: 600;
         }
+        /* Botón Analytics */
+.btn-analytics {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    color: var(--bg-dark);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.btn-analytics:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(184, 155, 94, 0.4);
+}
+
+.btn-analytics i {
+    font-size: 1.1rem;
+}
     </style>
 </head>
 <body>
@@ -657,45 +683,19 @@
     </nav>
     
     <!-- Contenedor para idioma y botón analytics -->
-    <div style="display: flex; gap: 15px; align-items: center;">
-        <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
-            <option value="en" selected>🇺🇸 English</option>
-            <option value="es">🇪🇸 Español</option>
-            <option value="fr">🇫🇷 Français</option>
-        </select>
-        
-        <button onclick="window.location.href='https://elitestayanalitycs.com/elite'" 
-                style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
-                       border: none; 
-                       padding: 10px 20px; 
-                       border-radius: 30px; 
-                       color: #0a0c12; 
-                       font-weight: bold; 
-                       cursor: pointer;
-                       font-family: 'Inter', sans-serif;
-                       white-space: nowrap;
-                       display: inline-flex;
-                       align-items: center;
-                       gap: 8px;">
-            <i class="fa-solid fa-chart-line"></i>
-            <span id="btn-analytics">Hotel Analytics</span>
-        </button><button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
-        style="background: linear-gradient(135deg, #b89b5e, #d4b67c); 
-               border: none; 
-               padding: 10px 20px; 
-               border-radius: 30px; 
-               color: #0a0c12; 
-               font-weight: bold; 
-               cursor: pointer;
-               font-family: 'Inter', sans-serif;
-               white-space: nowrap;
-               display: inline-flex;
-               align-items: center;
-               gap: 8px;">
-    <i class="fa-solid fa-chart-line"></i>
-    <span id="btn-analytics">Hotel Analytics</span>
-</button>
-    </div>
+<div style="display: flex; gap: 15px; align-items: center;">
+    <select class="filter-select" id="language" onchange="cambiarIdioma()" style="width: auto;">
+        <option value="en" selected>🇺🇸 English</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+    </select>
+    
+    <button onclick="window.open('https://elitestayanalitycs.com/elite', '_blank')" 
+            class="btn-analytics">
+        <i class="fa-solid fa-chart-line"></i>
+        <span id="btn-analytics-text">Hotel Analytics</span>
+    </button>
+</div>
 </header>
 
         <!-- AD TOP -->
@@ -969,6 +969,20 @@
         // CONFIGURACIÓN DE IDIOMAS
         // ============================================
         const textos = {
+            const textos = {
+    en: {
+        // ... otros textos ...
+        'btn-analytics-text': 'Hotel Analytics',  // 👈 AGREGA ESTA LÍNEA
+    },
+    es: {
+        // ... otros textos ...
+        'btn-analytics-text': 'Análisis de Hoteles',  // 👈 AGREGA ESTA LÍNEA
+    },
+    fr: {
+        // ... otros textos ...
+        'btn-analytics-text': 'Analyse Hôtelière',  // 👈 AGREGA ESTA LÍNEA
+    }
+};
             en: {
                 // Header
                 'logo-subtitle': 'Luxury Hotels & Flights',
