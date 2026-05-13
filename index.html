@@ -116,7 +116,7 @@
         .price-unit { color: var(--text-gray); font-size: 0.8rem; }
         .hotel-eco { display: flex; gap: 10px; margin: 15px 0; }
         .eco-badge { background: rgba(43, 109, 92, 0.15); border: 1px solid rgba(43, 109, 92, 0.4); color: #8bc5b4; padding: 5px 12px; border-radius: 30px; font-size: 0.8rem; }
-        .hotel-link { display: block; background: transparent; border: 2px solid var(--gold); color: var(--gold); text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 600; margin-top: 20px; transition: all 0.3s; }
+        .hotel-link { display: block; background: transparent; border: 2px solid var(--gold); color: var(--gold); text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 600; margin-top: 20px; transition: all 0.3s; cursor: pointer; width: 100%; font-family: inherit; font-size: 1rem; }
         .hotel-link:hover { background: var(--gold); color: var(--bg-dark); }
         .stats-section { margin: 40px 0; }
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
@@ -354,7 +354,7 @@
                 <h4 id="footer-destinations">Destinations</h4>
                 <ul>
                     <li><a onclick="buscarDestinoEnExpedia('Paris')" id="footer-paris">Paris</a></li>
-                    <li><a onclick="buscarDestinoEnExpedia('Roma')" id="footer-rome">Rome</a></li>
+                    <li><a onclick="buscarDestinoEnExpedia('Rome')" id="footer-rome">Rome</a></li>
                     <li><a onclick="buscarDestinoEnExpedia('Tokyo')" id="footer-tokyo">Tokyo</a></li>
                     <li><a onclick="buscarDestinoEnExpedia('New York')" id="footer-ny">New York</a></li>
                 </ul>
@@ -587,13 +587,15 @@
         }
 
         // ============================================
-        // FUNCIÓN PARA BUSCAR EN EXPEDIA (desde buscador)
+        // FUNCIÓN CORREGIDA PARA BUSCAR EN EXPEDIA
+        // El formato correcto es: /Hotel-Search?destination=Ciudad
         // ============================================
         function buscarEnExpedia() {
             const ciudad = document.getElementById('city').value;
             const domain = getExpediaDomain();
             if (ciudad) {
-                window.open(`${domain}/search?q=${encodeURIComponent(ciudad)}`, '_blank');
+                const url = `${domain}/Hotel-Search?destination=${encodeURIComponent(ciudad)}`;
+                window.open(url, '_blank');
                 registrarBusqueda(ciudad);
             } else {
                 window.open(domain, '_blank');
@@ -601,21 +603,23 @@
         }
 
         // ============================================
-        // FUNCIÓN PARA BUSCAR DESTINO DESDE FOOTER
+        // FUNCIÓN CORREGIDA PARA DESTINOS DEL FOOTER
         // ============================================
         function buscarDestinoEnExpedia(ciudad) {
             const domain = getExpediaDomain();
-            window.open(`${domain}/search?q=${encodeURIComponent(ciudad)}`, '_blank');
+            const url = `${domain}/Hotel-Search?destination=${encodeURIComponent(ciudad)}`;
+            window.open(url, '_blank');
             registrarBusqueda(ciudad);
         }
 
         // ============================================
-        // FUNCIÓN PARA REDIRIGIR HOTEL A EXPEDIA CON CIUDAD ESPECÍFICA
+        // FUNCIÓN CORREGIDA PARA RESERVAR HOTEL
         // ============================================
         function reservarHotelEnExpedia(ciudad, pais) {
             const domain = getExpediaDomain();
             const busqueda = `${ciudad}, ${pais}`;
-            window.open(`${domain}/search?q=${encodeURIComponent(busqueda)}`, '_blank');
+            const url = `${domain}/Hotel-Search?destination=${encodeURIComponent(busqueda)}`;
+            window.open(url, '_blank');
             registrarBusqueda(ciudad);
         }
 
@@ -650,43 +654,40 @@
         // BASE DE DATOS DE HOTELES
         // ============================================
         const HOTELES = [
-            { id:1, nombre:"Grand Hotel Royal", ciudad:"Roma", pais:"Italia", marca:"The Luxury Collection", precio:895, estrellas:5, co2:12, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:2, nombre:"Villa Santorini", ciudad:"Santorini", pais:"Grecia", marca:"Elite Retreats", precio:1250, estrellas:5, co2:8, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
-            { id:3, nombre:"The Green Palace", ciudad:"Barcelona", pais:"España", marca:"Sustainable Luxe", precio:720, estrellas:4, co2:5, eco:"Zero Emissions", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
-            { id:4, nombre:"Alpine Lodge", ciudad:"Zermatt", pais:"Suiza", marca:"Mountain Elite", precio:980, estrellas:5, co2:10, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600" },
-            { id:5, nombre:"Parisian Elegance", ciudad:"Paris", pais:"Francia", marca:"City Elite", precio:890, estrellas:5, co2:14, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:6, nombre:"Venice Canal Resort", ciudad:"Venecia", pais:"Italia", marca:"Heritage", precio:1100, estrellas:5, co2:9, eco:"Water Conservation", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
-            { id:7, nombre:"Budget Hostel Paris", ciudad:"Paris", pais:"Francia", marca:"Economy", precio:45, estrellas:2, co2:3, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
-            { id:8, nombre:"Cheap Hotel Rome", ciudad:"Roma", pais:"Italia", marca:"Budget", precio:55, estrellas:2, co2:4, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:9, nombre:"London Luxury", ciudad:"Londres", pais:"UK", marca:"British Elite", precio:950, estrellas:5, co2:15, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
-            { id:10, nombre:"Berlin Modern", ciudad:"Berlin", pais:"Alemania", marca:"German Elite", precio:680, estrellas:4, co2:11, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:11, nombre:"Ocean Front Reserve", ciudad:"Male", pais:"Maldivas", marca:"Elite Selection", precio:1650, estrellas:5, co2:15, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600" },
+            { id:1, nombre:"Grand Hotel Royal", ciudad:"Rome", pais:"Italy", marca:"The Luxury Collection", precio:895, estrellas:5, co2:12, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:2, nombre:"Villa Santorini", ciudad:"Santorini", pais:"Greece", marca:"Elite Retreats", precio:1250, estrellas:5, co2:8, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:3, nombre:"The Green Palace", ciudad:"Barcelona", pais:"Spain", marca:"Sustainable Luxe", precio:720, estrellas:4, co2:5, eco:"Zero Emissions", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:4, nombre:"Alpine Lodge", ciudad:"Zermatt", pais:"Switzerland", marca:"Mountain Elite", precio:980, estrellas:5, co2:10, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600" },
+            { id:5, nombre:"Parisian Elegance", ciudad:"Paris", pais:"France", marca:"City Elite", precio:890, estrellas:5, co2:14, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:6, nombre:"Venice Canal Resort", ciudad:"Venice", pais:"Italy", marca:"Heritage", precio:1100, estrellas:5, co2:9, eco:"Water Conservation", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:7, nombre:"Budget Hostel Paris", ciudad:"Paris", pais:"France", marca:"Economy", precio:45, estrellas:2, co2:3, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
+            { id:8, nombre:"Cheap Hotel Rome", ciudad:"Rome", pais:"Italy", marca:"Budget", precio:55, estrellas:2, co2:4, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:9, nombre:"London Luxury", ciudad:"London", pais:"UK", marca:"British Elite", precio:950, estrellas:5, co2:15, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:10, nombre:"Berlin Modern", ciudad:"Berlin", pais:"Germany", marca:"German Elite", precio:680, estrellas:4, co2:11, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:11, nombre:"Ocean Front Reserve", ciudad:"Male", pais:"Maldives", marca:"Elite Selection", precio:1650, estrellas:5, co2:15, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600" },
             { id:12, nombre:"Bali Eco Villa", ciudad:"Ubud", pais:"Indonesia", marca:"Tropical Elite", precio:550, estrellas:4, co2:4, eco:"Rainforest Alliance", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:13, nombre:"Tokyo Imperial", ciudad:"Tokio", pais:"Japón", marca:"Urban Luxury", precio:950, estrellas:5, co2:16, eco:"Smart Building", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
-            { id:14, nombre:"Bangkok Riverside", ciudad:"Bangkok", pais:"Tailandia", marca:"Asian Elite", precio:420, estrellas:4, co2:7, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
-            { id:15, nombre:"Singapore Suites", ciudad:"Singapur", pais:"Singapur", marca:"Modern Luxury", precio:780, estrellas:5, co2:11, eco:"Green Building", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:16, nombre:"Dubai Palm", ciudad:"Dubai", pais:"EAU", marca:"Desert Elite", precio:1450, estrellas:5, co2:22, eco:"Solar Powered", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
-            { id:17, nombre:"Budget Bangkok", ciudad:"Bangkok", pais:"Tailandia", marca:"Economy", precio:40, estrellas:2, co2:2, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
-            { id:18, nombre:"Budget Tokyo", ciudad:"Tokio", pais:"Japón", marca:"Budget", precio:65, estrellas:2, co2:5, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:19, nombre:"NYC Central Park", ciudad:"Nueva York", pais:"USA", marca:"City Elite", precio:850, estrellas:5, co2:18, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:13, nombre:"Tokyo Imperial", ciudad:"Tokyo", pais:"Japan", marca:"Urban Luxury", precio:950, estrellas:5, co2:16, eco:"Smart Building", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:14, nombre:"Bangkok Riverside", ciudad:"Bangkok", pais:"Thailand", marca:"Asian Elite", precio:420, estrellas:4, co2:7, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:15, nombre:"Singapore Suites", ciudad:"Singapore", pais:"Singapore", marca:"Modern Luxury", precio:780, estrellas:5, co2:11, eco:"Green Building", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:16, nombre:"Dubai Palm", ciudad:"Dubai", pais:"UAE", marca:"Desert Elite", precio:1450, estrellas:5, co2:22, eco:"Solar Powered", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:17, nombre:"Budget Bangkok", ciudad:"Bangkok", pais:"Thailand", marca:"Economy", precio:40, estrellas:2, co2:2, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
+            { id:18, nombre:"Budget Tokyo", ciudad:"Tokyo", pais:"Japan", marca:"Budget", precio:65, estrellas:2, co2:5, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:19, nombre:"NYC Central Park", ciudad:"New York", pais:"USA", marca:"City Elite", precio:850, estrellas:5, co2:18, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
             { id:20, nombre:"Miami Beach", ciudad:"Miami", pais:"USA", marca:"Coastal Elite", precio:690, estrellas:4, co2:13, eco:"Ocean Friendly", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
             { id:21, nombre:"LA Hollywood", ciudad:"Los Angeles", pais:"USA", marca:"Star Collection", precio:920, estrellas:5, co2:19, eco:"Energy Star", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
-            { id:22, nombre:"Tulum Eco", ciudad:"Tulum", pais:"México", marca:"Nature Elite", precio:480, estrellas:4, co2:6, eco:"Zero Waste", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
-            { id:23, nombre:"Rio Copacabana", ciudad:"Rio", pais:"Brasil", marca:"Tropical", precio:590, estrellas:4, co2:10, eco:"Beach Clean", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:24, nombre:"Hostel NYC", ciudad:"Nueva York", pais:"USA", marca:"Budget", precio:75, estrellas:2, co2:6, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
-            { id:25, nombre:"Safari Camp", ciudad:"Masai Mara", pais:"Kenia", marca:"Wild Elite", precio:1450, estrellas:5, co2:9, eco:"Conservation", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
-            { id:26, nombre:"Cape Town Villa", ciudad:"Ciudad del Cabo", pais:"Sudáfrica", marca:"Coastal", precio:620, estrellas:4, co2:8, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:27, nombre:"Moroccan Palace", ciudad:"Marrakech", pais:"Marruecos", marca:"Heritage", precio:430, estrellas:4, co2:5, eco:"Local Crafts", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:22, nombre:"Tulum Eco", ciudad:"Tulum", pais:"Mexico", marca:"Nature Elite", precio:480, estrellas:4, co2:6, eco:"Zero Waste", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:23, nombre:"Rio Copacabana", ciudad:"Rio", pais:"Brazil", marca:"Tropical", precio:590, estrellas:4, co2:10, eco:"Beach Clean", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:24, nombre:"Hostel NYC", ciudad:"New York", pais:"USA", marca:"Budget", precio:75, estrellas:2, co2:6, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
+            { id:25, nombre:"Safari Camp", ciudad:"Masai Mara", pais:"Kenya", marca:"Wild Elite", precio:1450, estrellas:5, co2:9, eco:"Conservation", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:26, nombre:"Cape Town Villa", ciudad:"Cape Town", pais:"South Africa", marca:"Coastal", precio:620, estrellas:4, co2:8, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:27, nombre:"Moroccan Palace", ciudad:"Marrakech", pais:"Morocco", marca:"Heritage", precio:430, estrellas:4, co2:5, eco:"Local Crafts", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
             { id:28, nombre:"Sydney Opera", ciudad:"Sydney", pais:"Australia", marca:"Harbour Elite", precio:880, estrellas:5, co2:14, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
             { id:29, nombre:"Fiji Resort", ciudad:"Fiji", pais:"Fiji", marca:"Island Elite", precio:1250, estrellas:5, co2:11, eco:"Coral Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
-            { id:30, nombre:"NZ Lodge", ciudad:"Queenstown", pais:"Nueva Zelanda", marca:"Mountain", precio:720, estrellas:4, co2:7, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" }
+            { id:30, nombre:"NZ Lodge", ciudad:"Queenstown", pais:"New Zealand", marca:"Mountain", precio:720, estrellas:4, co2:7, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" }
         ];
 
         let estadisticas = JSON.parse(localStorage.getItem('elite_stats')) || { total: 0, ciudades: {} };
 
-        // ============================================
-        // MOSTRAR HOTELES (con click en imagen y título)
-        // ============================================
         function mostrarHoteles(lista) {
             const container = document.getElementById('hotels-container');
             if (!container) return;
@@ -758,9 +759,6 @@
             mostrarEstadisticas();
         }
 
-        // ============================================
-        // INICIALIZACIÓN
-        // ============================================
         document.getElementById('analyticsFloatBtn').onclick = () => window.open('https://elitestayanalitycs.com/elite', '_blank');
         document.addEventListener('DOMContentLoaded', () => { 
             cargarIdiomaGuardado();
