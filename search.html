@@ -105,6 +105,7 @@
             color: var(--gold);
         }
         
+        /* Expedia Section (ahora en el centro, justo después del buscador) */
         .expedia-section {
             margin-bottom: 40px;
         }
@@ -249,7 +250,6 @@
             transform: translateY(-2px);
         }
         
-        /* Sección de widgets de vuelos y hoteles partners */
         .aviasales-widget-container {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
@@ -289,7 +289,6 @@
             border: none;
         }
         
-        /* NUEVO: Contenedor para los banners de afiliados junto a Aviasales y Partner Hotels */
         .affiliate-banners-row {
             display: flex;
             flex-wrap: wrap;
@@ -311,6 +310,13 @@
         .affiliate-banner-item:hover {
             transform: translateY(-3px);
             background: rgba(184, 155, 94, 0.1);
+        }
+        
+        /* Nuevo banner grande de 468x60 */
+        .large-banner-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 30px;
         }
         
         .filters {
@@ -705,7 +711,7 @@
             </select>
         </header>
 
-        <!-- AD TOP -->
+        <!-- AD TOP (Sponsor 1) -->
         <div class="ad-container">
             <div class="ad-label" id="ad-label-top">PARTNERS</div>
             <div style="color: var(--text-gray);">
@@ -714,10 +720,31 @@
                 <span class="expedia-badge">Expedia</span> • 
                 <span id="expedia-text">Expedia</span> • 
                 <span id="hotels-text">Hotels.com</span>
+                <!-- Nuevo patrocinador: enlace de texto -->
+                <div style="margin-top: 12px;">
+                    <a href="https://www.dpbolvw.net/click-101693544-16952938" target="_blank" rel="nofollow sponsored" style="color: var(--gold); text-decoration: underline;">Special Offers - Click Here</a>
+                    <img src="https://www.tqlkg.com/image-101693544-16952938" width="1" height="1" border="0" alt="" style="display:none;">
+                </div>
             </div>
         </div>
 
-        <!-- EXPEDIA WIDGET SECTION -->
+        <!-- HERO SECTION - HOTEL SEARCH -->
+        <section id="inicio">
+            <div class="search-box">
+                <h2 class="search-title"><span id="search-title-part1">Find your</span> <span id="search-title-part2" style="color: var(--gold);">exclusive sanctuary</span></h2>
+                
+                <div class="search-grid">
+                    <input type="text" id="city" class="search-input" placeholder="Where to? (e.g., Paris, Rome, Tokyo, New York)">
+                    <input type="date" id="checkin" class="search-input">
+                    <input type="date" id="checkout" class="search-input">
+                    <button onclick="buscarHoteles()" class="btn-gold">
+                        <i class="fa-solid fa-hotel" style="margin-right: 8px;"></i> <span id="search-button">Search Hotels</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPEDIA WIDGET SECTION (Centro de la página) -->
         <section class="expedia-section">
             <div class="expedia-container">
                 <div class="expedia-header">
@@ -749,23 +776,7 @@
             </div>
         </section>
 
-        <!-- HERO SECTION - HOTEL SEARCH -->
-        <section id="inicio">
-            <div class="search-box">
-                <h2 class="search-title"><span id="search-title-part1">Find your</span> <span id="search-title-part2" style="color: var(--gold);">exclusive sanctuary</span></h2>
-                
-                <div class="search-grid">
-                    <input type="text" id="city" class="search-input" placeholder="Where to? (e.g., Paris, Rome, Tokyo, New York)">
-                    <input type="date" id="checkin" class="search-input">
-                    <input type="date" id="checkout" class="search-input">
-                    <button onclick="buscarHoteles()" class="btn-gold">
-                        <i class="fa-solid fa-hotel" style="margin-right: 8px;"></i> <span id="search-button">Search Hotels</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- FLIGHTS WIDGET + BANNER EXPEDIA (a la derecha de Aviasales) -->
+        <!-- FLIGHTS WIDGET + BANNER EXPEDIA (banner 468x60 nuevo) -->
         <section id="vuelos">
             <div class="aviasales-widget-container">
                 <div class="aviasales-title">
@@ -776,22 +787,16 @@
                 
                 <script async src="https://tpembd.com/content?currency=usd&trs=498903&shmarker=703737&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.com%2Fsearch&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=23&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
                 
-                <!-- NUEVO: Banner de Expedia justo debajo del widget de vuelos, al lado de Aviasales visualmente -->
-                <div class="affiliate-banners-row">
-                    <div class="affiliate-banner-item">
-                        <a href="https://www.jdoqocy.com/click-101693544-17222487" target="_blank" rel="nofollow sponsored">
-                            <img src="https://www.lduhtrp.net/image-101693544-17222487" width="150" height="40" alt="Expedia Partner" border="0" style="display:block; border-radius: 8px;">
-                        </a>
-                    </div>
-                    <div class="affiliate-banner-item">
-                        <span class="aviasales-badge" style="font-size: 0.8rem; padding: 6px 12px;">✈️ Aviasales Official</span>
-                    </div>
+                <!-- Banner grande de 468x60 (nuevo patrocinador) -->
+                <div class="large-banner-container">
+                    <a href="https://www.dpbolvw.net/click-101693544-16945253" target="_blank" rel="nofollow sponsored">
+                        <img src="https://www.lduhtrp.net/image-101693544-16945253" width="468" height="60" alt="Special Offer" border="0" style="border-radius: 12px; max-width: 100%; height: auto;">
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- HOTEL PARTNERS WIDGET + MISMO BANNER EXPEDIA (opcional, lo pongo también para que se vea en ambas secciones si quieres, aunque me pediste específicamente "al lado de aviasales" pero lo dejo igual debajo de partner hotels para coherencia) 
-             He decidido ponerlo solo en la sección de vuelos como me indicaste, pero si también quieres en partner hotels me avisas. Por ahora solo en Flights. -->
+        <!-- HOTEL PARTNERS WIDGET -->
         <section id="hoteles-asociados">
             <div class="aviasales-widget-container">
                 <div class="aviasales-title">
@@ -801,7 +806,6 @@
                 </div>
                 
                 <script async src="https://tpembd.com/content?currency=USD&trs=498903&shmarker=703737&locale=en&category=2&amount=3&powered_by=true&campaign_id=137&promo_id=4497" charset="utf-8"></script>
-                <!-- NO duplico el banner aquí para no saturar, solo en flights como pediste -->
             </div>
         </section>
 
@@ -851,27 +855,31 @@
             <div id="stats-container" class="stats-grid"></div>
         </div>
 
-        <!-- AD MIDDLE -->
+        <!-- AD MIDDLE (Sponsor 2) -->
         <div class="ad-container">
             <div class="ad-label" id="ad-label-middle">SPONSORED</div>
             <div style="color: var(--text-gray);" id="sponsored-text">Best prices on luxury hotels and flights</div>
+            <div style="margin-top: 15px;">
+                <a href="https://www.dpbolvw.net/click-101693544-16952938" target="_blank" rel="nofollow sponsored" style="color: var(--gold);">Exclusive Deals →</a>
+            </div>
         </div>
 
-        <!-- HOTELS SECTION -->
+        <!-- HOTELS SECTION (TODOS los hoteles ahora enlazan al nuevo patrocinador) -->
         <section id="hoteles">
             <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
                 <h2 style="font-size: 1.8rem;">
                     <span id="results-count">30</span> <span id="hotels-available">luxury hotels available</span>
                 </h2>
                 <div style="color: var(--gold);">
-                    <i class="fa-regular fa-building"></i> <span id="partners-with">Partners with</span> <span class="booking-badge">Booking.com</span>
+                    <i class="fa-regular fa-building"></i> <span id="partners-with">Partners with</span> 
+                    <span class="expedia-badge">New Partner</span>
                 </div>
             </div>
 
             <div id="hotels-container" class="hotels-grid"></div>
         </section>
 
-        <!-- AD BOTTOM -->
+        <!-- AD BOTTOM (Sponsor 3) -->
         <div class="ad-container">
             <div class="ad-label" id="ad-label-bottom">SPONSORED LINKS</div>
             <div style="color: var(--text-gray);">
@@ -880,6 +888,10 @@
                 <span class="expedia-badge">Expedia</span> • 
                 <span id="expedia-text2">Expedia</span> • 
                 <span id="hotels-text2">Hotels.com</span> • Agoda
+            </div>
+            <!-- Nuevo banner pequeño de texto en la parte inferior -->
+            <div style="margin-top: 15px;">
+                <a href="https://www.dpbolvw.net/click-101693544-16952938" target="_blank" rel="nofollow sponsored" style="color: var(--gold);">More Travel Offers →</a>
             </div>
         </div>
 
@@ -960,6 +972,7 @@
                     <li><span class="expedia-badge">Expedia</span></li>
                     <li id="footer-expedia">Expedia</li>
                     <li id="footer-hotels">Hotels.com</li>
+                    <li><span style="color: var(--gold);">New Affiliate</span></li>
                 </ul>
             </div>
             
@@ -1255,37 +1268,40 @@
         // BASE DE DATOS DE HOTELES
         // ============================================
         const HOTELES = [
-            { id:1, nombre:"Grand Hotel Royal", ciudad:"Roma", pais:"Italia", marca:"The Luxury Collection", precio:895, estrellas:5, co2:12, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/it/royal" },
-            { id:2, nombre:"Villa Santorini", ciudad:"Santorini", pais:"Grecia", marca:"Elite Retreats", precio:1250, estrellas:5, co2:8, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/gr/santorini" },
-            { id:3, nombre:"The Green Palace", ciudad:"Barcelona", pais:"España", marca:"Sustainable Luxe", precio:720, estrellas:4, co2:5, eco:"Zero Emissions", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/es/green" },
-            { id:4, nombre:"Alpine Lodge", ciudad:"Zermatt", pais:"Suiza", marca:"Mountain Elite", precio:980, estrellas:5, co2:10, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600", link:"https://www.booking.com/hotel/ch/alpine" },
-            { id:5, nombre:"Parisian Elegance", ciudad:"Paris", pais:"Francia", marca:"City Elite", precio:890, estrellas:5, co2:14, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/fr/paris" },
-            { id:6, nombre:"Venice Canal Resort", ciudad:"Venecia", pais:"Italia", marca:"Heritage", precio:1100, estrellas:5, co2:9, eco:"Water Conservation", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/it/venice" },
-            { id:7, nombre:"Budget Hostel Paris", ciudad:"Paris", pais:"Francia", marca:"Economy", precio:45, estrellas:2, co2:3, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600", link:"https://www.booking.com/hotel/fr/budget" },
-            { id:8, nombre:"Cheap Hotel Rome", ciudad:"Roma", pais:"Italia", marca:"Budget", precio:55, estrellas:2, co2:4, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/it/cheap" },
-            { id:9, nombre:"London Luxury", ciudad:"Londres", pais:"UK", marca:"British Elite", precio:950, estrellas:5, co2:15, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/uk/london" },
-            { id:10, nombre:"Berlin Modern", ciudad:"Berlin", pais:"Alemania", marca:"German Elite", precio:680, estrellas:4, co2:11, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/de/berlin" },
-            { id:11, nombre:"Ocean Front Reserve", ciudad:"Male", pais:"Maldivas", marca:"Elite Selection", precio:1650, estrellas:5, co2:15, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600", link:"https://www.booking.com/hotel/mv/ocean" },
-            { id:12, nombre:"Bali Eco Villa", ciudad:"Ubud", pais:"Indonesia", marca:"Tropical Elite", precio:550, estrellas:4, co2:4, eco:"Rainforest Alliance", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/id/bali" },
-            { id:13, nombre:"Tokyo Imperial", ciudad:"Tokio", pais:"Japón", marca:"Urban Luxury", precio:950, estrellas:5, co2:16, eco:"Smart Building", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/jp/tokyo" },
-            { id:14, nombre:"Bangkok Riverside", ciudad:"Bangkok", pais:"Tailandia", marca:"Asian Elite", precio:420, estrellas:4, co2:7, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/th/bangkok" },
-            { id:15, nombre:"Singapore Suites", ciudad:"Singapur", pais:"Singapur", marca:"Modern Luxury", precio:780, estrellas:5, co2:11, eco:"Green Building", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/sg/singapore" },
-            { id:16, nombre:"Dubai Palm", ciudad:"Dubai", pais:"EAU", marca:"Desert Elite", precio:1450, estrellas:5, co2:22, eco:"Solar Powered", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/ae/dubai" },
-            { id:17, nombre:"Budget Bangkok", ciudad:"Bangkok", pais:"Tailandia", marca:"Economy", precio:40, estrellas:2, co2:2, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600", link:"https://www.booking.com/hotel/th/budget" },
-            { id:18, nombre:"Budget Tokyo", ciudad:"Tokio", pais:"Japón", marca:"Budget", precio:65, estrellas:2, co2:5, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/jp/cheap" },
-            { id:19, nombre:"NYC Central Park", ciudad:"Nueva York", pais:"USA", marca:"City Elite", precio:850, estrellas:5, co2:18, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/us/nyc" },
-            { id:20, nombre:"Miami Beach", ciudad:"Miami", pais:"USA", marca:"Coastal Elite", precio:690, estrellas:4, co2:13, eco:"Ocean Friendly", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/us/miami" },
-            { id:21, nombre:"LA Hollywood", ciudad:"Los Angeles", pais:"USA", marca:"Star Collection", precio:920, estrellas:5, co2:19, eco:"Energy Star", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/us/la" },
-            { id:22, nombre:"Tulum Eco", ciudad:"Tulum", pais:"México", marca:"Nature Elite", precio:480, estrellas:4, co2:6, eco:"Zero Waste", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/mx/tulum" },
-            { id:23, nombre:"Rio Copacabana", ciudad:"Rio", pais:"Brasil", marca:"Tropical", precio:590, estrellas:4, co2:10, eco:"Beach Clean", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/br/rio" },
-            { id:24, nombre:"Hostel NYC", ciudad:"Nueva York", pais:"USA", marca:"Budget", precio:75, estrellas:2, co2:6, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600", link:"https://www.booking.com/hotel/us/hostel" },
-            { id:25, nombre:"Safari Camp", ciudad:"Masai Mara", pais:"Kenia", marca:"Wild Elite", precio:1450, estrellas:5, co2:9, eco:"Conservation", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/ke/safari" },
-            { id:26, nombre:"Cape Town Villa", ciudad:"Ciudad del Cabo", pais:"Sudáfrica", marca:"Coastal", precio:620, estrellas:4, co2:8, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/za/cape" },
-            { id:27, nombre:"Moroccan Palace", ciudad:"Marrakech", pais:"Marruecos", marca:"Heritage", precio:430, estrellas:4, co2:5, eco:"Local Crafts", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/ma/marrakech" },
-            { id:28, nombre:"Sydney Opera", ciudad:"Sydney", pais:"Australia", marca:"Harbour Elite", precio:880, estrellas:5, co2:14, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600", link:"https://www.booking.com/hotel/au/sydney" },
-            { id:29, nombre:"Fiji Resort", ciudad:"Fiji", pais:"Fiji", marca:"Island Elite", precio:1250, estrellas:5, co2:11, eco:"Coral Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600", link:"https://www.booking.com/hotel/fj/fiji" },
-            { id:30, nombre:"NZ Lodge", ciudad:"Queenstown", pais:"Nueva Zelanda", marca:"Mountain", precio:720, estrellas:4, co2:7, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600", link:"https://www.booking.com/hotel/nz/queenstown" }
+            { id:1, nombre:"Grand Hotel Royal", ciudad:"Roma", pais:"Italia", marca:"The Luxury Collection", precio:895, estrellas:5, co2:12, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:2, nombre:"Villa Santorini", ciudad:"Santorini", pais:"Grecia", marca:"Elite Retreats", precio:1250, estrellas:5, co2:8, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:3, nombre:"The Green Palace", ciudad:"Barcelona", pais:"España", marca:"Sustainable Luxe", precio:720, estrellas:4, co2:5, eco:"Zero Emissions", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:4, nombre:"Alpine Lodge", ciudad:"Zermatt", pais:"Suiza", marca:"Mountain Elite", precio:980, estrellas:5, co2:10, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600" },
+            { id:5, nombre:"Parisian Elegance", ciudad:"Paris", pais:"Francia", marca:"City Elite", precio:890, estrellas:5, co2:14, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:6, nombre:"Venice Canal Resort", ciudad:"Venecia", pais:"Italia", marca:"Heritage", precio:1100, estrellas:5, co2:9, eco:"Water Conservation", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:7, nombre:"Budget Hostel Paris", ciudad:"Paris", pais:"Francia", marca:"Economy", precio:45, estrellas:2, co2:3, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
+            { id:8, nombre:"Cheap Hotel Rome", ciudad:"Roma", pais:"Italia", marca:"Budget", precio:55, estrellas:2, co2:4, eco:"Eco Certified", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:9, nombre:"London Luxury", ciudad:"Londres", pais:"UK", marca:"British Elite", precio:950, estrellas:5, co2:15, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:10, nombre:"Berlin Modern", ciudad:"Berlin", pais:"Alemania", marca:"German Elite", precio:680, estrellas:4, co2:11, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:11, nombre:"Ocean Front Reserve", ciudad:"Male", pais:"Maldivas", marca:"Elite Selection", precio:1650, estrellas:5, co2:15, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600" },
+            { id:12, nombre:"Bali Eco Villa", ciudad:"Ubud", pais:"Indonesia", marca:"Tropical Elite", precio:550, estrellas:4, co2:4, eco:"Rainforest Alliance", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:13, nombre:"Tokyo Imperial", ciudad:"Tokio", pais:"Japón", marca:"Urban Luxury", precio:950, estrellas:5, co2:16, eco:"Smart Building", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:14, nombre:"Bangkok Riverside", ciudad:"Bangkok", pais:"Tailandia", marca:"Asian Elite", precio:420, estrellas:4, co2:7, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:15, nombre:"Singapore Suites", ciudad:"Singapur", pais:"Singapur", marca:"Modern Luxury", precio:780, estrellas:5, co2:11, eco:"Green Building", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:16, nombre:"Dubai Palm", ciudad:"Dubai", pais:"EAU", marca:"Desert Elite", precio:1450, estrellas:5, co2:22, eco:"Solar Powered", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:17, nombre:"Budget Bangkok", ciudad:"Bangkok", pais:"Tailandia", marca:"Economy", precio:40, estrellas:2, co2:2, eco:"Local Community", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
+            { id:18, nombre:"Budget Tokyo", ciudad:"Tokio", pais:"Japón", marca:"Budget", precio:65, estrellas:2, co2:5, eco:"Energy Efficient", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:19, nombre:"NYC Central Park", ciudad:"Nueva York", pais:"USA", marca:"City Elite", precio:850, estrellas:5, co2:18, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:20, nombre:"Miami Beach", ciudad:"Miami", pais:"USA", marca:"Coastal Elite", precio:690, estrellas:4, co2:13, eco:"Ocean Friendly", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:21, nombre:"LA Hollywood", ciudad:"Los Angeles", pais:"USA", marca:"Star Collection", precio:920, estrellas:5, co2:19, eco:"Energy Star", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:22, nombre:"Tulum Eco", ciudad:"Tulum", pais:"México", marca:"Nature Elite", precio:480, estrellas:4, co2:6, eco:"Zero Waste", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:23, nombre:"Rio Copacabana", ciudad:"Rio", pais:"Brasil", marca:"Tropical", precio:590, estrellas:4, co2:10, eco:"Beach Clean", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:24, nombre:"Hostel NYC", ciudad:"Nueva York", pais:"USA", marca:"Budget", precio:75, estrellas:2, co2:6, eco:"Urban Green", imagen:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600" },
+            { id:25, nombre:"Safari Camp", ciudad:"Masai Mara", pais:"Kenia", marca:"Wild Elite", precio:1450, estrellas:5, co2:9, eco:"Conservation", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:26, nombre:"Cape Town Villa", ciudad:"Ciudad del Cabo", pais:"Sudáfrica", marca:"Coastal", precio:620, estrellas:4, co2:8, eco:"Marine Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:27, nombre:"Moroccan Palace", ciudad:"Marrakech", pais:"Marruecos", marca:"Heritage", precio:430, estrellas:4, co2:5, eco:"Local Crafts", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" },
+            { id:28, nombre:"Sydney Opera", ciudad:"Sydney", pais:"Australia", marca:"Harbour Elite", precio:880, estrellas:5, co2:14, eco:"Green Energy", imagen:"https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" },
+            { id:29, nombre:"Fiji Resort", ciudad:"Fiji", pais:"Fiji", marca:"Island Elite", precio:1250, estrellas:5, co2:11, eco:"Coral Protection", imagen:"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600" },
+            { id:30, nombre:"NZ Lodge", ciudad:"Queenstown", pais:"Nueva Zelanda", marca:"Mountain", precio:720, estrellas:4, co2:7, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" }
         ];
+
+        // Enlace fijo del nuevo patrocinador (para todas las tarjetas de hotel)
+        const NEW_PARTNER_LINK = "https://www.dpbolvw.net/click-101693544-16952938";
 
         // ============================================
         // ESTADÍSTICAS
@@ -1345,7 +1361,7 @@
         }
 
         // ============================================
-        // HOTELES
+        // HOTELES (con el nuevo enlace del patrocinador)
         // ============================================
         function mostrarHoteles(lista) {
             const container = document.getElementById('hotels-container');
@@ -1376,8 +1392,9 @@
                             <span class="price-amount">$${h.precio}</span>
                             <span class="price-unit">/ night</span>
                         </div>
-                        <a href="${h.link}" target="_blank" rel="nofollow" class="hotel-link">
-                            View on Booking.com <i class="fa-regular fa-arrow-up-right-from-square" style="margin-left: 5px;"></i>
+                        <!-- TODOS los hoteles ahora usan el nuevo enlace del patrocinador -->
+                        <a href="${NEW_PARTNER_LINK}" target="_blank" rel="nofollow sponsored" class="hotel-link">
+                            View Special Offer <i class="fa-regular fa-arrow-up-right-from-square" style="margin-left: 5px;"></i>
                         </a>
                     </div>
                 </div>
