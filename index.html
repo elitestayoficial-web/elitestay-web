@@ -100,13 +100,14 @@
         .hotels-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; margin: 30px 0; }
         .hotel-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
         .hotel-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5); }
-        .hotel-image { height: 240px; overflow: hidden; position: relative; }
+        .hotel-image { height: 240px; overflow: hidden; position: relative; cursor: pointer; }
         .hotel-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .hotel-card:hover .hotel-image img { transform: scale(1.1); }
         .hotel-badge { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); padding: 5px 15px; border-radius: 30px; border: 1px solid var(--gold); color: var(--gold); font-size: 0.8rem; font-weight: 600; }
         .hotel-info { padding: 25px; }
         .hotel-marca { color: var(--gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; }
-        .hotel-title { font-size: 1.4rem; margin: 5px 0; }
+        .hotel-title { font-size: 1.4rem; margin: 5px 0; cursor: pointer; transition: color 0.3s; }
+        .hotel-title:hover { color: var(--gold); }
         .hotel-location { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 15px; }
         .hotel-location i { color: var(--gold); margin-right: 5px; }
         .hotel-stars { color: #fbbf24; margin: 10px 0; font-size: 0.9rem; }
@@ -136,7 +137,7 @@
         .footer-column h4 { color: var(--gold); margin-bottom: 20px; font-size: 1.2rem; }
         .footer-column ul { list-style: none; }
         .footer-column ul li { margin-bottom: 10px; }
-        .footer-column ul li a { color: var(--text-gray); text-decoration: none; transition: color 0.3s; }
+        .footer-column ul li a { color: var(--text-gray); text-decoration: none; transition: color 0.3s; cursor: pointer; }
         .footer-column ul li a:hover { color: var(--gold); }
         .contact-email { color: var(--gold); font-size: 1.1rem; word-break: break-all; }
         .copyright { text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border-light); color: var(--text-gray); font-size: 0.8rem; }
@@ -145,7 +146,6 @@
         .floating-analytics-btn { position: fixed; bottom: 25px; right: 25px; z-index: 999999; background: radial-gradient(circle at 30% 10%, #ffec80, #daa520, #b8860b); color: #0a0c12; padding: 15px 26px; font-size: 14px; font-weight: 900; letter-spacing: 1px; border: none; border-radius: 50px; cursor: pointer; font-family: 'Inter', sans-serif; box-shadow: 0 5px 25px rgba(218, 165, 32, 0.5); display: flex; align-items: center; gap: 12px; transition: all 0.3s ease; text-transform: uppercase; }
         .floating-analytics-btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 15px 35px rgba(218, 165, 32, 0.7); background: radial-gradient(circle at 30% 10%, #fff0a0, #e6b800, #cc9900); }
         
-        /* Selector de idioma estilizado */
         .language-select {
             background: var(--bg-dark);
             border: 1px solid var(--border-light);
@@ -181,7 +181,7 @@
             </select>
         </header>
 
-        <!-- EXPEDIA WIDGET SECTION (Centro de la página) -->
+        <!-- EXPEDIA WIDGET SECTION -->
         <section class="expedia-section">
             <div class="expedia-container">
                 <div class="expedia-header">
@@ -203,17 +203,17 @@
             </div>
         </section>
 
-        <!-- SECCIÓN "FIND YOUR EXCLUSIVE SANCTUARY" - DEBAJO DE EXPEDIA -->
+        <!-- SECCIÓN "FIND YOUR EXCLUSIVE SANCTUARY" -->
         <section class="sanctuary-section">
             <h2 class="sanctuary-title"><span id="sanctuary-part1">Find your</span> <span id="sanctuary-part2" style="color: var(--gold);">exclusive sanctuary</span></h2>
             <p class="sanctuary-subtitle" id="sanctuary-subtitle">Discover the world's finest luxury hotels and exclusive travel experiences</p>
         </section>
 
-        <!-- BUSCADOR DE HOTELES CON REDIRECCIÓN A EXPEDIA -->
+        <!-- BUSCADOR DE HOTELES -->
         <section id="inicio">
             <div class="search-box">
                 <div class="search-grid">
-                    <input type="text" id="city" class="search-input" id="search-placeholder" placeholder="Where to? (e.g., Paris, Rome, Tokyo, New York)">
+                    <input type="text" id="city" class="search-input" placeholder="Where to? (e.g., Paris, Rome, Tokyo, New York)">
                     <input type="date" id="checkin" class="search-input">
                     <input type="date" id="checkout" class="search-input">
                     <button onclick="buscarEnExpedia()" class="btn-gold">
@@ -223,7 +223,7 @@
             </div>
         </section>
 
-        <!-- PATROCINANTES - BANNERS DE EXPEDIA -->
+        <!-- PATROCINADORES - BANNERS DE EXPEDIA -->
         <div class="ad-container">
             <div class="ad-label" id="sponsors-label">SPONSORS</div>
             <div class="banners-row">
@@ -250,7 +250,7 @@
             </div>
         </div>
 
-        <!-- SECCIÓN DE VUELOS (Aviasales) -->
+        <!-- SECCIÓN DE VUELOS -->
         <section id="vuelos">
             <div class="aviasales-widget-container">
                 <div class="aviasales-title">
@@ -304,7 +304,7 @@
             <div id="stats-container" class="stats-grid"></div>
         </div>
 
-        <!-- SECCIÓN DE HOTELES (todos los enlaces van a Expedia) -->
+        <!-- SECCIÓN DE HOTELES -->
         <section id="hoteles">
             <div style="display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
                 <h2 style="font-size: 1.8rem;">
@@ -353,10 +353,10 @@
             <div class="footer-column">
                 <h4 id="footer-destinations">Destinations</h4>
                 <ul>
-                    <li><a href="#" onclick="buscarDestino('Paris')" id="footer-paris">Paris</a></li>
-                    <li><a href="#" onclick="buscarDestino('Roma')" id="footer-rome">Rome</a></li>
-                    <li><a href="#" onclick="buscarDestino('Tokio')" id="footer-tokyo">Tokyo</a></li>
-                    <li><a href="#" onclick="buscarDestino('Nueva York')" id="footer-ny">New York</a></li>
+                    <li><a onclick="buscarDestinoEnExpedia('Paris')" id="footer-paris">Paris</a></li>
+                    <li><a onclick="buscarDestinoEnExpedia('Roma')" id="footer-rome">Rome</a></li>
+                    <li><a onclick="buscarDestinoEnExpedia('Tokyo')" id="footer-tokyo">Tokyo</a></li>
+                    <li><a onclick="buscarDestinoEnExpedia('New York')" id="footer-ny">New York</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -386,7 +386,7 @@
 
     <script>
         // ============================================
-        // TRADUCCIONES COMPLETAS (AHORA SÍ FUNCIONAN)
+        // TRADUCCIONES COMPLETAS
         // ============================================
         const textos = {
             en: {
@@ -405,7 +405,6 @@
                 'sanctuary-part1': 'Find your',
                 'sanctuary-part2': 'exclusive sanctuary',
                 'sanctuary-subtitle': 'Discover the world\'s finest luxury hotels and exclusive travel experiences',
-                'search-placeholder': 'Where to? (e.g., Paris, Rome, Tokyo, New York)',
                 'search-button-text': 'Search on Expedia',
                 'sponsors-label': 'SPONSORS',
                 'middle-east-link': '✨ Middle East Hotel Reservations - Special Offers ✨',
@@ -467,7 +466,6 @@
                 'sanctuary-part1': 'Encuentra tu',
                 'sanctuary-part2': 'refugio exclusivo',
                 'sanctuary-subtitle': 'Descubre los mejores hoteles de lujo y experiencias de viaje exclusivas',
-                'search-placeholder': '¿A dónde vas? (Ej: París, Roma, Tokio, Nueva York)',
                 'search-button-text': 'Buscar en Expedia',
                 'sponsors-label': 'PATROCINADORES',
                 'middle-east-link': '✨ Reservas de Hoteles en Medio Oriente - Ofertas Especiales ✨',
@@ -529,7 +527,6 @@
                 'sanctuary-part1': 'Trouvez votre',
                 'sanctuary-part2': 'sanctuaire exclusif',
                 'sanctuary-subtitle': 'Découvrez les meilleurs hôtels de luxe et expériences de voyage exclusives',
-                'search-placeholder': 'Où allez-vous? (Ex: Paris, Rome, Tokyo, New York)',
                 'search-button-text': 'Chercher sur Expedia',
                 'sponsors-label': 'COMMANDITAIRES',
                 'middle-east-link': '✨ Réservations d\'Hôtels au Moyen-Orient - Offres Spéciales ✨',
@@ -578,7 +575,52 @@
         };
 
         // ============================================
-        // FUNCIÓN PARA CAMBIAR IDIOMA (CORREGIDA)
+        // FUNCIÓN PARA OBTENER EL DOMINIO DE EXPEDIA SEGÚN IDIOMA
+        // ============================================
+        function getExpediaDomain() {
+            const lang = document.getElementById('language').value;
+            switch(lang) {
+                case 'es': return 'https://www.expedia.es';
+                case 'fr': return 'https://www.expedia.fr';
+                default: return 'https://www.expedia.com';
+            }
+        }
+
+        // ============================================
+        // FUNCIÓN PARA BUSCAR EN EXPEDIA (desde buscador)
+        // ============================================
+        function buscarEnExpedia() {
+            const ciudad = document.getElementById('city').value;
+            const domain = getExpediaDomain();
+            if (ciudad) {
+                window.open(`${domain}/search?q=${encodeURIComponent(ciudad)}`, '_blank');
+                registrarBusqueda(ciudad);
+            } else {
+                window.open(domain, '_blank');
+            }
+        }
+
+        // ============================================
+        // FUNCIÓN PARA BUSCAR DESTINO DESDE FOOTER
+        // ============================================
+        function buscarDestinoEnExpedia(ciudad) {
+            const domain = getExpediaDomain();
+            window.open(`${domain}/search?q=${encodeURIComponent(ciudad)}`, '_blank');
+            registrarBusqueda(ciudad);
+        }
+
+        // ============================================
+        // FUNCIÓN PARA REDIRIGIR HOTEL A EXPEDIA CON CIUDAD ESPECÍFICA
+        // ============================================
+        function reservarHotelEnExpedia(ciudad, pais) {
+            const domain = getExpediaDomain();
+            const busqueda = `${ciudad}, ${pais}`;
+            window.open(`${domain}/search?q=${encodeURIComponent(busqueda)}`, '_blank');
+            registrarBusqueda(ciudad);
+        }
+
+        // ============================================
+        // CAMBIAR IDIOMA
         // ============================================
         function cambiarIdioma() {
             const lang = document.getElementById('language').value;
@@ -588,10 +630,9 @@
                     elemento.innerText = textos[lang][id];
                 }
             }
-            // Actualizar placeholder del buscador
             const searchInput = document.getElementById('city');
             if (searchInput) {
-                searchInput.placeholder = textos[lang]['search-placeholder'];
+                searchInput.placeholder = textos[lang]['search-placeholder'] || 'Where to? (e.g., Paris, Rome, Tokyo, New York)';
             }
             localStorage.setItem('preferred-language', lang);
         }
@@ -603,21 +644,6 @@
                 languageSelect.value = langGuardado;
             }
             cambiarIdioma();
-        }
-
-        // ============================================
-        // REDIRECCIÓN A EXPEDIA DESDE EL BUSCADOR
-        // ============================================
-        function buscarEnExpedia() {
-            const ciudad = document.getElementById('city').value;
-            if (ciudad) {
-                // Redirige a Expedia con la ciudad buscada
-                window.open(`https://www.expedia.com/search?q=${encodeURIComponent(ciudad)}`, '_blank');
-                registrarBusqueda(ciudad);
-            } else {
-                // Si no hay ciudad, redirige a la página principal de Expedia
-                window.open('https://www.expedia.com/', '_blank');
-            }
         }
 
         // ============================================
@@ -656,29 +682,29 @@
             { id:30, nombre:"NZ Lodge", ciudad:"Queenstown", pais:"Nueva Zelanda", marca:"Mountain", precio:720, estrellas:4, co2:7, eco:"Carbon Neutral", imagen:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" }
         ];
 
-        // ENLACE DE EXPEDIA PARA RESERVAS (para todos los hoteles)
-        const EXPEDIA_BOOKING_LINK = "https://www.expedia.com/";
-
         let estadisticas = JSON.parse(localStorage.getItem('elite_stats')) || { total: 0, ciudades: {} };
 
+        // ============================================
+        // MOSTRAR HOTELES (con click en imagen y título)
+        // ============================================
         function mostrarHoteles(lista) {
             const container = document.getElementById('hotels-container');
             if (!container) return;
             document.getElementById('results-count').textContent = lista.length;
             container.innerHTML = lista.map(h => `
                 <div class="hotel-card">
-                    <div class="hotel-image">
+                    <div class="hotel-image" onclick="reservarHotelEnExpedia('${h.ciudad}', '${h.pais}')">
                         <img src="${h.imagen}" alt="${h.nombre}" loading="lazy">
                         <div class="hotel-badge">${h.marca}</div>
                     </div>
                     <div class="hotel-info">
                         <div class="hotel-marca">${h.marca}</div>
-                        <h3 class="hotel-title">${h.nombre}</h3>
+                        <h3 class="hotel-title" onclick="reservarHotelEnExpedia('${h.ciudad}', '${h.pais}')">${h.nombre}</h3>
                         <div class="hotel-location"><i class="fa-regular fa-location-dot"></i> ${h.ciudad}, ${h.pais}</div>
                         <div class="hotel-stars">${'★'.repeat(h.estrellas)}${'☆'.repeat(5-h.estrellas)}</div>
                         <div class="hotel-eco"><span class="eco-badge"><i class="fa-solid fa-leaf"></i> ${h.co2} kg CO₂</span><span class="eco-badge">${h.eco}</span></div>
                         <div class="hotel-price"><span class="price-amount">$${h.precio}</span><span class="price-unit">/ night</span></div>
-                        <a href="${EXPEDIA_BOOKING_LINK}?destination=${encodeURIComponent(h.ciudad)}" target="_blank" rel="nofollow sponsored" class="hotel-link">✨ Book on Expedia ✨ <i class="fa-regular fa-arrow-up-right-from-square"></i></a>
+                        <button onclick="reservarHotelEnExpedia('${h.ciudad}', '${h.pais}')" class="hotel-link">✨ Book on Expedia ✨ <i class="fa-regular fa-arrow-up-right-from-square"></i></button>
                     </div>
                 </div>
             `).join('');
@@ -721,8 +747,7 @@
         }
         
         function resetFiltros() { document.getElementById('price-filter').value='5000'; document.getElementById('stars-filter').value='0'; document.getElementById('sort-filter').value='default'; document.getElementById('city').value=''; mostrarHoteles(HOTELES); }
-        function buscarDestino(ciudad) { document.getElementById('city').value=ciudad; buscarHotelesLocal(); }
-
+        
         function registrarBusqueda(ciudad) {
             if (!ciudad) return;
             const key = ciudad.toLowerCase().trim();
@@ -733,6 +758,9 @@
             mostrarEstadisticas();
         }
 
+        // ============================================
+        // INICIALIZACIÓN
+        // ============================================
         document.getElementById('analyticsFloatBtn').onclick = () => window.open('https://elitestayanalitycs.com/elite', '_blank');
         document.addEventListener('DOMContentLoaded', () => { 
             cargarIdiomaGuardado();
